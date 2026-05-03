@@ -1,0 +1,12 @@
+{
+  "name": "zenosite-feedback",
+  "type": "module",
+  "version": "1.0.0",
+  "scripts": {
+    "feedback": "node feedback-server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2"
+  }
+}

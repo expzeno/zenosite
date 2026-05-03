@@ -1534,5 +1534,98 @@
     }
   });
 </script>
+
+<!-- ══ FEEDBACK FAB ══════════════════════════════════ -->
+<style>
+  #fb-fab {
+    position: fixed; bottom: 24px; right: 20px; z-index: 999;
+    width: 52px; height: 52px; border-radius: 50%;
+    background: var(--brand); color: #fff; border: none; cursor: pointer;
+    font-size: 22px; display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 20px rgba(79,70,229,0.5);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  #fb-fab:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(79,70,229,0.7); }
+  #fb-overlay {
+    display: none; position: fixed; inset: 0; z-index: 1000;
+    background: rgba(0,0,0,0.6); backdrop-filter: blur(4px);
+    align-items: flex-end; justify-content: center; padding: 0 0 80px;
+  }
+  #fb-overlay.open { display: flex; }
+  #fb-modal {
+    background: #13131f; border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 20px; padding: 24px; width: calc(100% - 32px); max-width: 420px;
+    box-shadow: 0 24px 60px rgba(0,0,0,0.6);
+  }
+  #fb-modal h4 { font-size: 16px; font-weight: 700; margin-bottom: 4px; color: #fff; }
+  #fb-modal p { font-size: 12px; color: rgba(255,255,255,0.4); margin-bottom: 16px; }
+  #fb-cat {
+    width: 100%; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12);
+    color: #fff; border-radius: 10px; padding: 10px 12px; font-size: 14px;
+    margin-bottom: 10px; outline: none; font-family: inherit;
+  }
+  #fb-msg {
+    width: 100%; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12);
+    color: #fff; border-radius: 10px; padding: 10px 12px; font-size: 14px;
+    resize: none; height: 100px; outline: none; font-family: inherit; line-height: 1.6;
+  }
+  #fb-cat:focus, #fb-msg:focus { border-color: rgba(79,70,229,0.6); }
+  #fb-actions { display: flex; gap: 8px; margin-top: 12px; }
+  #fb-cancel { flex: 1; background: transparent; border: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.5); border-radius: 10px; padding: 10px; font-size: 14px; cursor: pointer; font-family: inherit; }
+  #fb-submit { flex: 2; background: var(--brand); color: #fff; border: none; border-radius: 10px; padding: 10px; font-size: 14px; font-weight: 700; cursor: pointer; font-family: inherit; transition: background 0.2s; }
+  #fb-submit:hover { background: var(--brand-dark); }
+  #fb-submit:disabled { opacity: 0.5; cursor: default; }
+  #fb-toast {
+    position: fixed; bottom: 90px; right: 20px; z-index: 1001;
+    background: #10b981; color: #fff; font-size: 13px; font-weight: 600;
+    padding: 10px 16px; border-radius: 10px; display: none;
+    box-shadow: 0 4px 16px rgba(16,185,129,0.4);
+  }
+</style>
+
+<button id="fb-fab" title="Send feedback" onclick="document.getElementById('fb-overlay').classList.add('open')">💬</button>
+
+<div id="fb-overlay" onclick="if(event.target===this)this.classList.remove('open')">
+  <div id="fb-modal">
+    <h4>Send Feedback</h4>
+    <p>Bug, suggestion, or something looks off?</p>
+    <select id="fb-cat">
+      <option value="Bug">🐛 Bug</option>
+      <option value="UI Issue">🎨 UI Issue</option>
+      <option value="Feature Request">✨ Feature Request</option>
+      <option value="General">💬 General</option>
+    </select>
+    <textarea id="fb-msg" placeholder="Describe the issue or idea..."></textarea>
+    <div id="fb-actions">
+      <button id="fb-cancel" onclick="document.getElementById('fb-overlay').classList.remove('open')">Cancel</button>
+      <button id="fb-submit" onclick="submitFeedback()">Send →</button>
+    </div>
+  </div>
+</div>
+<div id="fb-toast">✓ Feedback sent — thanks!</div>
+
+<script>
+  async function submitFeedback() {
+    const msg = document.getElementById('fb-msg').value.trim();
+    if (!msg) return;
+    const btn = document.getElementById('fb-submit');
+    btn.disabled = true; btn.textContent = 'Sending…';
+    try {
+      await fetch('https://apizs.labzeno.com/feedback/submit', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          category: document.getElementById('fb-cat').value,
+          message: msg, pageUrl: location.href
+        })
+      });
+    } catch(e) {}
+    document.getElementById('fb-overlay').classList.remove('open');
+    document.getElementById('fb-msg').value = '';
+    btn.disabled = false; btn.textContent = 'Send →';
+    const t = document.getElementById('fb-toast');
+    t.style.display = 'block';
+    setTimeout(() => t.style.display = 'none', 3000);
+  }
+</script>
 </body>
 </html>
