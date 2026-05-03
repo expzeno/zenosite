@@ -142,42 +142,97 @@
     .footer-bottom a { color: var(--text-muted); transition: color 0.2s; }
     .footer-bottom a:hover { color: #fff; }
 
+    /* Global polish */
+    .btn { min-height: 44px; }
+    .feat-card { border-color: rgba(255,255,255,0.1); }
+
     @media (max-width: 900px) {
-      .hero-content { grid-template-columns: 1fr; gap: 48px; }
+      .hero-content { grid-template-columns: 1fr; gap: 40px; }
       .feat-grid { grid-template-columns: 1fr 1fr; }
       .feat-card.span2 { grid-column: span 2; }
-      .crm-flow { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .crm-flow { grid-template-columns: 1fr 1fr; gap: 28px; }
       .crm-flow::before { display: none; }
-      .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
     }
     @media (max-width: 768px) {
+      /* Layout */
       .nav-links { display: none; }
       .nav-cta .btn-ghost { display: none; }
       .nav-hamburger { display: flex; }
       .feat-grid { grid-template-columns: 1fr; }
       .feat-card.span2 { grid-column: span 1; }
-      .crm-flow { grid-template-columns: 1fr; }
+      .crm-flow { grid-template-columns: 1fr; gap: 16px; }
       .footer-grid { grid-template-columns: 1fr; }
       .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
       .cta-actions { flex-direction: column; align-items: center; }
+
       /* Spacing */
-      .section { padding: 60px 0; }
-      .cta-section { padding: 60px 0; }
-      .quote-section { padding: 60px 0; }
-      .section-sub { font-size: 16px; }
+      .section { padding: 56px 0; }
+      .cta-section { padding: 52px 0; }
+      .quote-section { padding: 52px 0; }
+
+      /* Typography */
+      .section-title { font-size: clamp(26px, 6.5vw, 40px); line-height: 1.18; }
+      .section-sub { font-size: 15px; line-height: 1.7; max-width: 100%; }
+
       /* Hero */
-      .hero { padding: 100px 0 60px; min-height: auto; }
-      .hero-stats { gap: 16px; }
-      .hero-sub { font-size: 16px; }
-      /* Quote */
-      .quote-card { padding: 24px; }
-      .quote-text { font-size: 17px; }
+      .hero { padding: 96px 0 52px; min-height: auto; }
+      .hero-title { font-size: clamp(32px, 8.5vw, 48px); line-height: 1.07; letter-spacing: -0.03em; }
+      .hero-sub { font-size: 15px; line-height: 1.72; margin-bottom: 28px; }
+      .hero-actions { flex-direction: column; gap: 10px; }
+      .hero-actions .btn { width: 100%; justify-content: center; }
+      .hero-stats {
+        display: grid; grid-template-columns: repeat(3, 1fr);
+        gap: 0; margin-top: 28px; padding-top: 20px;
+        border-top: 1px solid rgba(255,255,255,0.1);
+      }
+      .hero-stat { text-align: center; padding: 12px 8px; border-right: 1px solid rgba(255,255,255,0.1); }
+      .hero-stat:last-child { border-right: none; }
+      .hero-stat-num { font-size: 19px; font-weight: 800; }
+      .hero-stat-lbl { font-size: 10px; line-height: 1.4; margin-top: 3px; }
+
       /* Buttons */
-      .btn-xl { padding: 14px 24px; font-size: 15px; }
+      .btn { min-height: 48px; }
+      .btn-xl { padding: 14px 22px; font-size: 15px; border-radius: 12px; }
+      .btn-lg { min-height: 48px; padding: 0 22px; font-size: 15px; }
       .cta-actions .btn { width: 100%; max-width: 340px; }
+
+      /* Dash visual */
+      .dash-visual { padding: 18px; border-radius: 16px; }
+      .dash-stat-val { font-size: 18px; }
+      .dash-stat-lbl { font-size: 10px; }
+      .dash-camp-text { font-size: 12px; }
+
+      /* CRM flow */
+      .crm-step { padding: 0 4px; }
+      .crm-step-num { width: 40px; height: 40px; font-size: 16px; margin-bottom: 12px; }
+      .crm-step h4 { font-size: 14px; margin-bottom: 6px; }
+      .crm-step p { font-size: 12px; }
+
+      /* Feature cards */
+      .feat-card { padding: 22px; border-radius: 14px; }
+      .feat-icon { font-size: 28px; margin-bottom: 12px; }
+      .feat-title { font-size: 15px; line-height: 1.4; }
+      .feat-desc { font-size: 13px; line-height: 1.62; }
+      .feat-tag { font-size: 10px; padding: 3px 9px; }
+
+      /* Quote */
+      .quote-card { padding: 24px; border-radius: 16px; }
+      .quote-text { font-size: 16px; line-height: 1.7; margin-bottom: 16px; }
+
+      /* Footer */
+      footer { padding: 44px 0 28px; }
+      .footer-desc { font-size: 13px; max-width: 100%; }
+      .footer-col h4 { font-size: 11px; margin-bottom: 12px; }
+      .footer-col a { font-size: 13px; }
+      .footer-col ul { gap: 8px; }
+      .footer-grid { gap: 28px; margin-bottom: 36px; }
+      .footer-bottom { font-size: 12px; }
     }
     @media (max-width: 480px) {
-      .hero-title { font-size: 34px; }
+      .hero-title { font-size: 30px; }
+      .feat-grid { grid-template-columns: 1fr; }
+      .feat-card.span2 { grid-column: span 1; }
     }
   </style>
 </head>

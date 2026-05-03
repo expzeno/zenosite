@@ -532,25 +532,37 @@
     .reveal-delay-2 { transition-delay: 0.2s; }
     .reveal-delay-3 { transition-delay: 0.3s; }
 
-    /* ── MOBILE ────────────────────────────────────── */
+    /* ── GLOBAL POLISH ─────────────────────────────── */
+    .btn { min-height: 44px; }
+    .feat-card { border-color: rgba(255,255,255,0.1); }
+    .sec-card { border-color: rgba(255,255,255,0.1); }
+    .testi-card { border-color: rgba(255,255,255,0.1); }
+    .hiw-step { border-color: rgba(255,255,255,0.1); }
+    .tier-card.explorer { border-color: rgba(99,102,241,0.35); }
+
+    /* ── BREAKPOINT 1024 ────────────────────────────── */
     @media (max-width: 1024px) {
       .feat-grid { grid-template-columns: repeat(2, 1fr); }
       .feat-card.featured { grid-column: span 2; }
       .sec-grid { grid-template-columns: repeat(2, 1fr); }
     }
+
+    /* ── BREAKPOINT 900 ─────────────────────────────── */
     @media (max-width: 900px) {
       .tiers-grid { grid-template-columns: 1fr; max-width: 440px; margin: 0 auto; }
       .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
       .merc-split { grid-template-columns: 1fr; gap: 40px; }
       .ref-content { grid-template-columns: 1fr; gap: 48px; }
     }
+
+    /* ── BREAKPOINT 768 ─────────────────────────────── */
     @media (max-width: 768px) {
+      /* Layout */
       .nav-links { display: none; }
       .nav-cta .btn-ghost { display: none; }
       .nav-hamburger { display: flex; }
-      .hero-content { grid-template-columns: 1fr; gap: 48px; }
+      .hero-content { grid-template-columns: 1fr; gap: 36px; }
       .hero-visual { display: none; }
-      .hero-stats { gap: 16px; flex-wrap: wrap; }
       .feat-grid { grid-template-columns: 1fr; }
       .feat-card.featured { grid-column: span 1; }
       .hiw-content.active { grid-template-columns: 1fr; }
@@ -558,30 +570,148 @@
       .footer-grid { grid-template-columns: 1fr; }
       .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
       .cta-actions { flex-direction: column; align-items: center; }
-      .get-more-flow { flex-direction: column; gap: 12px; padding: 24px 16px; }
+      .get-more-flow { flex-direction: column; gap: 10px; padding: 22px 16px; }
       .gmf-arrow { transform: rotate(90deg); }
       .dual-cta { grid-template-columns: 1fr; }
       .partner-grid { grid-template-columns: 1fr; }
-      /* Spacing */
-      .section { padding: 60px 0; }
-      .get-more-section { padding: 60px 0; }
-      .cta-section { padding: 60px 0; }
-      .section-header { margin-bottom: 40px; }
-      .section-sub { font-size: 16px; }
-      /* Tabs */
-      .hiw-tabs { width: 100%; max-width: 100%; }
-      .hiw-tab { flex: 1; padding: 10px 8px; font-size: 13px; }
-      /* Trust */
-      .trust-logos { gap: 20px; }
+      .tiers-grid { max-width: 100%; }
+      .sec-grid { grid-template-columns: repeat(2, 1fr); }
+
+      /* Section spacing */
+      .section { padding: 56px 0; }
+      .get-more-section { padding: 52px 0; }
+      .cta-section { padding: 52px 0; }
+      .trust-section { padding: 24px 0 36px; }
+      .section-header { margin-bottom: 36px; }
+
+      /* Typography */
+      .hero-title { font-size: clamp(34px, 9vw, 50px); line-height: 1.06; letter-spacing: -0.03em; }
+      .hero-sub { font-size: 15px; line-height: 1.72; margin-bottom: 28px; }
+      .section-title { font-size: clamp(26px, 6.5vw, 40px); line-height: 1.18; }
+      .section-sub { font-size: 15px; line-height: 1.7; max-width: 100%; }
+
+      /* Hero stats — bordered row */
+      .hero-stats {
+        display: grid; grid-template-columns: repeat(3, 1fr);
+        gap: 0; margin-top: 28px; padding-top: 20px; flex-wrap: unset;
+        border-top: 1px solid var(--border);
+      }
+      .hero-stat {
+        text-align: center; padding: 12px 8px;
+        border-right: 1px solid var(--border);
+      }
+      .hero-stat:last-child { border-right: none; }
+      .hero-stat-num { font-size: 19px; font-weight: 800; }
+      .hero-stat-lbl { font-size: 10px; line-height: 1.4; margin-top: 3px; }
+
+      /* Hero buttons — stacked, full width */
+      .hero-actions { flex-direction: column; gap: 10px; }
+      .hero-actions .btn { width: 100%; justify-content: center; }
+
       /* Buttons */
-      .btn-xl { padding: 14px 24px; font-size: 15px; }
+      .btn { min-height: 48px; }
+      .btn-xl { padding: 14px 22px; font-size: 15px; border-radius: 12px; }
+      .btn-lg { min-height: 48px; padding: 0 22px; font-size: 15px; }
       .cta-actions .btn { width: 100%; max-width: 340px; }
       .dual-cta-box .btn { width: 100%; justify-content: center; }
+
+      /* Tabs */
+      .hiw-tabs { width: 100%; }
+      .hiw-tab { flex: 1; padding: 11px 8px; font-size: 13px; }
+
+      /* Trust */
+      .trust-logos { gap: 14px; }
+      .trust-logo { font-size: 13px; }
+
+      /* Get More */
+      .gmf-amt { font-size: 24px; }
+      .gmf-icon { font-size: 26px; margin-bottom: 4px; }
+      .gmf-label { font-size: 11px; }
+      .gmf-step-result { padding: 12px 18px; border-radius: 12px; }
+      .get-more-note { font-size: 12px; margin-bottom: 36px; }
+
+      /* Dual CTA */
+      .dual-cta-box { padding: 24px; border-radius: 16px; }
+      .dual-cta-icon { font-size: 30px; margin-bottom: 8px; }
+      .dual-cta-box h3 { font-size: 18px; margin-bottom: 8px; }
+      .dual-cta-box p { font-size: 13px; }
+
+      /* How It Works */
+      .hiw-step { padding: 32px 20px 26px; border-radius: 18px; }
+      .hiw-icon { font-size: 40px; margin-bottom: 14px; }
+      .hiw-step h3 { font-size: 17px; margin-bottom: 8px; }
+      .hiw-step p { font-size: 13px; line-height: 1.65; }
+
+      /* Feature cards */
+      .feat-card { padding: 22px; border-radius: 14px; }
+      .feat-icon { font-size: 28px; margin-bottom: 12px; }
+      .feat-title { font-size: 15px; line-height: 1.4; }
+      .feat-desc { font-size: 13px; line-height: 1.62; }
+      .feat-tag { font-size: 10px; padding: 3px 9px; }
+
+      /* Merchant */
+      .merc-list { gap: 10px; }
+      .merc-item { padding: 16px; gap: 12px; border-radius: 14px; }
+      .merc-item-icon { width: 40px; height: 40px; font-size: 18px; border-radius: 10px; }
+      .merc-item h4 { font-size: 14px; margin-bottom: 3px; }
+      .merc-item p { font-size: 12px; line-height: 1.55; }
+      .dash-mockup { padding: 18px; border-radius: 16px; }
+      .dash-stat-val { font-size: 18px; }
+      .dash-stat-lbl { font-size: 10px; }
+
+      /* Tiers */
+      .tier-card { padding: 24px 20px; border-radius: 20px; }
+      .tier-icon { font-size: 42px; margin-bottom: 10px; }
+      .tier-name { font-size: 22px; margin-bottom: 4px; }
+      .tier-threshold { font-size: 12px; margin-bottom: 16px; }
+      .tier-benefit { font-size: 13px; gap: 8px; }
+      .tier-benefits { gap: 8px; }
+
+      /* Referral */
+      .ref-visual { padding: 20px; border-radius: 18px; }
+      .ref-node { padding: 12px 14px; border-radius: 10px; }
+      .ref-node-name { font-size: 13px; }
+      .ref-node-sub { font-size: 11px; }
+      .ref-reward { padding: 14px; border-radius: 10px; }
+      .ref-reward-val { font-size: 16px; }
+      .ref-point-text { font-size: 14px; }
+      .ref-points { gap: 12px; }
+      .ref-point-num { width: 22px; height: 22px; font-size: 11px; }
+
+      /* Security */
+      .sec-card { padding: 18px 14px; border-radius: 14px; }
+      .sec-icon { font-size: 28px; margin-bottom: 10px; }
+      .sec-title { font-size: 13px; margin-bottom: 6px; }
+      .sec-desc { font-size: 12px; line-height: 1.6; }
+
+      /* Testimonials */
+      .testi-card { padding: 20px; border-radius: 14px; }
+      .testi-text { font-size: 14px; line-height: 1.68; margin-bottom: 16px; }
+      .testi-name { font-size: 13px; }
+
+      /* Partner */
+      .partner-card { padding: 22px; border-radius: 14px; }
+      .partner-card-icon { font-size: 30px; margin-bottom: 10px; }
+      .partner-card h4 { font-size: 15px; margin-bottom: 6px; }
+      .partner-card p { font-size: 13px; }
+
+      /* Footer */
+      footer { padding: 44px 0 28px; }
+      .footer-desc { font-size: 13px; max-width: 100%; }
+      .footer-col h4 { font-size: 11px; margin-bottom: 12px; }
+      .footer-col a { font-size: 13px; }
+      .footer-col ul { gap: 8px; }
+      .footer-grid { gap: 28px; margin-bottom: 36px; }
+      .footer-bottom { font-size: 12px; }
     }
+
+    /* ── BREAKPOINT 480 ─────────────────────────────── */
     @media (max-width: 480px) {
-      .hero-title { font-size: 36px; }
+      .hero-title { font-size: 32px; }
       .sec-grid { grid-template-columns: 1fr; }
-      .hiw-tab { padding: 9px 6px; font-size: 12px; }
+      .hiw-tab { padding: 10px 6px; font-size: 12px; }
+      .trust-logos { gap: 10px; }
+      .trust-logo { font-size: 12px; }
     }
 
     /* ── Get More Section ── */
@@ -646,12 +776,16 @@
   </div>
   <!-- Mobile menu -->
   <div id="mobile-menu" style="display:none; padding: 16px 24px; border-top: 1px solid var(--border);">
-    <div style="display:flex;flex-direction:column;gap:16px;">
-      <a href="#customers" style="color:var(--subtle);text-decoration:none;font-size:15px;" onclick="toggleMenu()">For Customers</a>
-      <a href="merchant.html" style="color:var(--subtle);text-decoration:none;font-size:15px;" onclick="toggleMenu()">For Merchants</a>
-      <a href="partner.html" style="color:var(--subtle);text-decoration:none;font-size:15px;" onclick="toggleMenu()">For Partners</a>
-      <a href="#referral" style="color:var(--subtle);text-decoration:none;font-size:15px;" onclick="toggleMenu()">Referrals</a>
-      <a href="https://zeno.labzeno.com" class="btn btn-primary" style="text-align:center;margin-top:8px;">Launch App ↗</a>
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <a href="#customers" style="color:var(--subtle);text-decoration:none;font-size:15px;padding:4px 0;" onclick="toggleMenu()">For Customers</a>
+      <a href="merchant.html" style="color:var(--subtle);text-decoration:none;font-size:15px;padding:4px 0;" onclick="toggleMenu()">For Merchants</a>
+      <a href="partner.html" style="color:var(--subtle);text-decoration:none;font-size:15px;padding:4px 0;" onclick="toggleMenu()">For Partners</a>
+      <a href="#tiers" style="color:var(--subtle);text-decoration:none;font-size:15px;padding:4px 0;" onclick="toggleMenu()">Loyalty Tiers</a>
+      <a href="#security" style="color:var(--subtle);text-decoration:none;font-size:15px;padding:4px 0;" onclick="toggleMenu()">Security</a>
+      <div style="display:flex;gap:10px;margin-top:6px;">
+        <a href="mailto:tech@expzeno.com" class="btn btn-ghost" style="flex:1;justify-content:center;font-size:14px;">Contact</a>
+        <a href="https://zeno.labzeno.com" class="btn btn-primary" style="flex:1;justify-content:center;font-size:14px;">Launch App ↗</a>
+      </div>
     </div>
   </div>
 </nav>
@@ -668,7 +802,7 @@
       <div>
         <div class="hero-eyebrow">
           <span class="dot"></span>
-          <span>Now Live — Multi-Merchant Loyalty Platform</span>
+          <span>Now Live — World-Class Loyalty Platform</span>
         </div>
         <h1 class="hero-title">
           Top up $50.<br/>
