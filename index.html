@@ -550,7 +550,7 @@
       .nav-hamburger { display: flex; }
       .hero-content { grid-template-columns: 1fr; gap: 48px; }
       .hero-visual { display: none; }
-      .hero-stats { gap: 20px; }
+      .hero-stats { gap: 16px; flex-wrap: wrap; }
       .feat-grid { grid-template-columns: 1fr; }
       .feat-card.featured { grid-column: span 1; }
       .hiw-content.active { grid-template-columns: 1fr; }
@@ -558,10 +558,30 @@
       .footer-grid { grid-template-columns: 1fr; }
       .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
       .cta-actions { flex-direction: column; align-items: center; }
-      .get-more-flow { flex-direction: column; gap: 8px; }
+      .get-more-flow { flex-direction: column; gap: 12px; padding: 24px 16px; }
       .gmf-arrow { transform: rotate(90deg); }
       .dual-cta { grid-template-columns: 1fr; }
       .partner-grid { grid-template-columns: 1fr; }
+      /* Spacing */
+      .section { padding: 60px 0; }
+      .get-more-section { padding: 60px 0; }
+      .cta-section { padding: 60px 0; }
+      .section-header { margin-bottom: 40px; }
+      .section-sub { font-size: 16px; }
+      /* Tabs */
+      .hiw-tabs { width: 100%; max-width: 100%; }
+      .hiw-tab { flex: 1; padding: 10px 8px; font-size: 13px; }
+      /* Trust */
+      .trust-logos { gap: 20px; }
+      /* Buttons */
+      .btn-xl { padding: 14px 24px; font-size: 15px; }
+      .cta-actions .btn { width: 100%; max-width: 340px; }
+      .dual-cta-box .btn { width: 100%; justify-content: center; }
+    }
+    @media (max-width: 480px) {
+      .hero-title { font-size: 36px; }
+      .sec-grid { grid-template-columns: 1fr; }
+      .hiw-tab { padding: 9px 6px; font-size: 12px; }
     }
 
     /* ── Get More Section ── */

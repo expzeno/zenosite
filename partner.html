@@ -34,10 +34,11 @@
     .text-gold { color: var(--gold); }
     .center { text-align: center; }
     .center .section-sub { margin: 0 auto; }
-    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease; }
-    .reveal.visible { opacity: 1; transform: none; }
-    .reveal-delay-1 { transition-delay: 0.1s; }
-    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal { }
+    .reveal.visible { animation: revealIn 0.6s ease both; }
+    @keyframes revealIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
+    .reveal-delay-1.visible { animation-delay: 0.1s; }
+    .reveal-delay-2.visible { animation-delay: 0.2s; }
 
     nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; transition: background 0.3s; }
     nav.scrolled { background: rgba(10,10,15,0.95); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); }
@@ -112,6 +113,20 @@
       .footer-grid { grid-template-columns: 1fr; }
       .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
       .cta-actions { flex-direction: column; align-items: center; }
+      /* Spacing */
+      .section { padding: 60px 0; }
+      .cta-section { padding: 60px 0; }
+      .section-sub { font-size: 16px; }
+      /* Hero */
+      .hero { padding: 100px 0 60px; min-height: auto; }
+      .hero-stats { gap: 16px; }
+      .hero-sub { font-size: 16px; }
+      /* Buttons */
+      .btn-xl { padding: 14px 24px; font-size: 15px; }
+      .cta-actions .btn { width: 100%; max-width: 340px; }
+    }
+    @media (max-width: 480px) {
+      .hero-title { font-size: 34px; }
     }
   </style>
 </head>
