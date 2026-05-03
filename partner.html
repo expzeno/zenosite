@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Partner & Integrate — Experience Zeno</title>
+  <meta name="description" content="Integrate Zeno loyalty into your POS, e-commerce, or booking platform. API-first, developer-friendly, and built for Singapore's F&B and retail scene." />
+  <link rel="icon" type="image/png" href="assets/logo-icon.png" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --brand: #6366f1; --brand-light: #818cf8; --gold: #f59e0b; --emerald: #10b981;
+      --bg: #0a0a0f; --surface: #111118; --surface2: #18181f;
+      --border: rgba(255,255,255,0.08); --white: #fff;
+      --subtle: rgba(255,255,255,0.65); --text-muted: rgba(255,255,255,0.38);
+    }
+    body { background: var(--bg); color: var(--white); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 12px; font-weight: 700; font-size: 15px; cursor: pointer; border: none; transition: all 0.2s; }
+    .btn-primary { background: var(--brand); color: #fff; }
+    .btn-primary:hover { background: var(--brand-light); transform: translateY(-1px); }
+    .btn-green { background: var(--emerald); color: #000; }
+    .btn-green:hover { opacity: 0.9; transform: translateY(-1px); }
+    .btn-ghost { border: 1px solid var(--border); color: var(--subtle); }
+    .btn-ghost:hover { border-color: rgba(255,255,255,0.25); color: #fff; }
+    .btn-lg { padding: 14px 28px; font-size: 16px; border-radius: 14px; }
+    .btn-xl { padding: 17px 34px; font-size: 17px; border-radius: 16px; }
+    .badge { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.3); color: var(--emerald); }
+    .section { padding: 96px 0; }
+    .section-title { font-size: clamp(28px, 4vw, 42px); font-weight: 900; letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 16px; }
+    .section-sub { font-size: 17px; color: var(--subtle); line-height: 1.7; max-width: 560px; }
+    .text-green { color: var(--emerald); }
+    .text-gold { color: var(--gold); }
+    .center { text-align: center; }
+    .center .section-sub { margin: 0 auto; }
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; transition: background 0.3s; }
+    nav.scrolled { background: rgba(10,10,15,0.95); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 16px; }
+    .nav-logo img { width: 30px; height: 30px; border-radius: 8px; }
+    .nav-links { display: flex; list-style: none; gap: 32px; }
+    .nav-links a { font-size: 14px; color: var(--subtle); transition: color 0.2s; }
+    .nav-links a:hover { color: #fff; }
+    .nav-cta { display: flex; gap: 12px; align-items: center; }
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .nav-hamburger span { width: 24px; height: 2px; background: #fff; border-radius: 2px; }
+
+    .hero { min-height: 85vh; display: flex; align-items: center; padding: 120px 0 80px; position: relative; overflow: hidden; }
+    .hero-bg { position: absolute; inset: 0; }
+    .hero-orb { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.2; }
+    .hero-orb-1 { width: 500px; height: 500px; background: radial-gradient(circle, #10b981, transparent); top: -100px; right: -100px; }
+    .hero-orb-2 { width: 350px; height: 350px; background: radial-gradient(circle, #6366f1, transparent); bottom: -60px; left: -60px; }
+    .hero-eyebrow { display: flex; align-items: center; gap: 8px; margin-bottom: 20px; font-size: 13px; font-weight: 600; color: var(--emerald); }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--emerald); flex-shrink: 0; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(1.2)} }
+    .hero-title { font-size: clamp(36px, 5vw, 58px); font-weight: 900; letter-spacing: -0.03em; line-height: 1.08; margin-bottom: 24px; }
+    .hero-sub { font-size: 18px; color: var(--subtle); line-height: 1.75; margin-bottom: 36px; max-width: 560px; }
+    .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+
+    .partner-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; }
+    .partner-card { background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 20px; padding: 32px; }
+    .partner-card.featured { border-color: rgba(16,185,129,0.4); background: rgba(16,185,129,0.04); grid-column: span 3; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+    .partner-icon { font-size: 40px; margin-bottom: 16px; display: block; }
+    .partner-card h3 { font-size: 20px; font-weight: 800; margin-bottom: 10px; }
+    .partner-card p { font-size: 14px; color: var(--subtle); line-height: 1.7; }
+    .feat-tag { display: inline-block; margin-top: 16px; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 20px; background: rgba(16,185,129,0.12); border: 1px solid rgba(16,185,129,0.3); color: var(--emerald); }
+    .feat-tag.gold { background: rgba(245,158,11,0.12); border-color: rgba(245,158,11,0.3); color: var(--gold); }
+
+    .code-block { background: rgba(0,0,0,0.5); border: 1px solid var(--border); border-radius: 12px; padding: 20px 24px; font-family: 'Courier New', monospace; font-size: 13px; color: #a5f3fc; line-height: 1.8; margin-top: 20px; }
+    .code-comment { color: #6b7280; }
+    .code-key { color: #f59e0b; }
+    .code-val { color: #86efac; }
+    .code-string { color: #c084fc; }
+
+    .section-label { margin-bottom: 12px; }
+
+    .cta-section { padding: 100px 0; background: linear-gradient(135deg, rgba(16,185,129,0.1) 0%, rgba(99,102,241,0.08) 100%); border-top: 1px solid var(--border); }
+    .cta-inner { text-align: center; max-width: 680px; margin: 0 auto; }
+    .cta-actions { display: flex; gap: 16px; justify-content: center; margin-top: 32px; flex-wrap: wrap; }
+
+    footer { background: var(--surface); border-top: 1px solid var(--border); padding: 64px 0 32px; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+    .footer-logo { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 16px; margin-bottom: 14px; }
+    .footer-logo img { width: 28px; height: 28px; border-radius: 6px; }
+    .footer-desc { font-size: 13px; color: var(--text-muted); line-height: 1.7; max-width: 260px; }
+    .footer-col h4 { font-size: 13px; font-weight: 700; color: var(--subtle); letter-spacing: 0.05em; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col a { font-size: 14px; color: var(--text-muted); transition: color 0.2s; }
+    .footer-col a:hover { color: #fff; }
+    .footer-bottom { border-top: 1px solid var(--border); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--text-muted); }
+    .footer-bottom a { color: var(--text-muted); }
+    .footer-bottom a:hover { color: #fff; }
+
+    @media (max-width: 900px) {
+      .partner-card.featured { grid-column: span 3; grid-template-columns: 1fr; }
+      .partner-grid { grid-template-columns: 1fr 1fr; }
+      .partner-card.featured { grid-column: span 2; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-cta .btn-ghost { display: none; }
+      .nav-hamburger { display: flex; }
+      .partner-grid { grid-template-columns: 1fr; }
+      .partner-card.featured { grid-column: span 1; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+      .cta-actions { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="container nav-inner">
+    <a href="/" class="nav-logo">
+      <img src="assets/logo-icon.png" alt="Zeno" />
+      <span>Experience Zeno</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="/">For Customers</a></li>
+      <li><a href="merchant.html">For Merchants</a></li>
+      <li><a href="partner.html" style="color:#fff;font-weight:700;">For Partners</a></li>
+      <li><a href="/#security">Security</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="mailto:tech@expzeno.com" class="btn btn-ghost">Contact Us</a>
+      <a href="mailto:tech@expzeno.com" class="btn btn-green">Integration Enquiry →</a>
+    </div>
+    <div class="nav-hamburger" id="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+  <div id="mobile-menu" style="display:none; padding: 16px 24px; border-top: 1px solid var(--border);">
+    <div style="display:flex;flex-direction:column;gap:16px;">
+      <a href="/" style="color:var(--subtle);font-size:15px;">For Customers</a>
+      <a href="merchant.html" style="color:var(--subtle);font-size:15px;">For Merchants</a>
+      <a href="partner.html" style="color:#fff;font-weight:700;font-size:15px;">For Partners</a>
+      <a href="mailto:tech@expzeno.com" style="color:var(--subtle);font-size:15px;">Contact Us</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg">
+    <div class="hero-orb hero-orb-1"></div>
+    <div class="hero-orb hero-orb-2"></div>
+  </div>
+  <div class="container">
+    <div class="hero-eyebrow">
+      <span class="dot"></span>
+      <span>API-First — Developer Ready</span>
+    </div>
+    <h1 class="hero-title">
+      Plug Zeno loyalty<br/>
+      into <span class="text-green">your platform.</span>
+    </h1>
+    <p class="hero-sub">
+      Already running a POS, an online store, or a booking system? Zeno's API connects your existing flow to a full loyalty engine — bonus credits, EXP points, and push notifications — without rebuilding anything.
+    </p>
+    <div class="hero-actions">
+      <a href="mailto:tech@expzeno.com" class="btn btn-green btn-lg">Enquire About Integration →</a>
+      <a href="merchant.html" class="btn btn-ghost btn-lg">Become a Merchant First</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-label reveal"><span class="badge">INTEGRATION TYPES</span></div>
+    <h2 class="section-title reveal" style="margin-top:12px;">Three ways to connect<br/><span class="text-green">with Zeno</span></h2>
+    <div class="partner-grid" style="margin-top:48px;">
+
+      <div class="partner-card featured reveal">
+        <div>
+          <span class="partner-icon">🖥️</span>
+          <h3>POS Integration</h3>
+          <p>
+            Connect Zeno to your point-of-sale system via our REST API. Staff initiate a topup or charge from their POS terminal — the customer's Zeno wallet updates in real time.
+            No separate hardware. No manual reconciliation. Every transaction is logged, hash-verified, and visible in both your dashboard and the customer's app.
+          </p>
+          <span class="feat-tag">REST API · Webhook Callbacks · Real-time Sync</span>
+        </div>
+        <div class="code-block">
+          <div class="code-comment"># Initiate a wallet charge from your POS</div>
+          POST /apikey/charge<br/>
+          <br/>
+          {<br/>
+          &nbsp;&nbsp;<span class="code-key">"walletId"</span>: <span class="code-string">"muw_38a7c..."</span>,<br/>
+          &nbsp;&nbsp;<span class="code-key">"amount"</span>: <span class="code-val">28.50</span>,<br/>
+          &nbsp;&nbsp;<span class="code-key">"orderId"</span>: <span class="code-string">"POS-20250503-0042"</span>,<br/>
+          &nbsp;&nbsp;<span class="code-key">"note"</span>: <span class="code-string">"Table 7 dinner"</span><br/>
+          }<br/>
+          <br/>
+          <div class="code-comment"># Response — instant</div>
+          { <span class="code-key">"ok"</span>: <span class="code-val">true</span>, <span class="code-key">"newBalance"</span>: <span class="code-val">61.50</span>, <span class="code-key">"expAwarded"</span>: <span class="code-val">3</span> }
+        </div>
+      </div>
+
+      <div class="partner-card reveal reveal-delay-1">
+        <span class="partner-icon">🛒</span>
+        <h3>E-Commerce & Online Orders</h3>
+        <p>Add Zeno wallet payment to your online checkout. Customers use their balance, earn EXP on orders, and see bonus credit apply automatically. Webhook callbacks confirm every payment.</p>
+        <span class="feat-tag gold">Checkout Widget Available</span>
+      </div>
+
+      <div class="partner-card reveal reveal-delay-2">
+        <span class="partner-icon">🍽️</span>
+        <h3>Dining & Lifestyle Discovery</h3>
+        <p>Zeno integrates with dining discovery and lifestyle platforms. Connect your customers' wallets to exclusive partner deals, vouchers, and cross-merchant offers in a single tap.</p>
+        <span class="feat-tag gold">Partner Deal Marketplace</span>
+      </div>
+
+      <div class="partner-card reveal">
+        <span class="partner-icon">📅</span>
+        <h3>Booking & Reservation Systems</h3>
+        <p>Connect your booking platform to Zeno's reservation API. Customers pay a preauth deposit directly from their Zeno wallet at booking — no credit card, no no-shows.</p>
+        <span class="feat-tag">Preauth + Auto-release</span>
+      </div>
+
+      <div class="partner-card reveal reveal-delay-1">
+        <span class="partner-icon">🔔</span>
+        <h3>Trigger Push Notifications via API</h3>
+        <p>Fire targeted push notifications to your wallet customers directly from your own system — order confirmations, booking reminders, flash sale alerts. One API call reaches all.</p>
+        <span class="feat-tag">Programmatic Push</span>
+      </div>
+
+      <div class="partner-card reveal reveal-delay-2">
+        <span class="partner-icon">🔐</span>
+        <h3>SSO & Identity</h3>
+        <p>Integrate Zeno identity into your platform via SSO. Customers log into your product with their Zeno account — no new registration, no password friction.</p>
+        <span class="feat-tag">OAuth 2.0 · Google · Apple</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-inner reveal">
+      <div class="section-label" style="justify-content:center;display:flex;margin-bottom:16px;"><span class="badge">READY TO INTEGRATE?</span></div>
+      <h2 class="section-title">Let's connect your platform<br/><span class="text-green">to Zeno loyalty.</span></h2>
+      <p class="section-sub" style="margin:20px auto 0;">Whether you're building a POS, an e-commerce store, or a dining platform — our team will help you design the right integration for your use case.</p>
+      <div class="cta-actions">
+        <a href="mailto:tech@expzeno.com" class="btn btn-green btn-xl">Talk to Our Team →</a>
+        <a href="merchant.html" class="btn btn-ghost btn-xl">Merchant Features</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">
+          <img src="assets/logo-icon.png" alt="Zeno" />
+          <span>Experience Zeno</span>
+        </div>
+        <p class="footer-desc">API-first multi-merchant loyalty. Connect your platform to bonus credits, EXP points, and push notifications.</p>
+      </div>
+      <div class="footer-col">
+        <h4>PRODUCT</h4>
+        <ul>
+          <li><a href="/">For Customers</a></li>
+          <li><a href="merchant.html">For Merchants</a></li>
+          <li><a href="partner.html">Partner Integration</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>CONTACT</h4>
+        <ul>
+          <li><a href="mailto:tech@expzeno.com">Integration Enquiry</a></li>
+          <li><a href="mailto:tech@expzeno.com">Support</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>LEGAL</h4>
+        <ul>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="eula.html">EULA</a></li>
+          <li><a href="mailto:server@expzeno.com">Data Protection</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Experience Zeno Pte Ltd. All rights reserved.</span>
+      <div style="display:flex;gap:20px;">
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="eula.html">EULA</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function toggleMenu() {
+    const m = document.getElementById('mobile-menu');
+    m.style.display = m.style.display === 'none' ? 'block' : 'none';
+  }
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.05, rootMargin: '0px 0px -5% 0px' });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  window.addEventListener('scroll', () => {
+    document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 60);
+  });
+</script>
+</body>
+</html>

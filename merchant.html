@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For Merchants — Experience Zeno</title>
+  <meta name="description" content="Zeno gives merchants a complete loyalty CRM — bonus credit campaigns, real-time push notifications, reservation management, and full analytics. No monthly SaaS fee." />
+  <link rel="icon" type="image/png" href="assets/logo-icon.png" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --brand: #6366f1; --brand-light: #818cf8; --gold: #f59e0b; --emerald: #10b981;
+      --bg: #0a0a0f; --surface: #111118; --surface2: #18181f;
+      --border: rgba(255,255,255,0.08); --white: #fff;
+      --subtle: rgba(255,255,255,0.65); --text-muted: rgba(255,255,255,0.38);
+    }
+    body { background: var(--bg); color: var(--white); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 12px; font-weight: 700; font-size: 15px; cursor: pointer; border: none; transition: all 0.2s; }
+    .btn-primary { background: var(--brand); color: #fff; }
+    .btn-primary:hover { background: var(--brand-light); transform: translateY(-1px); }
+    .btn-gold { background: var(--gold); color: #000; }
+    .btn-gold:hover { opacity: 0.9; transform: translateY(-1px); }
+    .btn-ghost { border: 1px solid var(--border); color: var(--subtle); }
+    .btn-ghost:hover { border-color: rgba(255,255,255,0.25); color: #fff; }
+    .btn-lg { padding: 14px 28px; font-size: 16px; border-radius: 14px; }
+    .btn-xl { padding: 17px 34px; font-size: 17px; border-radius: 16px; }
+    .badge { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; background: rgba(99,102,241,0.1); border: 1px solid rgba(99,102,241,0.3); color: var(--brand-light); }
+    .section { padding: 96px 0; }
+    .section-label { margin-bottom: 12px; }
+    .section-title { font-size: clamp(28px, 4vw, 42px); font-weight: 900; letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 16px; }
+    .section-sub { font-size: 17px; color: var(--subtle); line-height: 1.7; max-width: 560px; }
+    .text-gold { color: var(--gold); }
+    .text-brand { color: var(--brand-light); }
+    .text-green { color: var(--emerald); }
+    .center { text-align: center; }
+    .center .section-sub { margin: 0 auto; }
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+
+    /* ── Nav ── */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; transition: background 0.3s; }
+    nav.scrolled { background: rgba(10,10,15,0.95); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 16px; }
+    .nav-logo img { width: 30px; height: 30px; border-radius: 8px; }
+    .nav-links { display: flex; list-style: none; gap: 32px; }
+    .nav-links a { font-size: 14px; color: var(--subtle); transition: color 0.2s; }
+    .nav-links a:hover { color: #fff; }
+    .nav-cta { display: flex; gap: 12px; align-items: center; }
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .nav-hamburger span { width: 24px; height: 2px; background: #fff; border-radius: 2px; }
+
+    /* ── Hero ── */
+    .hero { min-height: 100vh; display: flex; align-items: center; padding: 120px 0 80px; position: relative; overflow: hidden; }
+    .hero-bg { position: absolute; inset: 0; }
+    .hero-orb { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.25; }
+    .hero-orb-1 { width: 500px; height: 500px; background: radial-gradient(circle, #f59e0b, transparent); top: -120px; right: -100px; }
+    .hero-orb-2 { width: 400px; height: 400px; background: radial-gradient(circle, #6366f1, transparent); bottom: -80px; left: -80px; }
+    .hero-content { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; position: relative; z-index: 2; }
+    .hero-eyebrow { display: flex; align-items: center; gap: 8px; margin-bottom: 20px; font-size: 13px; font-weight: 600; color: var(--gold); }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gold); flex-shrink: 0; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(1.2)} }
+    .hero-title { font-size: clamp(36px, 5vw, 58px); font-weight: 900; letter-spacing: -0.03em; line-height: 1.08; margin-bottom: 24px; }
+    .line-accent { color: var(--gold); }
+    .hero-sub { font-size: 18px; color: var(--subtle); line-height: 1.75; margin-bottom: 36px; max-width: 480px; }
+    .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 40px; }
+    .hero-stats { display: flex; gap: 36px; flex-wrap: wrap; }
+    .hero-stat { }
+    .hero-stat-num { font-size: 26px; font-weight: 900; color: var(--gold); }
+    .hero-stat-lbl { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+
+    /* ── Dash Visual ── */
+    .dash-visual { background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 20px; padding: 28px; }
+    .dash-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+    .dash-title { font-weight: 700; font-size: 16px; }
+    .dash-badge { font-size: 12px; color: #22c55e; font-weight: 600; }
+    .dash-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px; }
+    .dash-stat-card { background: rgba(255,255,255,0.04); border-radius: 12px; padding: 14px; }
+    .dash-stat-lbl { font-size: 11px; color: var(--text-muted); margin-bottom: 4px; }
+    .dash-stat-val { font-size: 22px; font-weight: 800; }
+    .dash-stat-val.gold { color: var(--gold); }
+    .dash-stat-val.brand { color: var(--brand-light); }
+    .dash-bar-lbl { font-size: 11px; color: var(--subtle); margin-bottom: 4px; margin-top: 10px; }
+    .dash-bar-track { background: rgba(255,255,255,0.06); border-radius: 4px; height: 7px; }
+    .dash-bar-fill { background: var(--brand); border-radius: 4px; height: 100%; }
+    .dash-bar-fill.gold { background: var(--gold); }
+    .dash-campaign { margin-top: 18px; background: rgba(245,158,11,0.08); border: 1px solid rgba(245,158,11,0.2); border-radius: 12px; padding: 14px; }
+    .dash-camp-lbl { font-size: 11px; color: var(--gold); font-weight: 600; margin-bottom: 5px; }
+    .dash-camp-text { font-size: 13px; color: var(--subtle); line-height: 1.5; }
+    .dash-push { margin-top: 14px; background: rgba(99,102,241,0.08); border: 1px solid rgba(99,102,241,0.2); border-radius: 12px; padding: 14px; }
+    .dash-push-lbl { font-size: 11px; color: var(--brand-light); font-weight: 600; margin-bottom: 5px; }
+
+    /* ── Feature grid ── */
+    .feat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 48px; }
+    .feat-card { background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 18px; padding: 28px; }
+    .feat-card.span2 { grid-column: span 2; }
+    .feat-icon { font-size: 32px; margin-bottom: 14px; display: block; }
+    .feat-title { font-size: 17px; font-weight: 800; margin-bottom: 10px; }
+    .feat-desc { font-size: 14px; color: var(--subtle); line-height: 1.7; }
+    .feat-tag { display: inline-block; margin-top: 14px; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 20px; background: rgba(99,102,241,0.12); border: 1px solid rgba(99,102,241,0.25); color: var(--brand-light); }
+    .feat-tag.gold { background: rgba(245,158,11,0.12); border-color: rgba(245,158,11,0.3); color: var(--gold); }
+    .feat-tag.green { background: rgba(16,185,129,0.12); border-color: rgba(16,185,129,0.3); color: var(--emerald); }
+    .feat-card.highlight-gold { border-color: rgba(245,158,11,0.35); background: rgba(245,158,11,0.04); }
+    .feat-card.highlight-brand { border-color: rgba(99,102,241,0.35); background: rgba(99,102,241,0.04); }
+
+    /* ── How CRM works ── */
+    .crm-flow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-top: 48px; position: relative; }
+    .crm-flow::before { content: ''; position: absolute; top: 36px; left: calc(12.5% + 12px); right: calc(12.5% + 12px); height: 2px; background: linear-gradient(to right, var(--gold), var(--brand)); z-index: 0; }
+    .crm-step { text-align: center; padding: 0 12px; position: relative; z-index: 1; }
+    .crm-step-num { width: 48px; height: 48px; border-radius: 50%; background: var(--surface2); border: 2px solid var(--gold); display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 900; color: var(--gold); margin: 0 auto 16px; }
+    .crm-step h4 { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+    .crm-step p { font-size: 13px; color: var(--subtle); line-height: 1.5; }
+
+    /* ── Testimonial ── */
+    .quote-section { padding: 80px 0; background: var(--surface); }
+    .quote-card { background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 20px; padding: 40px; max-width: 760px; margin: 40px auto 0; text-align: center; }
+    .quote-text { font-size: 20px; font-style: italic; color: var(--subtle); line-height: 1.7; margin-bottom: 20px; }
+    .quote-author { font-size: 14px; font-weight: 700; color: var(--gold); }
+
+    /* ── CTA ── */
+    .cta-section { padding: 100px 0; background: linear-gradient(135deg, rgba(99,102,241,0.12) 0%, rgba(245,158,11,0.08) 100%); border-top: 1px solid var(--border); }
+    .cta-inner { text-align: center; max-width: 680px; margin: 0 auto; }
+    .cta-actions { display: flex; gap: 16px; justify-content: center; margin-top: 32px; flex-wrap: wrap; }
+
+    /* ── Footer ── */
+    footer { background: var(--surface); border-top: 1px solid var(--border); padding: 64px 0 32px; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+    .footer-brand { }
+    .footer-logo { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 16px; margin-bottom: 14px; }
+    .footer-logo img { width: 28px; height: 28px; border-radius: 6px; }
+    .footer-desc { font-size: 13px; color: var(--text-muted); line-height: 1.7; max-width: 260px; }
+    .footer-col h4 { font-size: 13px; font-weight: 700; color: var(--subtle); letter-spacing: 0.05em; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col a { font-size: 14px; color: var(--text-muted); transition: color 0.2s; }
+    .footer-col a:hover { color: #fff; }
+    .footer-bottom { border-top: 1px solid var(--border); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--text-muted); }
+    .footer-bottom a { color: var(--text-muted); transition: color 0.2s; }
+    .footer-bottom a:hover { color: #fff; }
+
+    @media (max-width: 900px) {
+      .hero-content { grid-template-columns: 1fr; gap: 48px; }
+      .feat-grid { grid-template-columns: 1fr 1fr; }
+      .feat-card.span2 { grid-column: span 2; }
+      .crm-flow { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .crm-flow::before { display: none; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-cta .btn-ghost { display: none; }
+      .nav-hamburger { display: flex; }
+      .feat-grid { grid-template-columns: 1fr; }
+      .feat-card.span2 { grid-column: span 1; }
+      .crm-flow { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+      .cta-actions { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ NAV ══════════════════════════════════════════ -->
+<nav id="nav">
+  <div class="container nav-inner">
+    <a href="/" class="nav-logo">
+      <img src="assets/logo-icon.png" alt="Zeno" />
+      <span>Experience Zeno</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="/">For Customers</a></li>
+      <li><a href="merchant.html" style="color:#fff;font-weight:700;">For Merchants</a></li>
+      <li><a href="partner.html">For Partners</a></li>
+      <li><a href="/#security">Security</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="mailto:tech@expzeno.com" class="btn btn-ghost">Contact Us</a>
+      <a href="mailto:tech@expzeno.com" class="btn btn-gold">Get Started →</a>
+    </div>
+    <div class="nav-hamburger" id="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+  <div id="mobile-menu" style="display:none; padding: 16px 24px; border-top: 1px solid var(--border);">
+    <div style="display:flex;flex-direction:column;gap:16px;">
+      <a href="/" style="color:var(--subtle);font-size:15px;">For Customers</a>
+      <a href="merchant.html" style="color:#fff;font-weight:700;font-size:15px;">For Merchants</a>
+      <a href="partner.html" style="color:var(--subtle);font-size:15px;">For Partners</a>
+      <a href="mailto:tech@expzeno.com" style="color:var(--subtle);font-size:15px;">Contact Us</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ══ HERO ══════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-bg">
+    <div class="hero-orb hero-orb-1"></div>
+    <div class="hero-orb hero-orb-2"></div>
+  </div>
+  <div class="container">
+    <div class="hero-content">
+      <div>
+        <div class="hero-eyebrow">
+          <span class="dot" style="background:var(--gold)"></span>
+          <span>Built for Merchants — Zero Monthly Fees</span>
+        </div>
+        <h1 class="hero-title">
+          Your customers.<br/>
+          Your CRM.<br/>
+          <span class="line-accent">Your loyalty engine.</span>
+        </h1>
+        <p class="hero-sub">
+          Zeno gives every merchant a direct line to their customers — bonus credit campaigns, one-tap push notifications, reservation management, and real-time analytics. All in one dashboard. No middleman.
+        </p>
+        <div class="hero-actions">
+          <a href="mailto:tech@expzeno.com" class="btn btn-gold btn-lg">Start as a Merchant →</a>
+          <a href="#how-it-works" class="btn btn-ghost btn-lg">See How It Works</a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="hero-stat-num">$0</div>
+            <div class="hero-stat-lbl">Monthly SaaS Fee</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">1-tap</div>
+            <div class="hero-stat-lbl">Push All Customers</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">86%</div>
+            <div class="hero-stat-lbl">Avg Retention Rate</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal" style="transition-delay:0.1s;">
+        <div class="dash-visual">
+          <div class="dash-header">
+            <div class="dash-title">🏪 Merchant Dashboard</div>
+            <div class="dash-badge">● Live</div>
+          </div>
+          <div class="dash-stats">
+            <div class="dash-stat-card">
+              <div class="dash-stat-lbl">Total Topups</div>
+              <div class="dash-stat-val gold">$12,480</div>
+            </div>
+            <div class="dash-stat-card">
+              <div class="dash-stat-lbl">Active Wallets</div>
+              <div class="dash-stat-val brand">248</div>
+            </div>
+          </div>
+          <div>
+            <div class="dash-bar-lbl">Monthly Topup Volume</div>
+            <div class="dash-bar-track"><div class="dash-bar-fill gold" style="width:72%"></div></div>
+            <div class="dash-bar-lbl">Customer Retention Rate</div>
+            <div class="dash-bar-track"><div class="dash-bar-fill" style="width:86%"></div></div>
+          </div>
+          <div class="dash-campaign">
+            <div class="dash-camp-lbl">🎯 Active Campaign</div>
+            <div class="dash-camp-text">Weekend Special: Top up $30 → get $8 bonus<br/><span style="color:var(--gold);font-weight:600;">47 customers activated · 2 days left</span></div>
+          </div>
+          <div class="dash-push">
+            <div class="dash-push-lbl">📣 Push Sent — 3 min ago</div>
+            <div class="dash-camp-text" style="font-size:13px;">"Grab your weekend deal — top up today, get $8 free!" → <strong style="color:#fff;">248 customers reached</strong></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ HOW YOUR CRM WORKS ════════════════════════════ -->
+<section class="section" id="how-it-works" style="background:var(--surface);">
+  <div class="container">
+    <div class="section-header center reveal">
+      <div class="section-label"><span class="badge">HOW IT WORKS</span></div>
+      <h2 class="section-title" style="margin-top:12px;">Four steps to a loyal<br/><span class="text-gold">customer base</span></h2>
+    </div>
+    <div class="crm-flow">
+      <div class="crm-step reveal">
+        <div class="crm-step-num">1</div>
+        <h4>Set Up Your Wallet</h4>
+        <p>Configure your merchant wallet — set your bonus credit rate, welcome gift, and reservation deposit rules in minutes.</p>
+      </div>
+      <div class="crm-step reveal reveal-delay-1">
+        <div class="crm-step-num">2</div>
+        <h4>Customers Top Up & Get More</h4>
+        <p>Customers top up, receive your bonus credit instantly, and keep that money in your ecosystem — ready to spend.</p>
+      </div>
+      <div class="crm-step reveal reveal-delay-2">
+        <div class="crm-step-num">3</div>
+        <h4>Push Campaigns to Drive Visits</h4>
+        <p>Send a push notification to every wallet holder with one tap. Flash sale tonight? Fill those seats in minutes.</p>
+      </div>
+      <div class="crm-step reveal reveal-delay-2">
+        <div class="crm-step-num">4</div>
+        <h4>Track, Optimise & Withdraw</h4>
+        <p>View topup volumes, retention, and bonus utilisation in real time. Request payouts directly from your dashboard.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ MERCHANT FEATURES ════════════════════════════ -->
+<section class="section" id="features">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label"><span class="badge" style="background:rgba(245,158,11,0.1);border-color:rgba(245,158,11,0.3);color:var(--gold);">ALL FEATURES</span></div>
+      <h2 class="section-title" style="margin-top:12px;">Everything you need.<br/><span class="text-gold">Nothing you don't.</span></h2>
+      <p class="section-sub">No bloated SaaS. No per-seat pricing. One platform — campaign tools, push notifications, reservations, analytics, and withdrawals — all included.</p>
+    </div>
+
+    <div class="feat-grid" style="margin-top:48px;">
+
+      <div class="feat-card span2 highlight-gold reveal">
+        <span class="feat-icon">📣</span>
+        <div class="feat-title">Push Notifications — Direct to Every Customer's Phone</div>
+        <p class="feat-desc">
+          One tap. Every customer who holds your wallet gets your message — instantly. No WhatsApp broadcasts. No printing flyers. No ad spend.
+          Run a flash sale at 6pm, announce a sold-out weekend slot, or remind customers about an expiring campaign.
+          <strong style="color:#fff;">Your message, their phone, right now.</strong>
+        </p>
+        <div style="background:rgba(99,102,241,0.08);border:1px solid rgba(99,102,241,0.2);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13px;color:var(--subtle);">
+          📱 "Flash deal: top up $30 today and get $10 free — this weekend only!" → <strong style="color:#fff">248 customers reached in 3 seconds</strong>
+        </div>
+        <span class="feat-tag">Zero Ad Budget Required</span>
+      </div>
+
+      <div class="feat-card highlight-gold reveal reveal-delay-1">
+        <span class="feat-icon">🎯</span>
+        <div class="feat-title">Bonus Credit Campaigns</div>
+        <p class="feat-desc">Run "Top up $50, get $10 bonus" campaigns on your schedule. Customers see they get more value — so they top up more. That money stays in your ecosystem.</p>
+        <span class="feat-tag gold">Drives More Topups</span>
+      </div>
+
+      <div class="feat-card reveal">
+        <span class="feat-icon">🎁</span>
+        <div class="feat-title">Welcome Gift — First Topup Match</div>
+        <p class="feat-desc">Auto-credit new customers with a bonus the moment they first top up. They get instant value. You get a committed customer with money already in your wallet.</p>
+        <span class="feat-tag gold">Turns Browsers into Regulars</span>
+      </div>
+
+      <div class="feat-card reveal reveal-delay-1">
+        <span class="feat-icon">🪑</span>
+        <div class="feat-title">Reservation & Preauth Deposits</div>
+        <p class="feat-desc">Accept table reservations with smart deposits held from the customer's wallet. Release or charge at point of service — no no-shows, no chasing payments.</p>
+        <span class="feat-tag">No Terminal Needed</span>
+      </div>
+
+      <div class="feat-card reveal reveal-delay-2">
+        <span class="feat-icon">📊</span>
+        <div class="feat-title">Real-time Analytics</div>
+        <p class="feat-desc">Track topup volume, active wallet count, bonus utilisation, and customer retention — all in a single live dashboard. Know what's working and act fast.</p>
+        <span class="feat-tag">Live Dashboard</span>
+      </div>
+
+      <div class="feat-card reveal">
+        <span class="feat-icon">💸</span>
+        <div class="feat-title">Withdrawal Management</div>
+        <p class="feat-desc">Request payouts directly from your wallet balance. Full AML compliance review built in — upload bank proof, track status, and receive funds cleanly.</p>
+        <span class="feat-tag green">AML Compliant</span>
+      </div>
+
+      <div class="feat-card reveal reveal-delay-1">
+        <span class="feat-icon">▣</span>
+        <div class="feat-title">QR Scan-to-Pay</div>
+        <p class="feat-desc">Customers scan your merchant QR to pay. Staff can also initiate a charge directly from the merchant app. Fast, contactless, zero hardware.</p>
+        <span class="feat-tag">Works on Any Device</span>
+      </div>
+
+      <div class="feat-card reveal reveal-delay-2">
+        <span class="feat-icon">🔐</span>
+        <div class="feat-title">Tamper-Evident Ledger</div>
+        <p class="feat-desc">Every topup, charge, and bonus grant is logged in a cryptographic hash chain. Full audit trail — your records are dispute-proof and always verifiable.</p>
+        <span class="feat-tag green">SHA-256 Hash Chain</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ QUOTE ═════════════════════════════════════════ -->
+<section class="quote-section">
+  <div class="container">
+    <div class="section-header center reveal">
+      <h2 class="section-title">Built for merchants who<br/><span class="text-gold">want to own their customers.</span></h2>
+    </div>
+    <div class="quote-card reveal">
+      <div class="quote-text">"Before Zeno, we had no way to reach our customers directly. Now we push a notification and people walk in the same evening. The bonus campaign paid for itself in the first week."</div>
+      <div class="quote-author">— F&B Merchant, Zeno Early Partner</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CTA ═════════════════════════════════════════════ -->
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-inner reveal">
+      <div class="section-label" style="justify-content:center;display:flex;margin-bottom:16px;"><span class="badge" style="background:rgba(245,158,11,0.1);border-color:rgba(245,158,11,0.3);color:var(--gold);">GET YOUR MERCHANT ACCOUNT</span></div>
+      <h2 class="section-title">Ready to turn topups<br/><span class="line-accent">into loyal customers?</span></h2>
+      <p class="section-sub" style="margin:20px auto 0;">Set up your merchant wallet, configure your bonus campaign, and start building a customer base that keeps coming back — today.</p>
+      <div class="cta-actions">
+        <a href="mailto:tech@expzeno.com" class="btn btn-gold btn-xl">Onboard My Business →</a>
+        <a href="partner.html" class="btn btn-ghost btn-xl">POS / API Integration</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ═══════════════════════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="assets/logo-icon.png" alt="Zeno" />
+          <span>Experience Zeno</span>
+        </div>
+        <p class="footer-desc">A multi-merchant e-wallet loyalty platform. Give customers more value on every topup — and own the relationship.</p>
+      </div>
+      <div class="footer-col">
+        <h4>PRODUCT</h4>
+        <ul>
+          <li><a href="/">For Customers</a></li>
+          <li><a href="merchant.html">For Merchants</a></li>
+          <li><a href="partner.html">Partner Integration</a></li>
+          <li><a href="https://zeno.labzeno.com">Launch App</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>CONTACT</h4>
+        <ul>
+          <li><a href="mailto:tech@expzeno.com">Merchant Enquiry</a></li>
+          <li><a href="mailto:tech@expzeno.com">API & Integration</a></li>
+          <li><a href="mailto:tech@expzeno.com">Support</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>LEGAL</h4>
+        <ul>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="eula.html">EULA</a></li>
+          <li><a href="mailto:server@expzeno.com">Data Protection Officer</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Experience Zeno Pte Ltd. All rights reserved.</span>
+      <div style="display:flex;gap:20px;">
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="eula.html">EULA</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function toggleMenu() {
+    const m = document.getElementById('mobile-menu');
+    m.style.display = m.style.display === 'none' ? 'block' : 'none';
+  }
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.05, rootMargin: '0px 0px -5% 0px' });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  window.addEventListener('scroll', () => {
+    document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 60);
+  });
+</script>
+</body>
+</html>
