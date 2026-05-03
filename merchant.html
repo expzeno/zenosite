@@ -235,6 +235,7 @@
       .feat-card.span2 { grid-column: span 1; }
     }
   </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
 <body>
 
@@ -580,6 +581,11 @@
     resize: none; height: 100px; outline: none; font-family: inherit; line-height: 1.6;
   }
   #fb-cat:focus, #fb-msg:focus { border-color: rgba(79,70,229,0.6); }
+  .fb-ss-btn {
+    flex:1; padding:8px; border:1px solid rgba(255,255,255,0.12);
+    border-radius:6px; background:transparent; color:rgba(255,255,255,0.7);
+    font-size:12px; cursor:pointer; font-family:inherit;
+  }
   #fb-actions { display: flex; gap: 8px; margin-top: 12px; }
   #fb-cancel { flex: 1; background: transparent; border: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.5); border-radius: 10px; padding: 10px; font-size: 14px; cursor: pointer; font-family: inherit; }
   #fb-submit { flex: 2; background: #4f46e5; color: #fff; border: none; border-radius: 10px; padding: 10px; font-size: 14px; font-weight: 700; cursor: pointer; font-family: inherit; transition: background 0.2s; }
@@ -592,7 +598,7 @@
     box-shadow: 0 4px 16px rgba(16,185,129,0.4);
   }
 </style>
-<button id="fb-fab" title="Send feedback" onclick="document.getElementById('fb-overlay').classList.add('open')">💬</button>
+<button id="fb-fab" title="Send feedback">💬</button>
 <div id="fb-overlay" onclick="if(event.target===this)this.classList.remove('open')">
   <div id="fb-modal">
     <h4>Send Feedback</h4>
@@ -604,6 +610,20 @@
       <option value="General">💬 General</option>
     </select>
     <textarea id="fb-msg" placeholder="Describe the issue or idea..."></textarea>
+    <div id="fb-ss-label" style="font-size:12px;color:rgba(255,255,255,0.5);margin-top:10px;margin-bottom:6px">Screenshot (optional)</div>
+    <div id="fb-ss-loading" style="display:none;padding:10px;text-align:center;color:rgba(255,255,255,0.4);font-size:13px">⏳ Capturing…</div>
+    <div id="fb-ss-preview" style="display:none;border-radius:8px;overflow:hidden;border:1px solid rgba(255,255,255,0.12)">
+      <img id="fb-ss-img" style="width:100%;max-height:120px;object-fit:cover;object-position:top;display:block" />
+      <div style="display:flex;gap:8px;padding:8px">
+        <button class="fb-ss-btn" onclick="fbRemoveScreenshot()">Remove</button>
+        <button class="fb-ss-btn" onclick="fbTriggerUpload()">Replace</button>
+      </div>
+    </div>
+    <div id="fb-ss-btns" style="display:flex;gap:8px">
+      <button class="fb-ss-btn" onclick="fbCaptureScreen()">📷 Capture</button>
+      <button class="fb-ss-btn" onclick="fbTriggerUpload()">🖼 Upload</button>
+    </div>
+    <input id="fb-file-input" type="file" accept="image/*" style="display:none" onchange="fbOnFileSelected(event)" />
     <div id="fb-actions">
       <button id="fb-cancel" onclick="document.getElementById('fb-overlay').classList.remove('open')">Cancel</button>
       <button id="fb-submit" onclick="submitFeedback()">Send &#x2192;</button>
@@ -612,27 +632,120 @@
 </div>
 <div id="fb-toast">&#x2713; Feedback sent &#x2014; thanks!</div>
 <script>
-  async function submitFeedback() {
+(function() {
+  let fbScreenshot = null;
+
+  const IS_DEV = location.hostname === 'localhost'
+    || location.hostname.endsWith('.local')
+    || location.search.includes('__dev=1');
+  document.getElementById('fb-fab').style.display = IS_DEV ? 'flex' : 'none';
+
+  document.getElementById('fb-fab').addEventListener('click', function() {
+    fbScreenshot = null;
+    document.getElementById('fb-msg').value = '';
+    document.getElementById('fb-error') && (document.getElementById('fb-error').style.display = 'none');
+    fbShowSsBtns();
+    document.getElementById('fb-overlay').classList.add('open');
+  });
+
+  function fbShowSsBtns() {
+    document.getElementById('fb-ss-btns').style.display = 'flex';
+    document.getElementById('fb-ss-preview').style.display = 'none';
+    document.getElementById('fb-ss-loading').style.display = 'none';
+  }
+
+  window.fbCaptureScreen = async function() {
+    if (typeof html2canvas === 'undefined') {
+      alert('Screenshot capture unavailable — try uploading instead.'); return;
+    }
+    document.getElementById('fb-ss-btns').style.display = 'none';
+    document.getElementById('fb-ss-loading').style.display = 'block';
+    try {
+      const canvas = await html2canvas(document.body, {
+        scale: 0.5, useCORS: true, logging: false,
+        ignoreElements: el => el.id === 'fb-overlay',
+      });
+      fbScreenshot = canvas.toDataURL('image/png', 0.7);
+      fbShowPreview(fbScreenshot);
+    } catch {
+      fbShowSsBtns();
+      alert('Capture failed — try uploading instead.');
+    }
+  };
+
+  window.fbTriggerUpload = function() {
+    document.getElementById('fb-file-input').value = '';
+    document.getElementById('fb-file-input').click();
+  };
+
+  window.fbRemoveScreenshot = function() {
+    fbScreenshot = null;
+    fbShowSsBtns();
+  };
+
+  window.fbOnFileSelected = function(e) {
+    const file = e.target.files[0];
+    if (!file) return;
+    if (!file.type.startsWith('image/')) { alert('Only image files accepted.'); return; }
+    if (file.size > 10 * 1024 * 1024) { alert('Image must be under 10 MB.'); return; }
+    const reader = new FileReader();
+    reader.onload = function() {
+      const img = new Image();
+      img.onload = function() {
+        const MAX = 1200;
+        const scale = img.width > MAX ? MAX / img.width : 1;
+        const c = document.createElement('canvas');
+        c.width = Math.round(img.width * scale);
+        c.height = Math.round(img.height * scale);
+        c.getContext('2d').drawImage(img, 0, 0, c.width, c.height);
+        fbScreenshot = c.toDataURL('image/jpeg', 0.65);
+        fbShowPreview(fbScreenshot);
+      };
+      img.src = reader.result;
+    };
+    reader.readAsDataURL(file);
+    e.target.value = '';
+  };
+
+  function fbShowPreview(src) {
+    document.getElementById('fb-ss-loading').style.display = 'none';
+    document.getElementById('fb-ss-btns').style.display = 'none';
+    document.getElementById('fb-ss-img').src = src;
+    document.getElementById('fb-ss-preview').style.display = 'block';
+  }
+
+  window.submitFeedback = async function() {
     const msg = document.getElementById('fb-msg').value.trim();
-    if (!msg) return;
+    const category = document.getElementById('fb-cat').value;
+    if (!msg && !fbScreenshot) {
+      alert('Please add a message or screenshot.');
+      return;
+    }
     const btn = document.getElementById('fb-submit');
     btn.disabled = true; btn.textContent = 'Sending…';
     try {
-      await fetch('https://apizs.labzeno.com/feedback/submit', {
-        method: 'POST', headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          category: document.getElementById('fb-cat').value,
-          message: msg, pageUrl: location.href
-        })
+      const res = await fetch('https://apizs.labzeno.com/feedback/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ data: {
+          category, message: msg, pageUrl: location.href,
+          screenshot: fbScreenshot || undefined,
+        }}),
       });
-    } catch(e) {}
-    document.getElementById('fb-overlay').classList.remove('open');
-    document.getElementById('fb-msg').value = '';
-    btn.disabled = false; btn.textContent = 'Send →';
-    const t = document.getElementById('fb-toast');
-    t.style.display = 'block';
-    setTimeout(() => t.style.display = 'none', 3000);
-  }
+      if (!res.ok) throw new Error('Server error');
+      document.getElementById('fb-overlay').classList.remove('open');
+      document.getElementById('fb-msg').value = '';
+      fbScreenshot = null;
+      const t = document.getElementById('fb-toast');
+      t.style.display = 'block';
+      setTimeout(() => t.style.display = 'none', 3000);
+    } catch {
+      alert('Could not submit — please try again.');
+    } finally {
+      btn.disabled = false; btn.textContent = 'Send →';
+    }
+  };
+})();
 </script>
 
 </body>
