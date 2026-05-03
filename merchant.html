@@ -637,6 +637,7 @@
 
   const IS_DEV = location.hostname === 'localhost'
     || location.hostname.endsWith('.local')
+    || location.hostname === 'siteez.labzeno.com'
     || location.search.includes('__dev=1');
   document.getElementById('fb-fab').style.display = IS_DEV ? 'flex' : 'none';
 
