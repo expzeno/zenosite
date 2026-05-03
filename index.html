@@ -1,0 +1,1261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Experience Zeno — World-Class Loyalty & E-Wallet Platform</title>
+  <meta name="description" content="Zeno is a multi-merchant e-wallet platform with powerful loyalty features. Earn EXP points, unlock rewards, and grow your business. Built for merchants, loved by customers." />
+  <link rel="icon" href="assets/logo-icon.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --brand: #4f46e5;
+      --brand-dark: #3730a3;
+      --brand-light: #818cf8;
+      --brand-glow: rgba(79,70,229,0.35);
+      --gold: #f59e0b;
+      --gold-light: #fbbf24;
+      --emerald: #10b981;
+      --rose: #f43f5e;
+      --ink: #0f172a;
+      --ink-soft: #1e293b;
+      --muted: #64748b;
+      --subtle: #94a3b8;
+      --border: rgba(255,255,255,0.08);
+      --surface: rgba(255,255,255,0.04);
+      --white: #ffffff;
+      --radius: 16px;
+      --radius-sm: 8px;
+      --radius-lg: 24px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: #0a0a14;
+      color: var(--white);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── UTILITIES ─────────────────────────────── */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .text-brand { color: var(--brand-light); }
+    .text-gold { color: var(--gold); }
+    .text-muted { color: var(--subtle); }
+    .badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(79,70,229,0.15); border: 1px solid rgba(129,140,248,0.3);
+      color: var(--brand-light); font-size: 12px; font-weight: 600;
+      padding: 4px 12px; border-radius: 100px; letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .section { padding: 100px 0; }
+    .section-label { margin-bottom: 16px; }
+    .section-title {
+      font-size: clamp(32px, 5vw, 52px); font-weight: 800;
+      line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 20px;
+    }
+    .section-sub {
+      font-size: 18px; color: var(--subtle); max-width: 560px; line-height: 1.7;
+    }
+    .section-header { margin-bottom: 64px; }
+    .section-header.center { text-align: center; }
+    .section-header.center .section-sub { margin: 0 auto; }
+
+    /* ── NAV ────────────────────────────────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 16px 0;
+      background: rgba(10,10,20,0.7);
+      backdrop-filter: blur(20px) saturate(180%);
+      border-bottom: 1px solid var(--border);
+      transition: background 0.3s;
+    }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 10px;
+      text-decoration: none; color: var(--white);
+    }
+    .nav-logo img { width: 34px; height: 34px; border-radius: 8px; }
+    .nav-logo span { font-size: 18px; font-weight: 700; letter-spacing: -0.01em; }
+    .nav-links {
+      display: flex; align-items: center; gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--subtle); text-decoration: none; font-size: 14px;
+      font-weight: 500; transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--white); }
+    .nav-cta {
+      display: flex; gap: 12px;
+    }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 14px; font-weight: 600; padding: 10px 20px;
+      border-radius: 100px; cursor: pointer; text-decoration: none;
+      transition: all 0.2s; border: none; font-family: inherit;
+    }
+    .btn-ghost {
+      background: transparent; color: var(--subtle); border: 1px solid var(--border);
+    }
+    .btn-ghost:hover { color: var(--white); border-color: rgba(255,255,255,0.2); }
+    .btn-primary {
+      background: var(--brand); color: #fff;
+      box-shadow: 0 0 24px rgba(79,70,229,0.4);
+    }
+    .btn-primary:hover {
+      background: var(--brand-dark);
+      box-shadow: 0 0 32px rgba(79,70,229,0.6);
+      transform: translateY(-1px);
+    }
+    .btn-gold {
+      background: linear-gradient(135deg, var(--gold), #d97706);
+      color: #1a1a00; font-weight: 700;
+      box-shadow: 0 0 24px rgba(245,158,11,0.4);
+    }
+    .btn-gold:hover { transform: translateY(-1px); box-shadow: 0 0 32px rgba(245,158,11,0.6); }
+    .btn-lg { padding: 14px 28px; font-size: 16px; }
+    .btn-xl { padding: 18px 36px; font-size: 17px; border-radius: 14px; }
+    .nav-hamburger { display: none; cursor: pointer; flex-direction: column; gap: 5px; }
+    .nav-hamburger span { display: block; width: 24px; height: 2px; background: var(--subtle); transition: 0.3s; }
+
+    /* ── HERO ───────────────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      display: flex; align-items: center;
+      padding-top: 80px;
+      position: relative; overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+    }
+    .hero-orb {
+      position: absolute; border-radius: 50%;
+      filter: blur(100px); opacity: 0.25; pointer-events: none;
+    }
+    .hero-orb-1 {
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, #4f46e5, transparent 70%);
+      top: -200px; right: -100px;
+    }
+    .hero-orb-2 {
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, #f59e0b, transparent 70%);
+      bottom: -100px; left: -100px; opacity: 0.15;
+    }
+    .hero-orb-3 {
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, #10b981, transparent 70%);
+      top: 40%; left: 50%; opacity: 0.12;
+    }
+    /* Subtle grid */
+    .hero-bg::after {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse 80% 80% at 50% 0%, black, transparent);
+    }
+    .hero-content { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; padding: 60px 0; }
+    .hero-eyebrow { margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
+    .hero-eyebrow .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--emerald); animation: pulse-dot 2s infinite; }
+    @keyframes pulse-dot { 0%,100%{box-shadow:0 0 0 0 rgba(16,185,129,0.4);} 50%{box-shadow:0 0 0 8px rgba(16,185,129,0);} }
+    .hero-eyebrow span { font-size: 13px; color: var(--emerald); font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; }
+    .hero-title {
+      font-size: clamp(38px, 5.5vw, 68px);
+      font-weight: 900; line-height: 1.08;
+      letter-spacing: -0.03em; margin-bottom: 24px;
+    }
+    .hero-title .line-accent {
+      background: linear-gradient(135deg, var(--brand-light), var(--gold));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-sub {
+      font-size: 18px; color: var(--subtle); line-height: 1.75;
+      max-width: 500px; margin-bottom: 40px;
+    }
+    .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+    .hero-stats {
+      display: flex; gap: 36px; margin-top: 48px; padding-top: 40px;
+      border-top: 1px solid var(--border);
+    }
+    .hero-stat { }
+    .hero-stat-num { font-size: 28px; font-weight: 800; color: var(--white); }
+    .hero-stat-lbl { font-size: 13px; color: var(--subtle); margin-top: 2px; }
+    /* Phone mockup */
+    .hero-visual {
+      display: flex; justify-content: center; align-items: center; position: relative;
+    }
+    .phone-frame {
+      width: 280px; height: 560px;
+      background: linear-gradient(145deg, #1e1b4b, #0f0c24);
+      border-radius: 44px;
+      border: 1.5px solid rgba(99,102,241,0.3);
+      box-shadow: 0 0 80px rgba(79,70,229,0.3), 0 40px 80px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.05);
+      overflow: hidden; position: relative;
+    }
+    .phone-notch {
+      width: 120px; height: 28px; background: #0a0a14;
+      border-radius: 0 0 20px 20px; margin: 0 auto;
+    }
+    .phone-screen { padding: 0 16px 16px; }
+    .phone-header { display: flex; justify-content: space-between; align-items: center; padding: 12px 0 16px; }
+    .phone-greeting { font-size: 12px; color: var(--subtle); }
+    .phone-name { font-size: 16px; font-weight: 700; }
+    .phone-avatar { width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg, var(--brand), var(--brand-light)); display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; }
+    .phone-balance-card {
+      background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+      border-radius: 20px; padding: 20px; margin-bottom: 16px;
+      box-shadow: 0 8px 32px rgba(79,70,229,0.4);
+    }
+    .phone-bal-lbl { font-size: 11px; opacity: 0.7; margin-bottom: 4px; }
+    .phone-bal-num { font-size: 28px; font-weight: 800; margin-bottom: 12px; }
+    .phone-bal-row { display: flex; justify-content: space-between; font-size: 11px; opacity: 0.8; }
+    .phone-exp-card {
+      background: rgba(245,158,11,0.1); border: 1px solid rgba(245,158,11,0.2);
+      border-radius: 14px; padding: 14px; margin-bottom: 14px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .phone-exp-icon { font-size: 24px; }
+    .phone-exp-lbl { font-size: 11px; color: var(--subtle); }
+    .phone-exp-val { font-size: 20px; font-weight: 800; color: var(--gold); }
+    .phone-tier { font-size: 11px; color: var(--gold-light); background: rgba(245,158,11,0.15); padding: 2px 8px; border-radius: 100px; display: inline-block; margin-top: 2px; }
+    .phone-merchants { }
+    .phone-merchants-lbl { font-size: 11px; color: var(--subtle); margin-bottom: 10px; }
+    .phone-merc-row { display: flex; gap: 8px; }
+    .phone-merc-chip { background: rgba(255,255,255,0.06); border-radius: 10px; padding: 8px 12px; font-size: 10px; font-weight: 600; flex: 1; text-align: center; }
+    .phone-merc-chip span { display: block; font-size: 16px; margin-bottom: 2px; }
+    .phone-scan-btn {
+      margin-top: 14px; background: var(--brand); border-radius: 12px;
+      padding: 12px; text-align: center; font-size: 12px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center; gap: 6px;
+    }
+    /* Floating chips around phone */
+    .float-chip {
+      position: absolute; background: rgba(10,10,20,0.9);
+      border: 1px solid var(--border); border-radius: 12px;
+      padding: 10px 14px; font-size: 12px; font-weight: 600;
+      display: flex; align-items: center; gap: 8px; white-space: nowrap;
+      animation: float-anim 3s ease-in-out infinite;
+    }
+    .float-chip-1 { top: 60px; right: -60px; animation-delay: 0s; }
+    .float-chip-2 { bottom: 140px; left: -70px; animation-delay: 0.8s; }
+    .float-chip-3 { bottom: 60px; right: -50px; animation-delay: 1.6s; }
+    .chip-dot { width: 8px; height: 8px; border-radius: 50%; }
+    .chip-dot-green { background: var(--emerald); box-shadow: 0 0 8px var(--emerald); }
+    .chip-dot-gold { background: var(--gold); box-shadow: 0 0 8px var(--gold); }
+    .chip-dot-brand { background: var(--brand-light); box-shadow: 0 0 8px var(--brand-light); }
+    @keyframes float-anim { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-8px);} }
+
+    /* ── LOGOS / TRUST ────────────────────────────── */
+    .trust-section {
+      padding: 40px 0 60px;
+      border-top: 1px solid var(--border);
+    }
+    .trust-label { text-align: center; font-size: 13px; color: var(--subtle); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 32px; }
+    .trust-logos { display: flex; align-items: center; justify-content: center; gap: 48px; flex-wrap: wrap; }
+    .trust-logo { font-size: 18px; font-weight: 700; color: rgba(255,255,255,0.2); letter-spacing: -0.01em; }
+
+    /* ── HOW IT WORKS ─────────────────────────────── */
+    .hiw-section { background: linear-gradient(180deg, transparent, rgba(79,70,229,0.04), transparent); }
+    .hiw-tabs { display: flex; gap: 4px; background: rgba(255,255,255,0.04); padding: 4px; border-radius: 12px; width: fit-content; margin: 0 auto 56px; }
+    .hiw-tab {
+      padding: 10px 28px; border-radius: 10px; font-size: 14px; font-weight: 600;
+      cursor: pointer; border: none; background: transparent; color: var(--subtle);
+      transition: all 0.2s; font-family: inherit;
+    }
+    .hiw-tab.active { background: var(--brand); color: #fff; box-shadow: 0 4px 16px rgba(79,70,229,0.4); }
+    .hiw-content { display: none; }
+    .hiw-content.active { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .hiw-step {
+      text-align: center; padding: 40px 28px;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); position: relative;
+    }
+    .hiw-step-num {
+      position: absolute; top: -16px; left: 50%; transform: translateX(-50%);
+      width: 32px; height: 32px; border-radius: 50%;
+      background: var(--brand); font-size: 13px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 0 20px var(--brand-glow);
+    }
+    .hiw-icon { font-size: 48px; margin-bottom: 20px; }
+    .hiw-step h3 { font-size: 20px; font-weight: 700; margin-bottom: 12px; }
+    .hiw-step p { font-size: 14px; color: var(--subtle); line-height: 1.7; }
+    .hiw-connector {
+      position: absolute; top: -16px; left: calc(50% + 16px); width: calc(100% - 32px); height: 2px;
+      background: linear-gradient(90deg, var(--brand), transparent);
+    }
+    .hiw-step:last-child .hiw-connector { display: none; }
+
+    /* ── CUSTOMER FEATURES ────────────────────────── */
+    .feat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .feat-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 28px; transition: all 0.3s;
+      position: relative; overflow: hidden;
+    }
+    .feat-card::before {
+      content: ''; position: absolute; inset: 0;
+      opacity: 0; transition: opacity 0.3s;
+      background: linear-gradient(135deg, rgba(79,70,229,0.08), transparent);
+    }
+    .feat-card:hover { border-color: rgba(79,70,229,0.4); transform: translateY(-4px); }
+    .feat-card:hover::before { opacity: 1; }
+    .feat-card.featured {
+      background: linear-gradient(135deg, rgba(79,70,229,0.12), rgba(124,58,237,0.08));
+      border-color: rgba(79,70,229,0.35);
+      grid-column: span 2;
+    }
+    .feat-card.featured-gold {
+      background: linear-gradient(135deg, rgba(245,158,11,0.1), rgba(217,119,6,0.05));
+      border-color: rgba(245,158,11,0.3);
+    }
+    .feat-icon { font-size: 32px; margin-bottom: 16px; display: block; }
+    .feat-title { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+    .feat-desc { font-size: 14px; color: var(--subtle); line-height: 1.65; }
+    .feat-tag {
+      display: inline-block; margin-top: 12px; font-size: 11px; font-weight: 600;
+      padding: 3px 10px; border-radius: 100px;
+      background: rgba(79,70,229,0.15); color: var(--brand-light);
+    }
+    .feat-tag.gold { background: rgba(245,158,11,0.15); color: var(--gold); }
+
+    /* ── MERCHANT FEATURES ────────────────────────── */
+    .merc-section { background: linear-gradient(180deg, transparent, rgba(245,158,11,0.03), transparent); }
+    .merc-split { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+    .merc-list { display: flex; flex-direction: column; gap: 20px; }
+    .merc-item {
+      display: flex; gap: 16px; padding: 20px;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); transition: all 0.2s;
+    }
+    .merc-item:hover { border-color: rgba(245,158,11,0.3); }
+    .merc-item-icon {
+      width: 44px; height: 44px; border-radius: 12px; flex-shrink: 0;
+      background: rgba(245,158,11,0.1); display: flex; align-items: center;
+      justify-content: center; font-size: 20px;
+    }
+    .merc-item h4 { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+    .merc-item p { font-size: 13px; color: var(--subtle); line-height: 1.6; }
+    /* Dashboard mockup */
+    .dash-mockup {
+      background: rgba(15,12,36,0.8); border: 1px solid rgba(99,102,241,0.2);
+      border-radius: 20px; padding: 24px; box-shadow: 0 24px 60px rgba(0,0,0,0.4);
+    }
+    .dash-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
+    .dash-title { font-size: 14px; font-weight: 700; }
+    .dash-badge { font-size: 11px; background: rgba(16,185,129,0.15); color: var(--emerald); padding: 3px 10px; border-radius: 100px; }
+    .dash-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px; }
+    .dash-stat-card { background: rgba(255,255,255,0.04); border-radius: 12px; padding: 16px; }
+    .dash-stat-lbl { font-size: 11px; color: var(--subtle); margin-bottom: 4px; }
+    .dash-stat-val { font-size: 22px; font-weight: 800; }
+    .dash-stat-val.gold { color: var(--gold); }
+    .dash-stat-val.brand { color: var(--brand-light); }
+    .dash-bar-lbl { font-size: 11px; color: var(--subtle); margin-bottom: 8px; }
+    .dash-bar-track { height: 6px; background: rgba(255,255,255,0.06); border-radius: 3px; margin-bottom: 6px; }
+    .dash-bar-fill { height: 100%; border-radius: 3px; background: linear-gradient(90deg, var(--brand), var(--brand-light)); }
+    .dash-bar-fill.gold { background: linear-gradient(90deg, var(--gold), var(--gold-light)); }
+    .dash-campaign { background: rgba(245,158,11,0.08); border: 1px solid rgba(245,158,11,0.15); border-radius: 12px; padding: 14px; margin-top: 16px; }
+    .dash-camp-lbl { font-size: 11px; color: var(--gold); font-weight: 600; margin-bottom: 6px; }
+    .dash-camp-text { font-size: 12px; color: var(--subtle); }
+
+    /* ── TIERS ────────────────────────────────────── */
+    .tiers-section { background: linear-gradient(180deg, transparent, rgba(245,158,11,0.05), transparent); }
+    .tiers-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .tier-card {
+      border-radius: var(--radius-lg); padding: 36px 28px;
+      border: 1px solid var(--border); position: relative; overflow: hidden;
+      transition: transform 0.3s;
+    }
+    .tier-card:hover { transform: translateY(-6px); }
+    .tier-card.explorer {
+      background: linear-gradient(145deg, rgba(99,102,241,0.1), rgba(79,70,229,0.05));
+      border-color: rgba(99,102,241,0.3);
+    }
+    .tier-card.voyager {
+      background: linear-gradient(145deg, rgba(124,58,237,0.12), rgba(109,40,217,0.06));
+      border-color: rgba(139,92,246,0.4);
+    }
+    .tier-card.zenith {
+      background: linear-gradient(145deg, rgba(245,158,11,0.14), rgba(217,119,6,0.07));
+      border-color: rgba(245,158,11,0.5);
+      box-shadow: 0 0 40px rgba(245,158,11,0.1);
+    }
+    .tier-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
+      padding: 4px 12px; border-radius: 100px; margin-bottom: 16px;
+    }
+    .tier-badge.explorer { background: rgba(99,102,241,0.2); color: var(--brand-light); }
+    .tier-badge.voyager { background: rgba(139,92,246,0.2); color: #a78bfa; }
+    .tier-badge.zenith { background: rgba(245,158,11,0.2); color: var(--gold); }
+    .tier-icon { font-size: 52px; margin-bottom: 16px; }
+    .tier-name { font-size: 26px; font-weight: 800; margin-bottom: 6px; }
+    .tier-threshold { font-size: 13px; color: var(--subtle); margin-bottom: 24px; }
+    .tier-benefits { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .tier-benefit { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--subtle); }
+    .tier-benefit-check { color: var(--emerald); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+    .tier-card.zenith .tier-benefit { color: rgba(255,255,255,0.85); }
+    .tier-glow {
+      position: absolute; bottom: -60px; right: -60px; width: 200px; height: 200px;
+      border-radius: 50%; filter: blur(60px); pointer-events: none;
+    }
+    .tier-card.zenith .tier-glow { background: rgba(245,158,11,0.15); }
+    .tier-card.voyager .tier-glow { background: rgba(139,92,246,0.12); }
+    .tier-card.explorer .tier-glow { background: rgba(79,70,229,0.1); }
+
+    /* ── REFERRAL ─────────────────────────────────── */
+    .ref-section { }
+    .ref-content { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .ref-visual {
+      background: linear-gradient(145deg, rgba(79,70,229,0.08), rgba(79,70,229,0.02));
+      border: 1px solid rgba(79,70,229,0.2); border-radius: 24px; padding: 32px;
+    }
+    .ref-flow { display: flex; flex-direction: column; gap: 4px; }
+    .ref-node {
+      display: flex; align-items: center; gap: 14px; padding: 14px 16px;
+      background: rgba(255,255,255,0.04); border-radius: 12px; border: 1px solid var(--border);
+    }
+    .ref-node-icon { font-size: 24px; width: 40px; text-align: center; }
+    .ref-node-name { font-size: 14px; font-weight: 600; }
+    .ref-node-sub { font-size: 12px; color: var(--subtle); }
+    .ref-arrow { text-align: center; font-size: 16px; color: var(--brand-light); padding: 4px 0; }
+    .ref-reward {
+      margin-top: 16px; background: rgba(79,70,229,0.12); border: 1px solid rgba(79,70,229,0.25);
+      border-radius: 12px; padding: 16px; display: flex; align-items: center; gap: 14px;
+    }
+    .ref-reward-icon { font-size: 28px; }
+    .ref-reward-text { font-size: 13px; color: var(--subtle); }
+    .ref-reward-val { font-size: 20px; font-weight: 800; color: var(--brand-light); }
+    .ref-points { list-style: none; display: flex; flex-direction: column; gap: 14px; margin: 28px 0; }
+    .ref-point { display: flex; align-items: flex-start; gap: 12px; }
+    .ref-point-num {
+      width: 24px; height: 24px; border-radius: 50%; background: var(--brand);
+      font-size: 12px; font-weight: 700; display: flex; align-items: center;
+      justify-content: center; flex-shrink: 0; margin-top: 1px;
+    }
+    .ref-point-text { font-size: 15px; color: var(--subtle); line-height: 1.6; }
+    .ref-point-text strong { color: var(--white); }
+
+    /* ── SECURITY ─────────────────────────────────── */
+    .security-section { background: linear-gradient(180deg, transparent, rgba(16,185,129,0.03), transparent); }
+    .sec-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .sec-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 24px; text-align: center;
+      transition: all 0.2s;
+    }
+    .sec-card:hover { border-color: rgba(16,185,129,0.3); }
+    .sec-icon { font-size: 36px; margin-bottom: 14px; }
+    .sec-title { font-size: 14px; font-weight: 700; margin-bottom: 8px; }
+    .sec-desc { font-size: 13px; color: var(--subtle); line-height: 1.65; }
+
+    /* ── TESTIMONIALS ─────────────────────────────── */
+    .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .testi-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 28px;
+    }
+    .testi-stars { color: var(--gold); font-size: 14px; margin-bottom: 14px; letter-spacing: 2px; }
+    .testi-text { font-size: 15px; color: rgba(255,255,255,0.85); line-height: 1.7; margin-bottom: 20px; font-style: italic; }
+    .testi-author { display: flex; align-items: center; gap: 12px; }
+    .testi-avatar {
+      width: 40px; height: 40px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; font-weight: 700; flex-shrink: 0;
+    }
+    .testi-name { font-size: 14px; font-weight: 600; }
+    .testi-role { font-size: 12px; color: var(--subtle); }
+
+    /* ── CTA SECTION ──────────────────────────────── */
+    .cta-section {
+      padding: 100px 0;
+      background: linear-gradient(135deg, rgba(79,70,229,0.12), rgba(124,58,237,0.06));
+      border-top: 1px solid rgba(79,70,229,0.15);
+      border-bottom: 1px solid rgba(79,70,229,0.15);
+    }
+    .cta-inner { text-align: center; max-width: 640px; margin: 0 auto; }
+    .cta-inner .section-title { font-size: clamp(32px, 5vw, 52px); }
+    .cta-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 36px; }
+
+    /* ── FOOTER ───────────────────────────────────── */
+    footer {
+      padding: 60px 0 40px;
+      border-top: 1px solid var(--border);
+    }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+    .footer-brand { }
+    .footer-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+    .footer-logo img { width: 32px; height: 32px; border-radius: 8px; }
+    .footer-logo span { font-size: 17px; font-weight: 700; }
+    .footer-desc { font-size: 14px; color: var(--subtle); line-height: 1.7; max-width: 280px; margin-bottom: 24px; }
+    .footer-socials { display: flex; gap: 12px; }
+    .footer-social {
+      width: 36px; height: 36px; border-radius: 10px;
+      background: var(--surface); border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; text-decoration: none; transition: all 0.2s; color: var(--subtle);
+    }
+    .footer-social:hover { border-color: var(--brand-light); color: var(--brand-light); }
+    .footer-col h4 { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--subtle); margin-bottom: 16px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col a { font-size: 14px; color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--white); }
+    .footer-bottom {
+      padding-top: 32px; border-top: 1px solid var(--border);
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 13px; color: var(--subtle);
+    }
+    .footer-bottom a { color: var(--subtle); text-decoration: none; }
+    .footer-bottom a:hover { color: var(--white); }
+
+    /* ── SCROLL ANIMATIONS ────────────────────────── */
+    .reveal {
+      opacity: 0; transform: translateY(32px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+
+    /* ── MOBILE ────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      .feat-grid { grid-template-columns: repeat(2, 1fr); }
+      .feat-card.featured { grid-column: span 2; }
+      .sec-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 900px) {
+      .tiers-grid { grid-template-columns: 1fr; max-width: 440px; margin: 0 auto; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+      .merc-split { grid-template-columns: 1fr; gap: 40px; }
+      .ref-content { grid-template-columns: 1fr; gap: 48px; }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-cta .btn-ghost { display: none; }
+      .nav-hamburger { display: flex; }
+      .hero-content { grid-template-columns: 1fr; gap: 48px; }
+      .hero-visual { display: none; }
+      .hero-stats { gap: 20px; }
+      .feat-grid { grid-template-columns: 1fr; }
+      .feat-card.featured { grid-column: span 1; }
+      .hiw-content.active { grid-template-columns: 1fr; }
+      .testi-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+      .cta-actions { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ NAV ══════════════════════════════════════════ -->
+<nav id="nav">
+  <div class="container nav-inner">
+    <a href="/" class="nav-logo">
+      <img src="assets/logo-icon.png" alt="Zeno" />
+      <span>Experience Zeno</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#customers">For Customers</a></li>
+      <li><a href="#merchants">For Merchants</a></li>
+      <li><a href="#tiers">Loyalty Tiers</a></li>
+      <li><a href="#referral">Referrals</a></li>
+      <li><a href="#security">Security</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="mailto:tech@expzeno.com" class="btn btn-ghost">Contact Us</a>
+      <a href="https://zeno.labzeno.com" class="btn btn-primary">Launch App ↗</a>
+    </div>
+    <div class="nav-hamburger" id="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+  <!-- Mobile menu -->
+  <div id="mobile-menu" style="display:none; padding: 16px 24px; border-top: 1px solid var(--border);">
+    <div style="display:flex;flex-direction:column;gap:16px;">
+      <a href="#customers" style="color:var(--subtle);text-decoration:none;font-size:15px;" onclick="toggleMenu()">For Customers</a>
+      <a href="#merchants" style="color:var(--subtle);text-decoration:none;font-size:15px;" onclick="toggleMenu()">For Merchants</a>
+      <a href="#tiers" style="color:var(--subtle);text-decoration:none;font-size:15px;" onclick="toggleMenu()">Loyalty Tiers</a>
+      <a href="#referral" style="color:var(--subtle);text-decoration:none;font-size:15px;" onclick="toggleMenu()">Referrals</a>
+      <a href="https://zeno.labzeno.com" class="btn btn-primary" style="text-align:center;margin-top:8px;">Launch App ↗</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ══ HERO ══════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-bg">
+    <div class="hero-orb hero-orb-1"></div>
+    <div class="hero-orb hero-orb-2"></div>
+    <div class="hero-orb hero-orb-3"></div>
+  </div>
+  <div class="container">
+    <div class="hero-content">
+      <div>
+        <div class="hero-eyebrow">
+          <span class="dot"></span>
+          <span>Now Live — Multi-Merchant Loyalty Platform</span>
+        </div>
+        <h1 class="hero-title">
+          Loyalty that<br/>
+          <span class="line-accent">grows with</span><br/>
+          every topup
+        </h1>
+        <p class="hero-sub">
+          Zeno turns everyday wallet top-ups into EXP points, tier upgrades, and referral rewards — across every merchant your customers love.
+        </p>
+        <div class="hero-actions">
+          <a href="#customers" class="btn btn-primary btn-lg">I'm a Customer ✦</a>
+          <a href="#merchants" class="btn btn-gold btn-lg">I'm a Merchant →</a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="hero-stat-num">3</div>
+            <div class="hero-stat-lbl">Loyalty Tiers</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">SHA-256</div>
+            <div class="hero-stat-lbl">Immutable Ledger</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">100%</div>
+            <div class="hero-stat-lbl">Double-Entry Verified</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <!-- Phone mockup -->
+        <div class="phone-frame">
+          <div class="phone-notch"></div>
+          <div class="phone-screen">
+            <div class="phone-header">
+              <div>
+                <div class="phone-greeting">Good morning 👋</div>
+                <div class="phone-name">Alex Chen</div>
+              </div>
+              <div class="phone-avatar">A</div>
+            </div>
+            <div class="phone-balance-card">
+              <div class="phone-bal-lbl">Overall Balance</div>
+              <div class="phone-bal-num">$284.50</div>
+              <div class="phone-bal-row">
+                <span>Bonus: $32.00</span>
+                <span>3 Wallets</span>
+              </div>
+            </div>
+            <div class="phone-exp-card">
+              <div class="phone-exp-icon">⭐</div>
+              <div>
+                <div class="phone-exp-lbl">EXP Points</div>
+                <div class="phone-exp-val">2,840 EXP</div>
+                <span class="phone-tier">🚀 Voyager</span>
+              </div>
+            </div>
+            <div class="phone-merchants">
+              <div class="phone-merchants-lbl">MY WALLETS</div>
+              <div class="phone-merc-row">
+                <div class="phone-merc-chip"><span>☕</span>ABC Café</div>
+                <div class="phone-merc-chip"><span>🍽️</span>D'Banquet</div>
+                <div class="phone-merc-chip"><span>+2</span>More</div>
+              </div>
+            </div>
+            <div class="phone-scan-btn">
+              <span>▣</span> Scan to Pay
+            </div>
+          </div>
+        </div>
+        <!-- Floating chips -->
+        <div class="float-chip float-chip-1">
+          <span class="chip-dot chip-dot-green"></span>
+          <span>+12 EXP earned</span>
+        </div>
+        <div class="float-chip float-chip-2">
+          <span class="chip-dot chip-dot-gold"></span>
+          <span>🎉 First topup bonus</span>
+        </div>
+        <div class="float-chip float-chip-3">
+          <span class="chip-dot chip-dot-brand"></span>
+          <span>Referral reward ↑</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TRUST ══════════════════════════════════════════ -->
+<div class="trust-section">
+  <div class="container">
+    <p class="trust-label">Trusted by forward-thinking businesses</p>
+    <div class="trust-logos">
+      <span class="trust-logo">F&amp;B</span>
+      <span class="trust-logo">CAFÉ</span>
+      <span class="trust-logo">RETAIL</span>
+      <span class="trust-logo">DINING</span>
+      <span class="trust-logo">SPA &amp; WELLNESS</span>
+      <span class="trust-logo">EVENTS</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══ HOW IT WORKS ══════════════════════════════════ -->
+<section class="section hiw-section" id="how-it-works">
+  <div class="container">
+    <div class="section-header center reveal">
+      <div class="section-label"><span class="badge">HOW IT WORKS</span></div>
+      <h2 class="section-title">Simple steps, <span class="text-brand">powerful results</span></h2>
+      <p class="section-sub">Whether you're a customer earning rewards or a merchant driving loyalty — Zeno gets you there in minutes.</p>
+    </div>
+
+    <div style="text-align:center;">
+      <div class="hiw-tabs">
+        <button class="hiw-tab active" onclick="switchTab('customer')">For Customers</button>
+        <button class="hiw-tab" onclick="switchTab('merchant')">For Merchants</button>
+      </div>
+    </div>
+
+    <div class="hiw-content active" id="tab-customer">
+      <div class="hiw-step reveal">
+        <div class="hiw-step-num">1</div>
+        <div class="hiw-icon">📱</div>
+        <h3>Download &amp; Sign Up</h3>
+        <p>Create your Zeno account in seconds using email, Google, or Apple Sign-In. Your loyalty journey starts immediately.</p>
+      </div>
+      <div class="hiw-step reveal reveal-delay-1">
+        <div class="hiw-step-num">2</div>
+        <div class="hiw-icon">💳</div>
+        <h3>Top Up at Merchants</h3>
+        <p>Scan a QR or tap to top up your wallet at any participating merchant. Earn EXP points on every dollar — from your very first topup.</p>
+      </div>
+      <div class="hiw-step reveal reveal-delay-2">
+        <div class="hiw-step-num">3</div>
+        <div class="hiw-icon">🌟</div>
+        <h3>Earn, Level Up &amp; Refer</h3>
+        <p>Climb from Explorer to Zenith, unlock higher referral rates, and earn bonus EXP whenever friends you invited top up too.</p>
+      </div>
+    </div>
+
+    <div class="hiw-content" id="tab-merchant">
+      <div class="hiw-step reveal">
+        <div class="hiw-step-num">1</div>
+        <div class="hiw-icon">🏪</div>
+        <h3>Set Up Your Wallet</h3>
+        <p>Configure your merchant wallet in minutes — set your topup campaigns, welcome gift bonuses, and reservation deposit rules.</p>
+      </div>
+      <div class="hiw-step reveal reveal-delay-1">
+        <div class="hiw-step-num">2</div>
+        <div class="hiw-icon">📢</div>
+        <h3>Publish &amp; Promote</h3>
+        <p>Go live on the Zeno platform. Send push notifications, run limited-time campaigns, and watch customers join your loyalty programme.</p>
+      </div>
+      <div class="hiw-step reveal reveal-delay-2">
+        <div class="hiw-step-num">3</div>
+        <div class="hiw-icon">📈</div>
+        <h3>Grow &amp; Withdraw</h3>
+        <p>Monitor spending analytics, manage withdrawals with full AML compliance review, and build a customer base that keeps coming back.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CUSTOMER FEATURES ══════════════════════════════ -->
+<section class="section" id="customers">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label"><span class="badge">FOR CUSTOMERS</span></div>
+      <h2 class="section-title">Every topup, <span class="text-gold">rewarded</span></h2>
+      <p class="section-sub">Zeno makes your everyday spending work harder. Earn EXP, unlock tiers, and grow your rewards across all your favourite merchants.</p>
+    </div>
+
+    <div class="feat-grid">
+      <div class="feat-card featured reveal">
+        <span class="feat-icon">⭐</span>
+        <div class="feat-title">EXP Loyalty Points — Earn on Every Topup</div>
+        <p class="feat-desc">
+          Earn EXP points automatically on every wallet top-up — with a boosted welcome rate on your first topup at each merchant.
+          As your EXP grows, you climb tiers that unlock even bigger referral bonuses and exclusive perks.
+        </p>
+        <span class="feat-tag">First Topup Bonus Included</span>
+      </div>
+
+      <div class="feat-card featured-gold reveal reveal-delay-1">
+        <span class="feat-icon">🎁</span>
+        <div class="feat-title">Welcome Bonus Credit</div>
+        <p class="feat-desc">Get extra bonus credits added to your wallet the moment you first top up at a merchant. Each merchant can configure their own welcome gift percentage and cap.</p>
+        <span class="feat-tag gold">Per-Merchant Welcome Gift</span>
+      </div>
+
+      <div class="feat-card reveal">
+        <span class="feat-icon">🔗</span>
+        <div class="feat-title">Multi-Merchant Wallet</div>
+        <p class="feat-desc">One app, many merchants. Each merchant gets its own wallet with its own balance, bonus credits, and transaction history — all in one place.</p>
+      </div>
+
+      <div class="feat-card reveal reveal-delay-1">
+        <span class="feat-icon">▣</span>
+        <div class="feat-title">Scan-to-Pay QR</div>
+        <p class="feat-desc">Pay instantly at any merchant counter with a unique QR code generated from your wallet. Fast, contactless, and secure.</p>
+      </div>
+
+      <div class="feat-card reveal reveal-delay-2">
+        <span class="feat-icon">🍽️</span>
+        <div class="feat-title">Table Reservations</div>
+        <p class="feat-desc">Reserve a table and secure your spot with a preauth deposit charged directly from your wallet. Cancel or modify without the usual hassle.</p>
+      </div>
+
+      <div class="feat-card reveal">
+        <span class="feat-icon">🔒</span>
+        <div class="feat-title">Wallet Lock &amp; Biometric Auth</div>
+        <p class="feat-desc">Lock your wallet instantly to block new payments while keeping topups active. Re-unlock with Face ID, Touch ID, or PIN — your call.</p>
+      </div>
+
+      <div class="feat-card reveal reveal-delay-1">
+        <span class="feat-icon">📊</span>
+        <div class="feat-title">Full Transaction History</div>
+        <p class="feat-desc">Every topup, payment, bonus credit, and EXP award is logged with a tamper-evident hash chain. Filter by type or date range at a glance.</p>
+      </div>
+
+      <div class="feat-card reveal reveal-delay-2">
+        <span class="feat-icon">🔔</span>
+        <div class="feat-title">Real-time Push Notifications</div>
+        <p class="feat-desc">Get notified the moment a topup lands, a reward is credited, or a merchant runs a flash campaign — so you never miss a deal.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ MERCHANT FEATURES ══════════════════════════════ -->
+<section class="section merc-section" id="merchants">
+  <div class="container">
+    <div class="merc-split">
+      <div>
+        <div class="section-label reveal"><span class="badge" style="background:rgba(245,158,11,0.1);border-color:rgba(245,158,11,0.3);color:var(--gold);">FOR MERCHANTS</span></div>
+        <h2 class="section-title reveal">Your complete <span class="text-gold">loyalty engine</span></h2>
+        <p class="section-sub reveal">From campaign management to withdrawal processing — everything you need to build a loyal customer base and grow revenue.</p>
+
+        <div class="merc-list" style="margin-top:40px;">
+          <div class="merc-item reveal">
+            <div class="merc-item-icon">🎯</div>
+            <div>
+              <h4>Topup Campaign Builder</h4>
+              <p>Set custom topup bonuses — e.g. "Top up $50, get $10 bonus" — and run time-limited campaigns to drive customer deposits.</p>
+            </div>
+          </div>
+          <div class="merc-item reveal reveal-delay-1">
+            <div class="merc-item-icon">🎁</div>
+            <div>
+              <h4>Welcome Gift &amp; First Topup Match</h4>
+              <p>Automatically credit new customers with a welcome bonus on their first topup. Configure the percentage and cap to suit your margin.</p>
+            </div>
+          </div>
+          <div class="merc-item reveal reveal-delay-2">
+            <div class="merc-item-icon">🪑</div>
+            <div>
+              <h4>Reservation &amp; Preauth System</h4>
+              <p>Accept table reservations with smart preauth deposits. Hold, release, or charge the deposit at point of service — no payment terminal needed.</p>
+            </div>
+          </div>
+          <div class="merc-item reveal">
+            <div class="merc-item-icon">💸</div>
+            <div>
+              <h4>Withdrawal Management</h4>
+              <p>Request payouts directly from your wallet balance. Full AML review, proof-of-bank upload, and status tracking built in.</p>
+            </div>
+          </div>
+          <div class="merc-item reveal reveal-delay-1">
+            <div class="merc-item-icon">📣</div>
+            <div>
+              <h4>Bulk Push Notifications</h4>
+              <p>Reach all your wallet customers with a single broadcast — flash sales, event reminders, or seasonal campaigns — directly on their phones.</p>
+            </div>
+          </div>
+          <div class="merc-item reveal reveal-delay-2">
+            <div class="merc-item-icon">📋</div>
+            <div>
+              <h4>Transaction Analytics</h4>
+              <p>Track every topup, charge, and bonus grant. Full transaction history with reconciliation reports and P&amp;L breakdowns.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal" style="transition-delay:0.2s;">
+        <div class="dash-mockup">
+          <div class="dash-header">
+            <div class="dash-title">Merchant Dashboard</div>
+            <div class="dash-badge">● Live</div>
+          </div>
+          <div class="dash-stats">
+            <div class="dash-stat-card">
+              <div class="dash-stat-lbl">Total Topups</div>
+              <div class="dash-stat-val gold">$12,480</div>
+            </div>
+            <div class="dash-stat-card">
+              <div class="dash-stat-lbl">Active Wallets</div>
+              <div class="dash-stat-val brand">248</div>
+            </div>
+          </div>
+          <div>
+            <div class="dash-bar-lbl">Monthly Topup Volume</div>
+            <div class="dash-bar-track"><div class="dash-bar-fill gold" style="width:72%"></div></div>
+            <div class="dash-bar-lbl">Customer Retention Rate</div>
+            <div class="dash-bar-track"><div class="dash-bar-fill" style="width:86%"></div></div>
+            <div class="dash-bar-lbl">Bonus Utilisation</div>
+            <div class="dash-bar-track"><div class="dash-bar-fill gold" style="width:58%"></div></div>
+          </div>
+          <div class="dash-campaign">
+            <div class="dash-camp-lbl">🎯 Active Campaign</div>
+            <div class="dash-camp-text">Weekend Special: Top up $30 → get $8 bonus credit<br/><span style="color:var(--gold);font-weight:600;">47 customers activated</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ LOYALTY TIERS ══════════════════════════════════ -->
+<section class="section tiers-section" id="tiers">
+  <div class="container">
+    <div class="section-header center reveal">
+      <div class="section-label"><span class="badge" style="background:rgba(245,158,11,0.1);border-color:rgba(245,158,11,0.3);color:var(--gold);">LOYALTY TIERS</span></div>
+      <h2 class="section-title">Earn more as you <span class="text-gold">level up</span></h2>
+      <p class="section-sub">Every EXP point you earn moves you closer to Zenith — and bigger referral bonuses along the way.</p>
+    </div>
+
+    <div class="tiers-grid">
+      <div class="tier-card explorer reveal">
+        <div class="tier-glow"></div>
+        <span class="tier-badge explorer">🧭 Explorer</span>
+        <div class="tier-icon">🧭</div>
+        <div class="tier-name">Explorer</div>
+        <div class="tier-threshold">Starting tier — 0 EXP</div>
+        <ul class="tier-benefits">
+          <li class="tier-benefit"><span class="tier-benefit-check">✓</span> Earn EXP on every topup</li>
+          <li class="tier-benefit"><span class="tier-benefit-check">✓</span> Welcome bonus credits at each merchant</li>
+          <li class="tier-benefit"><span class="tier-benefit-check">✓</span> Referral rewards on friend top-ups</li>
+          <li class="tier-benefit"><span class="tier-benefit-check">✓</span> Full transaction history</li>
+          <li class="tier-benefit"><span class="tier-benefit-check">✓</span> Multi-merchant wallet access</li>
+        </ul>
+      </div>
+
+      <div class="tier-card voyager reveal reveal-delay-1">
+        <div class="tier-glow"></div>
+        <span class="tier-badge voyager">🚀 Voyager</span>
+        <div class="tier-icon">🚀</div>
+        <div class="tier-name">Voyager</div>
+        <div class="tier-threshold">Unlock at 2,000 EXP</div>
+        <ul class="tier-benefits">
+          <li class="tier-benefit"><span class="tier-benefit-check">✓</span> Everything in Explorer</li>
+          <li class="tier-benefit"><span class="tier-benefit-check">✓</span> <strong>Higher referral earning rate</strong></li>
+          <li class="tier-benefit"><span class="tier-benefit-check">✓</span> Priority support access</li>
+          <li class="tier-benefit"><span class="tier-benefit-check">✓</span> Exclusive Voyager badge</li>
+          <li class="tier-benefit"><span class="tier-benefit-check">✓</span> Expanded referral capacity</li>
+        </ul>
+      </div>
+
+      <div class="tier-card zenith reveal reveal-delay-2">
+        <div class="tier-glow"></div>
+        <span class="tier-badge zenith">⭐ Zenith</span>
+        <div class="tier-icon">⭐</div>
+        <div class="tier-name">Zenith</div>
+        <div class="tier-threshold">Unlock at 8,000 EXP</div>
+        <ul class="tier-benefits">
+          <li class="tier-benefit"><span class="tier-benefit-check">✓</span> Everything in Voyager</li>
+          <li class="tier-benefit"><span class="tier-benefit-check">✓</span> <strong>Maximum referral earning rate</strong></li>
+          <li class="tier-benefit"><span class="tier-benefit-check">✓</span> Zenith exclusive status badge</li>
+          <li class="tier-benefit"><span class="tier-benefit-check">✓</span> Highest referral capacity multiplier</li>
+          <li class="tier-benefit"><span class="tier-benefit-check">✓</span> First access to new features</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ REFERRAL ════════════════════════════════════════ -->
+<section class="section" id="referral">
+  <div class="container">
+    <div class="ref-content">
+      <div>
+        <div class="section-label reveal"><span class="badge">REFERRAL PROGRAMME</span></div>
+        <h2 class="section-title reveal">Invite friends.<br/><span class="text-brand">Earn together.</span></h2>
+        <p class="section-sub reveal" style="margin-bottom:0;">Share your unique referral code. When your friends top up, you both earn EXP. Higher tiers unlock even bigger referral bonuses.</p>
+
+        <ul class="ref-points">
+          <li class="ref-point reveal">
+            <span class="ref-point-num">1</span>
+            <span class="ref-point-text">Share your <strong>unique referral code</strong> — found on your profile membership card.</span>
+          </li>
+          <li class="ref-point reveal reveal-delay-1">
+            <span class="ref-point-num">2</span>
+            <span class="ref-point-text">Your friend signs up and <strong>tops up their first wallet</strong> — they earn a welcome EXP boost.</span>
+          </li>
+          <li class="ref-point reveal reveal-delay-2">
+            <span class="ref-point-num">3</span>
+            <span class="ref-point-text">From their <strong>second topup onward</strong>, you earn referral EXP every time they spend — automatically.</span>
+          </li>
+          <li class="ref-point reveal">
+            <span class="ref-point-num">4</span>
+            <span class="ref-point-text">Referral capacity grows as <strong>you top up more</strong>. The more you use Zeno, the more you can earn from referrals.</span>
+          </li>
+        </ul>
+
+        <div class="reveal" style="margin-top:8px;">
+          <a href="https://zeno.labzeno.com" class="btn btn-primary btn-lg">Get My Referral Code →</a>
+        </div>
+      </div>
+
+      <div class="reveal reveal-delay-1">
+        <div class="ref-visual">
+          <div class="ref-flow">
+            <div class="ref-node">
+              <div class="ref-node-icon">👤</div>
+              <div>
+                <div class="ref-node-name">You (Explorer → Zenith)</div>
+                <div class="ref-node-sub">Share code ZN-XXXXXX</div>
+              </div>
+            </div>
+            <div class="ref-arrow">↓ Friend joins with your code</div>
+            <div class="ref-node">
+              <div class="ref-node-icon">🆕</div>
+              <div>
+                <div class="ref-node-name">Your Friend</div>
+                <div class="ref-node-sub">Signs up + first topup → earns Welcome EXP</div>
+              </div>
+            </div>
+            <div class="ref-arrow">↓ Subsequent topups trigger</div>
+            <div class="ref-node" style="border-color: rgba(79,70,229,0.3);">
+              <div class="ref-node-icon">💰</div>
+              <div>
+                <div class="ref-node-name">Referral Reward Fired</div>
+                <div class="ref-node-sub">Both parties earn EXP automatically</div>
+              </div>
+            </div>
+          </div>
+          <div class="ref-reward">
+            <div class="ref-reward-icon">⭐</div>
+            <div>
+              <div class="ref-reward-text">Referral EXP rate based on your tier</div>
+              <div class="ref-reward-val">Explorer → Voyager → Zenith</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SECURITY ════════════════════════════════════════ -->
+<section class="section security-section" id="security">
+  <div class="container">
+    <div class="section-header center reveal">
+      <div class="section-label"><span class="badge" style="background:rgba(16,185,129,0.1);border-color:rgba(16,185,129,0.3);color:var(--emerald);">SECURITY &amp; TRUST</span></div>
+      <h2 class="section-title">Built on an <span class="text-brand">unbreakable</span> foundation</h2>
+      <p class="section-sub">Every balance, every transaction, every loyalty point is protected by enterprise-grade financial infrastructure — not an afterthought.</p>
+    </div>
+
+    <div class="sec-grid">
+      <div class="sec-card reveal">
+        <div class="sec-icon">⛓️</div>
+        <div class="sec-title">SHA-256 Hash Chain</div>
+        <p class="sec-desc">Every transaction is chained to the previous one with a cryptographic hash — making any tampering instantly detectable.</p>
+      </div>
+      <div class="sec-card reveal reveal-delay-1">
+        <div class="sec-icon">📒</div>
+        <div class="sec-title">Double-Entry Bookkeeping</div>
+        <p class="sec-desc">Every wallet movement has a matching ledger entry. Automated reconciliation runs continuously to verify every cent balances.</p>
+      </div>
+      <div class="sec-card reveal reveal-delay-2">
+        <div class="sec-icon">🔑</div>
+        <div class="sec-title">JWT RS256 Auth</div>
+        <p class="sec-desc">2048-bit RSA key authentication with short-lived tokens, refresh rotation, and version-based revocation for stolen session protection.</p>
+      </div>
+      <div class="sec-card reveal">
+        <div class="sec-icon">🔒</div>
+        <div class="sec-title">Pessimistic Locking</div>
+        <p class="sec-desc">Concurrent wallet operations use database-level row locking to prevent race conditions — your balance is always exactly right.</p>
+      </div>
+      <div class="sec-card reveal reveal-delay-1">
+        <div class="sec-icon">🛡️</div>
+        <div class="sec-title">AML Review</div>
+        <p class="sec-desc">Large withdrawals trigger an automatic AML hold for admin review before funds are released — protecting merchants and customers.</p>
+      </div>
+      <div class="sec-card reveal reveal-delay-2">
+        <div class="sec-icon">👆</div>
+        <div class="sec-title">Biometric Authentication</div>
+        <p class="sec-desc">Face ID, Touch ID, and device PIN protect your wallet session. All payments and session restores require biometric verification.</p>
+      </div>
+      <div class="sec-card reveal">
+        <div class="sec-icon">🔐</div>
+        <div class="sec-title">Wallet Lock Mode</div>
+        <p class="sec-desc">Freeze your wallet instantly to block all new payments while keeping existing preauth reservations and topups fully active.</p>
+      </div>
+      <div class="sec-card reveal reveal-delay-1">
+        <div class="sec-icon">🏦</div>
+        <div class="sec-title">PDPA Compliant</div>
+        <p class="sec-desc">Built to Singapore's Personal Data Protection Act 2012. No payment card numbers or bank data stored — only what's needed to run the platform.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TESTIMONIALS ════════════════════════════════════ -->
+<section class="section" id="testimonials">
+  <div class="container">
+    <div class="section-header center reveal">
+      <div class="section-label"><span class="badge">WHAT PEOPLE SAY</span></div>
+      <h2 class="section-title">Loved by merchants <span class="text-brand">&amp; customers</span></h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card reveal">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"Our repeat customer rate jumped after launching Zeno. The topup bonus campaigns basically run themselves and customers top up more frequently just to earn the EXP."</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background: linear-gradient(135deg, #4f46e5, #7c3aed);">S</div>
+          <div>
+            <div class="testi-name">Sarah L.</div>
+            <div class="testi-role">F&amp;B Merchant Owner</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal reveal-delay-1">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"I'm at Voyager tier now and the referral rewards are genuinely meaningful. I've referred 4 friends and I earn a little every time they top up. It just works."</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background: linear-gradient(135deg, #f59e0b, #d97706);">M</div>
+          <div>
+            <div class="testi-name">Marcus T.</div>
+            <div class="testi-role">Voyager Member</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal reveal-delay-2">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"The reservation preauth feature alone was worth switching to Zeno. No more no-shows — the deposit hold is automatic and my team doesn't have to chase anyone."</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background: linear-gradient(135deg, #10b981, #059669);">D</div>
+          <div>
+            <div class="testi-name">Diana W.</div>
+            <div class="testi-role">Restaurant Manager</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CTA ═════════════════════════════════════════════ -->
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-inner reveal">
+      <div class="section-label" style="justify-content:center;display:flex;margin-bottom:16px;"><span class="badge">GET STARTED</span></div>
+      <h2 class="section-title">Ready to build loyalty<br/>that <span class="line-accent">actually works?</span></h2>
+      <p class="section-sub" style="margin:20px auto 0;">Join the platform where every top-up earns EXP, every referral pays off, and every transaction is cryptographically verified.</p>
+      <div class="cta-actions">
+        <a href="https://zeno.labzeno.com" class="btn btn-primary btn-xl">Start Earning EXP →</a>
+        <a href="mailto:tech@expzeno.com" class="btn btn-ghost btn-xl">Talk to Sales</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══════════════════════════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="assets/logo-icon.png" alt="Zeno" />
+          <span>Experience Zeno</span>
+        </div>
+        <p class="footer-desc">A world-class multi-merchant e-wallet loyalty platform. Earn EXP, level up your tier, and grow your business — all in one app.</p>
+        <div class="footer-socials">
+          <a href="mailto:tech@expzeno.com" class="footer-social" title="Email">✉</a>
+          <a href="https://expzeno.com" class="footer-social" title="Website">🌐</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Platform</h4>
+        <ul>
+          <li><a href="#customers">For Customers</a></li>
+          <li><a href="#merchants">For Merchants</a></li>
+          <li><a href="#tiers">Loyalty Tiers</a></li>
+          <li><a href="#referral">Referral Programme</a></li>
+          <li><a href="#security">Security</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>App</h4>
+        <ul>
+          <li><a href="https://zeno.labzeno.com">Open Web App</a></li>
+          <li><a href="#how-it-works">How It Works</a></li>
+          <li><a href="mailto:tech@expzeno.com">Contact Support</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="eula.html">EULA</a></li>
+          <li><a href="mailto:server@expzeno.com">Data Protection Officer</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Experience Zeno Pte Ltd. All rights reserved.</span>
+      <div style="display:flex;gap:20px;">
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="eula.html">EULA</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Tab switching
+  function switchTab(type) {
+    document.querySelectorAll('.hiw-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.hiw-content').forEach(c => c.classList.remove('active'));
+    event.target.classList.add('active');
+    document.getElementById('tab-' + type).classList.add('active');
+  }
+
+  // Mobile menu
+  function toggleMenu() {
+    const m = document.getElementById('mobile-menu');
+    m.style.display = m.style.display === 'none' ? 'block' : 'none';
+  }
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Nav scroll effect
+  window.addEventListener('scroll', () => {
+    const nav = document.getElementById('nav');
+    if (window.scrollY > 60) {
+      nav.style.background = 'rgba(10,10,20,0.95)';
+    } else {
+      nav.style.background = 'rgba(10,10,20,0.7)';
+    }
+  });
+</script>
+</body>
+</html>
