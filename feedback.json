@@ -1,1 +1,32 @@
-[]
+[
+  {
+    "id": 1,
+    "category": "Bug",
+    "message": "Mobile view Ui bug right scroll?",
+    "pageUrl": "https://siteez.labzeno.com/",
+    "createdAt": "2026-05-03T17:37:20.111Z",
+    "status": "resolved",
+    "screenshot": "feedback-1-1777829840516.png",
+    "resolution": "Fixed horizontal scroll on mobile. Partner cards and dual-CTA section were overflowing the viewport due to a CSS cascade issue. Now correctly single-column on mobile with no horizontal overflow."
+  },
+  {
+    "id": 2,
+    "category": "UI Issue",
+    "message": "Weird right space?",
+    "pageUrl": "https://siteez.labzeno.com/",
+    "createdAt": "2026-05-03T17:38:07.638Z",
+    "status": "resolved",
+    "screenshot": "feedback-2-1777829887643.png",
+    "resolution": "Fixed. The extra right space was caused by layout elements overflowing the viewport width. Resolved by correcting the mobile CSS so all sections stay within the screen width."
+  },
+  {
+    "id": 3,
+    "category": "UI Issue",
+    "message": "Ugly",
+    "pageUrl": "https://siteez.labzeno.com/",
+    "createdAt": "2026-05-03T17:41:19.568Z",
+    "status": "resolved",
+    "screenshot": "feedback-3-1777830079942.png",
+    "resolution": "Fixed. The For Customers / For Merchants cards were squished into 2 columns on mobile, distorting the buttons. Now correctly stacked single-column with proper pill-shaped buttons."
+  }
+]
