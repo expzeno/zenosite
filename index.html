@@ -251,6 +251,11 @@
       margin-top: 14px; background: var(--brand); border-radius: 12px;
       padding: 12px; text-align: center; font-size: 12px; font-weight: 700;
       display: flex; align-items: center; justify-content: center; gap: 6px;
+      animation: scan-pulse 2.5s ease-in-out infinite;
+    }
+    @keyframes scan-pulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(79,70,229,0.3); }
+      50% { box-shadow: 0 0 0 8px rgba(79,70,229,0); }
     }
     /* Floating chips around phone */
     .float-chip {
@@ -322,7 +327,7 @@
       opacity: 0; transition: opacity 0.3s;
       background: linear-gradient(135deg, rgba(79,70,229,0.08), transparent);
     }
-    .feat-card:hover { border-color: rgba(79,70,229,0.4); transform: translateY(-4px); }
+    .feat-card:hover { border-color: rgba(79,70,229,0.5); transform: translateY(-6px); box-shadow: 0 12px 40px rgba(79,70,229,0.15); }
     .feat-card:hover::before { opacity: 1; }
     .feat-card.featured {
       background: linear-gradient(135deg, rgba(79,70,229,0.12), rgba(124,58,237,0.08));
@@ -402,7 +407,10 @@
     .tier-card.zenith {
       background: linear-gradient(145deg, rgba(245,158,11,0.14), rgba(217,119,6,0.07));
       border-color: rgba(245,158,11,0.5);
-      box-shadow: 0 0 40px rgba(245,158,11,0.1);
+      box-shadow: 0 0 60px rgba(245,158,11,0.12), 0 20px 40px rgba(0,0,0,0.3);
+    }
+    .tier-card.zenith:hover {
+      box-shadow: 0 0 80px rgba(245,158,11,0.2), 0 24px 48px rgba(0,0,0,0.3);
     }
     .tier-badge {
       display: inline-flex; align-items: center; gap: 6px;
@@ -1149,6 +1157,7 @@
 
       <div class="tier-card voyager reveal reveal-delay-1">
         <div class="tier-glow"></div>
+        <div style="position:absolute;top:16px;right:16px;background:rgba(139,92,246,0.25);color:#a78bfa;font-size:10px;font-weight:700;padding:4px 10px;border-radius:100px;letter-spacing:0.05em;">POPULAR</div>
         <span class="tier-badge voyager">🚀 Voyager</span>
         <div class="tier-icon">🚀</div>
         <div class="tier-name">Voyager</div>
@@ -1353,6 +1362,7 @@
 <!-- ══ FOR BUSINESSES ══════════════════════════════════ -->
 <section class="section" style="padding-top:60px;padding-bottom:60px;">
   <div class="container">
+    <div style="border:1px solid rgba(245,158,11,0.3);background:linear-gradient(135deg,rgba(245,158,11,0.05),rgba(217,119,6,0.02));border-radius:24px;padding:48px;max-width:800px;margin:0 auto;">
     <div class="section-header center reveal">
       <div class="section-label"><span class="badge">FOR BUSINESSES</span></div>
       <h2 class="section-title" style="margin-top:12px;">Running a business?</h2>
@@ -1374,6 +1384,7 @@
         <p class="feat-desc">Already running a POS, booking, or ordering system? Connect Zeno's API to your existing flow — your customers earn loyalty without switching apps.</p>
         <span class="feat-tag" style="margin-top:12px;background:rgba(16,185,129,0.1);border-color:rgba(16,185,129,0.3);color:#10b981;">Learn more →</span>
       </a>
+    </div>
     </div>
   </div>
 </section>
