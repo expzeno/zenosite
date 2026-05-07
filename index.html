@@ -199,6 +199,15 @@
     .hero-visual {
       display: flex; justify-content: center; align-items: center; position: relative;
     }
+    .hero-visual::before {
+      content: '';
+      position: absolute;
+      width: 380px; height: 380px;
+      background: radial-gradient(circle, rgba(79,70,229,0.25), transparent 70%);
+      border-radius: 50%;
+      filter: blur(40px);
+      z-index: 0;
+    }
     .phone-frame {
       width: 320px; height: 600px;
       background: linear-gradient(145deg, #1e1b4b, #0f0c24);
@@ -946,7 +955,7 @@
 <!-- ══ TRUST ══════════════════════════════════════════ -->
 <div class="trust-section">
   <div class="container">
-    <p class="trust-label">For any business where repeat customers are the game</p>
+    <p class="trust-label">Built for businesses that thrive on repeat customers</p>
   </div>
   <div class="trust-marquee-outer" style="padding: 8px 0;">
     <div class="trust-marquee-track">
@@ -1177,7 +1186,7 @@
       <div>
         <div class="section-label reveal"><span class="badge">REFERRAL PROGRAMME</span></div>
         <h2 class="section-title reveal">Invite friends.<br/><span class="text-brand">Earn together.</span></h2>
-        <p class="section-sub reveal" style="margin-bottom:0;">Share your unique referral code. When your friends top up, you both earn EXP. Higher tiers unlock even bigger referral bonuses.</p>
+        <p class="section-sub reveal" style="margin-bottom:0;">Share your referral link. When friends top up, you both earn bonus EXP. Your rate grows as you climb tiers.</p>
 
         <ul class="ref-points">
           <li class="ref-point reveal">
@@ -1248,8 +1257,8 @@
   <div class="container">
     <div class="section-header center reveal">
       <div class="section-label"><span class="badge" style="background:rgba(16,185,129,0.1);border-color:rgba(16,185,129,0.3);color:var(--emerald);">SECURITY &amp; TRUST</span></div>
-      <h2 class="section-title">Built on an <span class="text-brand">unbreakable</span> foundation</h2>
-      <p class="section-sub">Every balance, every transaction, every loyalty point is protected by enterprise-grade financial infrastructure — not an afterthought.</p>
+      <h2 class="section-title">Your money is <span class="text-brand">protected</span></h2>
+      <p class="section-sub">Bank-grade security at every layer — from encrypted transactions to biometric authentication.</p>
     </div>
 
     <div class="sec-grid">
@@ -1378,6 +1387,7 @@
       <p class="section-sub" style="margin:20px auto 0;">Download Experience Zeno, top up at your favourite merchant, and walk away with more than you put in — every single time.</p>
       <div class="cta-actions">
         <a href="https://zeno.labzeno.com" class="btn btn-primary btn-xl">Get Started — It's Free →</a>
+        <a href="merchant.html" class="btn btn-ghost btn-xl">Learn More for Merchants →</a>
       </div>
       <p style="margin-top:20px;font-size:13px;color:var(--text-muted);">A business owner? <a href="merchant.html" style="color:var(--brand-light);text-decoration:none;">See what Zeno can do for your business →</a></p>
     </div>
