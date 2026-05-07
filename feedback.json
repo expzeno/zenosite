@@ -24,9 +24,19 @@
     "category": "UI Issue",
     "message": "Ugly",
     "pageUrl": "https://siteez.labzeno.com/",
-    "createdAt": "2026-05-03T17:41:19.568Z",
+    "createdAt": "2026-05-03T17:41:19.638Z",
     "status": "resolved",
     "screenshot": "feedback-3-1777830079942.png",
     "resolution": "Fixed. The For Customers / For Merchants cards were squished into 2 columns on mobile, distorting the buttons. Now correctly stacked single-column with proper pill-shaped buttons."
+  },
+  {
+    "id": 4,
+    "category": "Bug",
+    "message": "Make sure all are mobile friendly. U see the header is too cramp",
+    "pageUrl": "https://siteez.labzeno.com/",
+    "createdAt": "2026-05-07T10:26:01.147Z",
+    "status": "resolved",
+    "screenshot": "feedback-4-1778149561480.png",
+    "resolution": "Fixed. On mobile, the nav bar was showing the logo, a CTA button, and the hamburger icon together, making it cramped. The CTA button is now hidden on mobile — the mobile menu (hamburger) contains all navigation options including the app link."
   }
 ]

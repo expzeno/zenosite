@@ -3,8 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Experience Zeno — World-Class Loyalty & E-Wallet Platform</title>
+  <title>Experience Zeno — Top up $50. Spend $55.</title>
   <meta name="description" content="Zeno is a multi-merchant e-wallet platform with powerful loyalty features. Earn EXP points, unlock rewards, and grow your business. Built for merchants, loved by customers." />
+  <meta property="og:title" content="Experience Zeno — Top up $50. Spend $55." />
+  <meta property="og:description" content="Multi-merchant e-wallet with instant bonus credit, EXP points, and loyalty tiers. Free to use." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://siteez.labzeno.com" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Experience Zeno — Top up $50. Spend $55." />
+  <meta name="twitter:description" content="Multi-merchant e-wallet with instant bonus credit and loyalty rewards." />
   <link rel="icon" href="assets/logo-icon.png" type="image/png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -168,6 +175,12 @@
       background-size: 60px 60px;
       mask-image: radial-gradient(ellipse 80% 80% at 50% 0%, black, transparent);
     }
+    .hero::after {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+      height: 120px;
+      background: linear-gradient(transparent, #0a0a14);
+      z-index: 1; pointer-events: none;
+    }
     .hero-content { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; padding: 60px 0; }
     .hero-eyebrow { margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
     .hero-eyebrow .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--emerald); animation: pulse-dot 2s infinite; }
@@ -175,7 +188,7 @@
     .hero-eyebrow span { font-size: 13px; color: var(--emerald); font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; }
     .hero-title {
       font-size: clamp(38px, 5.5vw, 68px);
-      font-weight: 900; line-height: 1.08;
+      font-weight: 900; line-height: 1.12;
       letter-spacing: -0.03em; margin-bottom: 24px;
     }
     .hero-title .line-accent {
@@ -212,9 +225,16 @@
       width: 320px; height: 600px;
       background: linear-gradient(145deg, #1e1b4b, #0f0c24);
       border-radius: 44px;
-      border: 1.5px solid rgba(99,102,241,0.3);
+      border: 2px solid rgba(99,102,241,0.35);
       box-shadow: 0 0 80px rgba(79,70,229,0.3), 0 40px 80px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.05);
       overflow: hidden; position: relative;
+    }
+    .phone-frame::after {
+      content: ''; position: absolute;
+      top: 0; left: 0; right: 0; height: 50%;
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), transparent);
+      pointer-events: none;
+      border-radius: 44px 44px 0 0;
     }
     .phone-notch {
       width: 120px; height: 28px; background: #0a0a14;
@@ -230,9 +250,9 @@
       border-radius: 20px; padding: 20px; margin-bottom: 16px;
       box-shadow: 0 8px 32px rgba(79,70,229,0.4);
     }
-    .phone-bal-lbl { font-size: 11px; opacity: 0.7; margin-bottom: 4px; }
+    .phone-bal-lbl { font-size: 11px; opacity: 0.8; margin-bottom: 4px; }
     .phone-bal-num { font-size: 32px; font-weight: 800; margin-bottom: 12px; }
-    .phone-bal-row { display: flex; justify-content: space-between; font-size: 11px; opacity: 0.8; }
+    .phone-bal-row { display: flex; justify-content: space-between; font-size: 11px; opacity: 0.85; }
     .phone-exp-card {
       background: rgba(245,158,11,0.1); border: 1px solid rgba(245,158,11,0.2);
       border-radius: 14px; padding: 14px; margin-bottom: 14px;
@@ -280,8 +300,6 @@
       border-top: 1px solid var(--border);
     }
     .trust-label { text-align: center; font-size: 13px; color: var(--subtle); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 32px; }
-    .trust-logos { display: flex; align-items: center; justify-content: center; gap: 48px; flex-wrap: wrap; }
-    .trust-logo { font-size: 18px; font-weight: 700; color: rgba(255,255,255,0.2); letter-spacing: -0.01em; }
 
     /* ── HOW IT WORKS ─────────────────────────────── */
     .hiw-section { background: linear-gradient(180deg, transparent, rgba(79,70,229,0.04), transparent); }
@@ -391,7 +409,7 @@
     .tiers-section { background: linear-gradient(180deg, transparent, rgba(245,158,11,0.05), transparent); }
     .tiers-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
     .tier-card {
-      border-radius: var(--radius-lg); padding: 36px 28px;
+      border-radius: var(--radius-lg); padding: 40px 32px;
       border: 1px solid var(--border); position: relative; overflow: hidden;
       transition: transform 0.3s;
     }
@@ -405,7 +423,7 @@
       border-color: rgba(139,92,246,0.4);
     }
     .tier-card.zenith {
-      background: linear-gradient(145deg, rgba(245,158,11,0.14), rgba(217,119,6,0.07));
+      background: linear-gradient(145deg, rgba(245,158,11,0.16), rgba(217,119,6,0.08));
       border-color: rgba(245,158,11,0.5);
       box-shadow: 0 0 60px rgba(245,158,11,0.12), 0 20px 40px rgba(0,0,0,0.3);
     }
@@ -504,6 +522,7 @@
       background: linear-gradient(135deg, rgba(79,70,229,0.15), rgba(124,58,237,0.08));
       border-top: 1px solid rgba(79,70,229,0.2);
       border-bottom: 1px solid rgba(79,70,229,0.2);
+      position: relative; overflow: hidden;
     }
     .cta-inner { text-align: center; max-width: 640px; margin: 0 auto; }
     .cta-inner .section-title { font-size: clamp(32px, 5vw, 52px); }
@@ -541,15 +560,11 @@
     .footer-bottom a:hover { color: var(--white); }
 
     /* ── SCROLL ANIMATIONS ────────────────────────── */
-    .reveal { }
-    .reveal.visible { animation: revealIn 0.7s ease both; }
-    @keyframes revealIn {
-      from { opacity: 0; transform: translateY(28px); }
-      to { opacity: 1; transform: none; }
-    }
-    .reveal-delay-1 { transition-delay: 0.1s; }
-    .reveal-delay-2 { transition-delay: 0.2s; }
-    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal { opacity: 1; transform: none; }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal-delay-1 { }
+    .reveal-delay-2 { }
+    .reveal-delay-3 { }
 
     /* ── GLOBAL POLISH ─────────────────────────────── */
     .btn { min-height: 44px; }
@@ -568,7 +583,7 @@
     .trust-marquee-outer::after  { right: 0; background: linear-gradient(-90deg, #0a0a14, transparent); }
     .trust-marquee-track {
       display: flex; align-items: center; gap: 56px;
-      animation: trust-scroll 28s linear infinite;
+      animation: trust-scroll 35s linear infinite;
       width: max-content;
     }
     .trust-marquee-outer:hover .trust-marquee-track { animation-play-state: paused; }
@@ -615,13 +630,14 @@
       .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
       .merc-split { grid-template-columns: 1fr; gap: 40px; }
       .ref-content { grid-template-columns: 1fr; gap: 48px; }
+      .ref-visual { order: 2; }
     }
 
     /* ── BREAKPOINT 768 ─────────────────────────────── */
     @media (max-width: 768px) {
       /* Layout */
       .nav-links { display: none; }
-      .nav-cta .btn-ghost { display: none; }
+      .nav-cta { display: none; }
       .nav-hamburger { display: flex; }
       .hero-content { grid-template-columns: 1fr; gap: 36px; }
       .hero-visual { display: none; }
@@ -637,7 +653,7 @@
       .dual-cta { grid-template-columns: 1fr; }
       .partner-grid { grid-template-columns: 1fr; }
       .tiers-grid { max-width: 100%; }
-      .sec-grid { grid-template-columns: repeat(2, 1fr); }
+      .sec-grid { grid-template-columns: 1fr; }
 
       /* Section spacing */
       .section { padding: 56px 0; }
@@ -707,7 +723,7 @@
       .hiw-step p { font-size: 13px; line-height: 1.65; }
 
       /* Feature cards */
-      .feat-card { padding: 22px; border-radius: 14px; }
+      .feat-card { padding: 24px 20px; border-radius: 14px; }
       .feat-icon { font-size: 28px; margin-bottom: 12px; }
       .feat-title { font-size: 15px; line-height: 1.4; }
       .feat-desc { font-size: 13px; line-height: 1.62; }
@@ -772,14 +788,24 @@
     /* ── BREAKPOINT 480 ─────────────────────────────── */
     @media (max-width: 480px) {
       .hero-title { font-size: 32px; }
-      .sec-grid { grid-template-columns: 1fr; }
       .hiw-tab { padding: 10px 6px; font-size: 12px; }
-      .trust-logos { gap: 10px; }
-      .trust-logo { font-size: 12px; }
+    }
+
+    /* ── BREAKPOINT 360 ─────────────────────────────── */
+    @media (max-width: 360px) {
+      .nav-logo span { font-size: 15px; }
+    }
+
+    /* ── FOR BUSINESSES CARD ─────────────────────────── */
+    .biz-section { padding-top: 60px; padding-bottom: 60px; }
+    .biz-card { border: 1px solid rgba(245,158,11,0.3); background: linear-gradient(135deg,rgba(245,158,11,0.05),rgba(217,119,6,0.02)); border-radius: 24px; padding: 48px; max-width: 800px; margin: 0 auto; }
+    @media (max-width: 768px) {
+      .biz-section { padding-top: 40px; padding-bottom: 40px; }
+      .biz-card { padding: 24px; border-radius: 18px; }
     }
 
     /* ── Get More Section ── */
-    .get-more-section { padding: 80px 0; background: linear-gradient(180deg, var(--surface) 0%, rgba(79,70,229,0.06) 100%); }
+    .get-more-section { padding: 100px 0; background: linear-gradient(180deg, var(--surface) 0%, rgba(79,70,229,0.06) 100%); }
     .get-more-header { margin-bottom: 48px; }
     .get-more-flow {
       display: flex; align-items: center; justify-content: center;
@@ -792,10 +818,10 @@
     .gmf-amt { font-size: 36px; font-weight: 900; color: #fff; margin-bottom: 6px; }
     .gmf-amt-in { color: var(--subtle); }
     .gmf-amt-out { color: #22c55e; }
-    .gmf-label { font-size: 12px; color: var(--text-muted); }
+    .gmf-label { font-size: 12px; color: var(--subtle); }
     .gmf-arrow { font-size: 36px; color: var(--gold); font-weight: 900; flex-shrink: 0; }
     .gmf-step-result { background: rgba(34,197,94,0.07); border: 1px solid rgba(34,197,94,0.2); border-radius: 14px; padding: 16px 24px; }
-    .get-more-note { text-align: center; font-size: 13px; color: var(--text-muted); margin-bottom: 48px; }
+    .get-more-note { text-align: center; font-size: 13px; color: var(--subtle); margin-bottom: 48px; }
     /* mobile-first: 1 col, expands at 769px */
     .dual-cta { display: grid; grid-template-columns: 1fr; gap: 24px; max-width: 860px; margin: 0 auto; }
     .dual-cta-box { background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 20px; padding: 24px; }
@@ -828,7 +854,7 @@
 <nav id="nav">
   <div class="container nav-inner">
     <a href="/" class="nav-logo">
-      <img src="assets/logo-icon.png" alt="Zeno" />
+      <img src="assets/logo-icon.png" alt="Experience Zeno logo" />
       <span>Experience Zeno</span>
     </a>
     <ul class="nav-links">
@@ -886,7 +912,7 @@
           <a href="https://zeno.labzeno.com" class="btn btn-primary btn-lg">Get the App — Free →</a>
           <a href="#customers" class="btn btn-ghost btn-lg">See Benefits ↓</a>
         </div>
-        <p style="margin-top:14px;font-size:13px;color:var(--text-muted);">Running a business? <a href="merchant.html" style="color:var(--brand-light);text-decoration:none;">Visit the merchant page →</a></p>
+        <p style="margin-top:14px;font-size:13px;color:var(--subtle);">Running a business? <a href="merchant.html" style="color:var(--brand-light);text-decoration:none;">Visit the merchant page →</a></p>
         <div class="hero-stats">
           <div class="hero-stat">
             <div class="hero-stat-num">10+</div>
@@ -945,17 +971,17 @@
           </div>
         </div>
         <!-- Floating chips -->
-        <div class="float-chip float-chip-1">
+        <div class="float-chip float-chip-1" aria-label="+$2.50 bonus added notification">
           <span class="chip-dot chip-dot-green"></span>
-          <span>+12 EXP earned</span>
+          <span>+$2.50 bonus added</span>
         </div>
-        <div class="float-chip float-chip-2">
+        <div class="float-chip float-chip-2" aria-label="Welcome gift: $10 credit notification">
           <span class="chip-dot chip-dot-gold"></span>
-          <span>🎁 +$10 Bonus Credit — FREE</span>
+          <span>Welcome gift: $10 credit</span>
         </div>
-        <div class="float-chip float-chip-3">
+        <div class="float-chip float-chip-3" aria-label="Leveled up to Voyager notification">
           <span class="chip-dot chip-dot-brand"></span>
-          <span>📲 Topup confirmed — +$5 bonus added</span>
+          <span>Leveled up → Voyager</span>
         </div>
       </div>
     </div>
@@ -1161,6 +1187,7 @@
         <div class="tier-icon">🚀</div>
         <div class="tier-name">Voyager</div>
         <div class="tier-threshold">Unlock with continued activity</div>
+        <div style="font-size:11px;color:var(--subtle);margin-bottom:16px;margin-top:-12px;">Keep topping up to unlock</div>
         <ul class="tier-benefits">
           <li class="tier-benefit"><span class="tier-benefit-check">✓</span> Everything in Explorer</li>
           <li class="tier-benefit"><span class="tier-benefit-check">✓</span> Higher referral EXP rate</li>
@@ -1171,10 +1198,11 @@
 
       <div class="tier-card zenith reveal reveal-delay-2">
         <div class="tier-glow"></div>
-        <span class="tier-badge zenith">⭐ Zenith</span>
-        <div class="tier-icon">⭐</div>
+        <span class="tier-badge zenith">👑 Zenith</span>
+        <div class="tier-icon">👑</div>
         <div class="tier-name">Zenith</div>
         <div class="tier-threshold">For our most loyal members</div>
+        <div style="font-size:11px;color:var(--gold);margin-bottom:16px;margin-top:-12px;">The highest tier</div>
         <ul class="tier-benefits">
           <li class="tier-benefit"><span class="tier-benefit-check">✓</span> Everything in Voyager</li>
           <li class="tier-benefit"><span class="tier-benefit-check">✓</span> Highest EXP earning rate</li>
@@ -1234,7 +1262,7 @@
             </div>
             <div class="ref-arrow">↓ Friend joins with your code</div>
             <div class="ref-node">
-              <div class="ref-node-icon">🆕</div>
+              <div class="ref-node-icon">👥</div>
               <div>
                 <div class="ref-node-name">Your Friend</div>
                 <div class="ref-node-sub">Signs up + first topup → earns Welcome EXP</div>
@@ -1272,22 +1300,22 @@
     </div>
 
     <div class="sec-grid">
-      <div class="sec-card reveal">
+      <div class="sec-card reveal" style="border-top: 2px solid var(--brand-light);">
         <div class="sec-icon">🔐</div>
         <div class="sec-title">PIN &amp; Biometric</div>
         <p class="sec-desc">Secure every payment with PIN code or fingerprint/Face ID authentication. Your wallet only responds to you.</p>
       </div>
-      <div class="sec-card reveal reveal-delay-1">
+      <div class="sec-card reveal reveal-delay-1" style="border-top: 2px solid var(--emerald);">
         <div class="sec-icon">🔒</div>
         <div class="sec-title">Wallet Lock</div>
         <p class="sec-desc">Freeze your wallet instantly. No new payments until you unlock — ideal if your phone is lost or stolen.</p>
       </div>
-      <div class="sec-card reveal reveal-delay-2">
+      <div class="sec-card reveal reveal-delay-2" style="border-top: 2px solid var(--gold);">
         <div class="sec-icon">🛡️</div>
         <div class="sec-title">Encrypted Transactions</div>
         <p class="sec-desc">Every transaction is logged with SHA-256 hash chain verification — making tampering instantly detectable.</p>
       </div>
-      <div class="sec-card reveal reveal-delay-1">
+      <div class="sec-card reveal reveal-delay-1" style="border-top: 2px solid var(--rose);">
         <div class="sec-icon">💳</div>
         <div class="sec-title">Preauth Protection</div>
         <p class="sec-desc">Reservation deposits are held in escrow. Cancel anytime for a full refund — no manual chase required.</p>
@@ -1341,15 +1369,20 @@
 </section>
 
 <!-- ══ FOR BUSINESSES ══════════════════════════════════ -->
-<section class="section" style="padding-top:60px;padding-bottom:60px;">
+<section class="section biz-section">
   <div class="container">
-    <div style="border:1px solid rgba(245,158,11,0.3);background:linear-gradient(135deg,rgba(245,158,11,0.05),rgba(217,119,6,0.02));border-radius:24px;padding:48px;max-width:800px;margin:0 auto;">
+    <div class="biz-card">
     <div class="section-header center reveal">
       <div class="section-label"><span class="badge">FOR BUSINESSES</span></div>
       <h2 class="section-title" style="margin-top:12px;">Running a business?</h2>
-      <p class="section-sub">Zeno gives you a loyalty CRM, wallet management, and customer insights — all from one dashboard. Turn every topup into a retention tool.</p>
+      <p class="section-sub">Zeno gives you a loyalty CRM, wallet management, and customer insights — all from one dashboard.</p>
+      <ul style="list-style:none;margin:20px 0 0;display:flex;flex-direction:column;gap:10px;text-align:left;max-width:440px;margin-left:auto;margin-right:auto;">
+        <li style="display:flex;align-items:center;gap:10px;font-size:14px;color:var(--subtle);"><span style="color:var(--gold);font-weight:700;">✓</span> Launch your own branded digital wallet</li>
+        <li style="display:flex;align-items:center;gap:10px;font-size:14px;color:var(--subtle);"><span style="color:var(--gold);font-weight:700;">✓</span> Set custom bonus rates to drive topups</li>
+        <li style="display:flex;align-items:center;gap:10px;font-size:14px;color:var(--subtle);"><span style="color:var(--gold);font-weight:700;">✓</span> Access real-time customer analytics</li>
+      </ul>
       <div class="reveal" style="margin-top:28px;">
-        <a href="merchant.html" class="btn btn-primary btn-lg">See Merchant Features →</a>
+        <a href="merchant.html" class="btn btn-gold btn-lg">Explore Merchant Features →</a>
       </div>
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:40px;">
@@ -1372,7 +1405,8 @@
 
 <!-- ══ CTA ═════════════════════════════════════════════ -->
 <section class="cta-section">
-  <div class="container">
+  <div style="position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:600px;height:400px;background:radial-gradient(circle,rgba(79,70,229,0.15),transparent 70%);filter:blur(60px);pointer-events:none;z-index:0;"></div>
+  <div class="container" style="position:relative;z-index:1;">
     <div class="cta-inner reveal">
       <div class="section-label" style="justify-content:center;display:flex;margin-bottom:16px;"><span class="badge">GET STARTED</span></div>
       <h2 class="section-title">Your wallet. Your rewards.</h2>
@@ -1381,7 +1415,7 @@
         <a href="https://zeno.labzeno.com" class="btn btn-primary btn-xl">Get Started — It's Free →</a>
         <a href="merchant.html" class="btn btn-ghost btn-xl">Learn More for Merchants →</a>
       </div>
-      <p style="margin-top:20px;font-size:13px;color:var(--text-muted);">A business owner? <a href="merchant.html" style="color:var(--brand-light);text-decoration:none;">See what Zeno can do for your business →</a></p>
+      <p style="margin-top:20px;font-size:13px;color:var(--subtle);">A business owner? <a href="merchant.html" style="color:var(--brand-light);text-decoration:none;">See what Zeno can do for your business →</a></p>
     </div>
   </div>
 </section>
@@ -1392,13 +1426,13 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <div class="footer-logo">
-          <img src="assets/logo-icon.png" alt="Zeno" />
+          <img src="assets/logo-icon.png" alt="Experience Zeno logo" />
           <span>Experience Zeno</span>
         </div>
         <p class="footer-desc">Experience Zeno is a multi-merchant loyalty platform. Earn bonus credit, collect EXP, and make every dollar go further.</p>
         <div class="footer-socials">
-          <a href="mailto:tech@expzeno.com" class="footer-social" title="Email">✉</a>
-          <a href="https://expzeno.com" class="footer-social" title="Website">🌐</a>
+          <a href="mailto:tech@expzeno.com" class="footer-social" aria-label="Email us at tech@expzeno.com">✉</a>
+          <a href="https://expzeno.com" class="footer-social" aria-label="Visit expzeno.com website">🌐</a>
         </div>
       </div>
       <div class="footer-col">
@@ -1442,26 +1476,33 @@
     m.style.display = m.style.display === 'none' ? 'block' : 'none';
   }
 
-  // Scroll reveal
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add('visible'); }
+  document.addEventListener('DOMContentLoaded', function() {
+    // Scroll reveal
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+    // Nav scroll effect
+    window.addEventListener('scroll', () => {
+      const nav = document.getElementById('nav');
+      if (window.scrollY > 60) {
+        nav.style.background = 'rgba(10,10,20,0.95)';
+        nav.style.borderBottomColor = 'rgba(255,255,255,0.08)';
+      } else {
+        nav.style.background = 'rgba(10,10,20,0.7)';
+        nav.style.borderBottomColor = 'rgba(255,255,255,0.05)';
+      }
     });
-  }, { threshold: 0.05, rootMargin: '0px 0px -5% 0px' });
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-  // Nav scroll effect
-  window.addEventListener('scroll', () => {
-    const nav = document.getElementById('nav');
-    if (window.scrollY > 60) {
-      nav.style.background = 'rgba(10,10,20,0.95)';
-    } else {
-      nav.style.background = 'rgba(10,10,20,0.7)';
-    }
+    // Dynamic footer year
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
   });
-
-  // Dynamic footer year
-  document.getElementById('footer-year').textContent = new Date().getFullYear();
 </script>
 
 <!-- ══ FEEDBACK FAB ══════════════════════════════════ -->
