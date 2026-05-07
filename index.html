@@ -142,7 +142,7 @@
     }
     .hero-orb {
       position: absolute; border-radius: 50%;
-      filter: blur(100px); opacity: 0.25; pointer-events: none;
+      filter: blur(100px); opacity: 0.35; pointer-events: none;
     }
     .hero-orb-1 {
       width: 700px; height: 700px;
@@ -152,7 +152,7 @@
     .hero-orb-2 {
       width: 500px; height: 500px;
       background: radial-gradient(circle, #f59e0b, transparent 70%);
-      bottom: -100px; left: -100px; opacity: 0.15;
+      bottom: -100px; left: -100px; opacity: 0.22;
     }
     .hero-orb-3 {
       width: 300px; height: 300px;
@@ -265,9 +265,9 @@
       display: flex; align-items: center; gap: 8px; white-space: nowrap;
       animation: float-anim 3s ease-in-out infinite;
     }
-    .float-chip-1 { top: 60px; right: -60px; animation-delay: 0s; }
-    .float-chip-2 { bottom: 140px; left: -70px; animation-delay: 0.8s; }
-    .float-chip-3 { bottom: 60px; right: -50px; animation-delay: 1.6s; }
+    .float-chip-1 { top: 80px; right: -80px; animation-delay: 0s; }
+    .float-chip-2 { bottom: 160px; left: -90px; animation-delay: 0.8s; }
+    .float-chip-3 { bottom: 80px; right: -70px; animation-delay: 1.6s; }
     .chip-dot { width: 8px; height: 8px; border-radius: 50%; }
     .chip-dot-green { background: var(--emerald); box-shadow: 0 0 8px var(--emerald); }
     .chip-dot-gold { background: var(--gold); box-shadow: 0 0 8px var(--gold); }
@@ -335,8 +335,8 @@
       grid-column: span 2;
     }
     .feat-card.featured-gold {
-      background: linear-gradient(135deg, rgba(245,158,11,0.1), rgba(217,119,6,0.05));
-      border-color: rgba(245,158,11,0.3);
+      background: linear-gradient(135deg, rgba(245,158,11,0.12), rgba(217,119,6,0.06));
+      border-color: rgba(245,158,11,0.4);
     }
     .feat-icon { font-size: 32px; margin-bottom: 16px; display: block; }
     .feat-title { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
@@ -501,9 +501,9 @@
     /* ── CTA SECTION ──────────────────────────────── */
     .cta-section {
       padding: 100px 0;
-      background: linear-gradient(135deg, rgba(79,70,229,0.12), rgba(124,58,237,0.06));
-      border-top: 1px solid rgba(79,70,229,0.15);
-      border-bottom: 1px solid rgba(79,70,229,0.15);
+      background: linear-gradient(135deg, rgba(79,70,229,0.15), rgba(124,58,237,0.08));
+      border-top: 1px solid rgba(79,70,229,0.2);
+      border-bottom: 1px solid rgba(79,70,229,0.2);
     }
     .cta-inner { text-align: center; max-width: 640px; margin: 0 auto; }
     .cta-inner .section-title { font-size: clamp(32px, 5vw, 52px); }
@@ -645,6 +645,8 @@
       .cta-section { padding: 52px 0; }
       .trust-section { padding: 24px 0 36px; }
       .section-header { margin-bottom: 36px; }
+      .hero { min-height: auto; padding-top: 100px; padding-bottom: 60px; }
+      .tier-card { position: relative; }
 
       /* Typography */
       .hero-title { font-size: clamp(34px, 9vw, 50px); line-height: 1.06; letter-spacing: -0.03em; }
@@ -786,12 +788,12 @@
       border-radius: 20px; padding: 32px 40px;
     }
     .gmf-step { text-align: center; }
-    .gmf-icon { font-size: 32px; margin-bottom: 8px; }
-    .gmf-amt { font-size: 28px; font-weight: 900; color: #fff; margin-bottom: 6px; }
+    .gmf-icon { font-size: 40px; margin-bottom: 8px; }
+    .gmf-amt { font-size: 36px; font-weight: 900; color: #fff; margin-bottom: 6px; }
     .gmf-amt-in { color: var(--subtle); }
     .gmf-amt-out { color: #22c55e; }
     .gmf-label { font-size: 12px; color: var(--text-muted); }
-    .gmf-arrow { font-size: 28px; color: var(--gold); font-weight: 900; flex-shrink: 0; }
+    .gmf-arrow { font-size: 36px; color: var(--gold); font-weight: 900; flex-shrink: 0; }
     .gmf-step-result { background: rgba(34,197,94,0.07); border: 1px solid rgba(34,197,94,0.2); border-radius: 14px; padding: 16px 24px; }
     .get-more-note { text-align: center; font-size: 13px; color: var(--text-muted); margin-bottom: 48px; }
     /* mobile-first: 1 col, expands at 769px */
@@ -870,7 +872,7 @@
       <div>
         <div class="hero-eyebrow">
           <span class="dot"></span>
-          <span>Live in Singapore · Customer Loyalty &amp; E-Wallet Platform</span>
+          <span>Live in Singapore</span>
         </div>
         <h1 class="hero-title">
           Top up $50.<br/>
@@ -878,7 +880,7 @@
           Keep the difference.
         </h1>
         <p class="hero-sub">
-          Top up at your favourite merchants and instantly get more than you put in — bonus credit, EXP points, and loyalty rewards that grow the more you use them.
+          Top up your wallet at any Zeno merchant and get instant bonus credit — plus EXP points that unlock better rewards the more you use them.
         </p>
         <div class="hero-actions">
           <a href="https://zeno.labzeno.com" class="btn btn-primary btn-lg">Get the App — Free →</a>
@@ -1041,41 +1043,39 @@
       <div class="feat-card featured-gold reveal">
         <span class="feat-icon">🎁</span>
         <div class="feat-title">Instant Bonus Credit — Get More Than You Put In</div>
-        <p class="feat-desc">Top up at any Zeno merchant and walk away with more than you put in. Bonus credit lands the moment your topup confirms — no waiting, no redeeming, no vouchers. <strong>Your money is instantly worth more.</strong></p>
+        <p class="feat-desc">Top up $50 and walk away with $55. Merchants add free bonus credit the moment your topup lands.</p>
         <span class="feat-tag gold">Instant. No Strings Attached.</span>
       </div>
 
       <div class="feat-card featured reveal reveal-delay-1">
         <span class="feat-icon">⭐</span>
         <div class="feat-title">EXP Points — Stack Up on Every Dollar</div>
-        <p class="feat-desc">
-          On top of your bonus credit, every topup earns EXP points. Accumulate EXP to climb from Explorer to Zenith — and unlock higher earning rates along the way.
-        </p>
+        <p class="feat-desc">Every topup earns EXP points. Accumulate them to climb tiers and unlock higher earning rates.</p>
         <span class="feat-tag">Boosted Rate on First Topup</span>
       </div>
 
       <div class="feat-card reveal">
         <span class="feat-icon">🔗</span>
         <div class="feat-title">Multi-Merchant Wallet</div>
-        <p class="feat-desc">One app, many merchants. Each merchant gets its own wallet with its own balance, bonus credits, and transaction history — all in one place.</p>
+        <p class="feat-desc">One app, many merchants. Each gets its own wallet, balance, and transaction history.</p>
       </div>
 
       <div class="feat-card reveal reveal-delay-1">
         <span class="feat-icon">▣</span>
         <div class="feat-title">Scan-to-Pay QR</div>
-        <p class="feat-desc">Pay instantly at any merchant counter with a unique QR code generated from your wallet. Fast, contactless, and secure.</p>
+        <p class="feat-desc">Pay at any merchant counter with a unique QR code from your wallet. Fast and contactless.</p>
       </div>
 
       <div class="feat-card reveal reveal-delay-2">
         <span class="feat-icon">🍽️</span>
         <div class="feat-title">Table Reservations</div>
-        <p class="feat-desc">Reserve a table and secure your spot with a preauth deposit charged directly from your wallet. Cancel or modify without the usual hassle.</p>
+        <p class="feat-desc">Reserve and secure your spot with a preauth deposit from your wallet.</p>
       </div>
 
       <div class="feat-card reveal">
         <span class="feat-icon">🔒</span>
         <div class="feat-title">Wallet Lock &amp; Biometric Auth</div>
-        <p class="feat-desc">Lock your wallet instantly to block new payments while keeping topups active. Re-unlock with Face ID, Touch ID, or PIN — your call.</p>
+        <p class="feat-desc">Freeze payments instantly. Unlock with Face ID, Touch ID, or PIN when you're ready.</p>
       </div>
 
       <div class="feat-card reveal reveal-delay-1">
@@ -1123,7 +1123,7 @@
         <div class="gmf-label">In your wallet to spend</div>
       </div>
     </div>
-    <p class="get-more-note reveal">Each merchant sets their own bonus rate. The more you top up, the more free credit you receive. That's the Experience Zeno deal.</p>
+    <p class="get-more-note reveal">Each merchant sets their own bonus rate. The more you top up, the more free credit you earn.</p>
     <div class="reveal" style="text-align:center;margin-top:32px;">
       <a href="https://zeno.labzeno.com" class="btn btn-primary btn-lg">Start Earning Today →</a>
     </div>
@@ -1136,7 +1136,7 @@
     <div class="section-header center reveal">
       <div class="section-label"><span class="badge" style="background:rgba(245,158,11,0.1);border-color:rgba(245,158,11,0.3);color:var(--gold);">LOYALTY TIERS</span></div>
       <h2 class="section-title">Earn more as you <span class="text-gold">level up</span></h2>
-      <p class="section-sub">Every EXP point you earn moves you closer to Zenith — and bigger referral bonuses along the way.</p>
+      <p class="section-sub">Three tiers of rewards. The more you spend, the better it gets.</p>
     </div>
 
     <div class="tiers-grid">
@@ -1148,10 +1148,9 @@
         <div class="tier-threshold">Your starting tier</div>
         <ul class="tier-benefits">
           <li class="tier-benefit"><span class="tier-benefit-check">✓</span> Earn EXP on every topup</li>
-          <li class="tier-benefit"><span class="tier-benefit-check">✓</span> Bonus credit at each merchant wallet</li>
-          <li class="tier-benefit"><span class="tier-benefit-check">✓</span> Referral EXP from friends' top-ups</li>
-          <li class="tier-benefit"><span class="tier-benefit-check">✓</span> Full transaction history</li>
-          <li class="tier-benefit"><span class="tier-benefit-check">✓</span> Multi-merchant wallet access</li>
+          <li class="tier-benefit"><span class="tier-benefit-check">✓</span> Get instant bonus credit</li>
+          <li class="tier-benefit"><span class="tier-benefit-check">✓</span> Multi-merchant wallet</li>
+          <li class="tier-benefit"><span class="tier-benefit-check">✓</span> Scan-to-pay QR payments</li>
         </ul>
       </div>
 
@@ -1164,8 +1163,9 @@
         <div class="tier-threshold">Unlock with continued activity</div>
         <ul class="tier-benefits">
           <li class="tier-benefit"><span class="tier-benefit-check">✓</span> Everything in Explorer</li>
-          <li class="tier-benefit"><span class="tier-benefit-check">✓</span> <strong>Higher referral EXP rate</strong> — earn more from every friend topup</li>
-          <li class="tier-benefit"><span class="tier-benefit-check">✓</span> Exclusive Voyager status badge</li>
+          <li class="tier-benefit"><span class="tier-benefit-check">✓</span> Higher referral EXP rate</li>
+          <li class="tier-benefit"><span class="tier-benefit-check">✓</span> Priority reservation access</li>
+          <li class="tier-benefit"><span class="tier-benefit-check">✓</span> Enhanced loyalty multiplier</li>
         </ul>
       </div>
 
@@ -1177,9 +1177,10 @@
         <div class="tier-threshold">For our most loyal members</div>
         <ul class="tier-benefits">
           <li class="tier-benefit"><span class="tier-benefit-check">✓</span> Everything in Voyager</li>
-          <li class="tier-benefit"><span class="tier-benefit-check">✓</span> <strong>Maximum referral EXP rate</strong> — the best earnings from your network</li>
-          <li class="tier-benefit"><span class="tier-benefit-check">✓</span> Zenith exclusive status badge</li>
-          <li class="tier-benefit"><span class="tier-benefit-check">✓</span> Early access to new platform features</li>
+          <li class="tier-benefit"><span class="tier-benefit-check">✓</span> Highest EXP earning rate</li>
+          <li class="tier-benefit"><span class="tier-benefit-check">✓</span> Maximum referral rewards</li>
+          <li class="tier-benefit"><span class="tier-benefit-check">✓</span> VIP merchant perks</li>
+          <li class="tier-benefit"><span class="tier-benefit-check">✓</span> Exclusive member benefits</li>
         </ul>
       </div>
     </div>
@@ -1272,44 +1273,24 @@
 
     <div class="sec-grid">
       <div class="sec-card reveal">
-        <div class="sec-icon">⛓️</div>
-        <div class="sec-title">SHA-256 Hash Chain</div>
-        <p class="sec-desc">Every transaction is chained to the previous one with a cryptographic hash — making any tampering instantly detectable.</p>
-      </div>
-      <div class="sec-card reveal reveal-delay-1">
-        <div class="sec-icon">📒</div>
-        <div class="sec-title">Double-Entry Bookkeeping</div>
-        <p class="sec-desc">Every wallet movement has a matching ledger entry. Automated reconciliation runs continuously to verify every cent balances.</p>
-      </div>
-      <div class="sec-card reveal reveal-delay-2">
-        <div class="sec-icon">🔑</div>
-        <div class="sec-title">JWT RS256 Auth</div>
-        <p class="sec-desc">2048-bit RSA key authentication with short-lived tokens, refresh rotation, and version-based revocation for stolen session protection.</p>
-      </div>
-      <div class="sec-card reveal">
-        <div class="sec-icon">🔒</div>
-        <div class="sec-title">Pessimistic Locking</div>
-        <p class="sec-desc">Concurrent wallet operations use database-level row locking to prevent race conditions — your balance is always exactly right.</p>
-      </div>
-      <div class="sec-card reveal reveal-delay-1">
-        <div class="sec-icon">🛡️</div>
-        <div class="sec-title">AML Review</div>
-        <p class="sec-desc">Large withdrawals trigger an automatic AML hold for admin review before funds are released — protecting merchants and customers.</p>
-      </div>
-      <div class="sec-card reveal reveal-delay-2">
-        <div class="sec-icon">👆</div>
-        <div class="sec-title">Biometric Authentication</div>
-        <p class="sec-desc">Face ID, Touch ID, and device PIN protect your wallet session. All payments and session restores require biometric verification.</p>
-      </div>
-      <div class="sec-card reveal">
         <div class="sec-icon">🔐</div>
-        <div class="sec-title">Wallet Lock Mode</div>
-        <p class="sec-desc">Freeze your wallet instantly to block all new payments while keeping existing preauth reservations and topups fully active.</p>
+        <div class="sec-title">PIN &amp; Biometric</div>
+        <p class="sec-desc">Secure every payment with PIN code or fingerprint/Face ID authentication. Your wallet only responds to you.</p>
       </div>
       <div class="sec-card reveal reveal-delay-1">
-        <div class="sec-icon">🏦</div>
-        <div class="sec-title">PDPA Compliant</div>
-        <p class="sec-desc">Built to Singapore's Personal Data Protection Act 2012. No payment card numbers or bank data stored — only what's needed to run the platform.</p>
+        <div class="sec-icon">🔒</div>
+        <div class="sec-title">Wallet Lock</div>
+        <p class="sec-desc">Freeze your wallet instantly. No new payments until you unlock — ideal if your phone is lost or stolen.</p>
+      </div>
+      <div class="sec-card reveal reveal-delay-2">
+        <div class="sec-icon">🛡️</div>
+        <div class="sec-title">Encrypted Transactions</div>
+        <p class="sec-desc">Every transaction is logged with SHA-256 hash chain verification — making tampering instantly detectable.</p>
+      </div>
+      <div class="sec-card reveal reveal-delay-1">
+        <div class="sec-icon">💳</div>
+        <div class="sec-title">Preauth Protection</div>
+        <p class="sec-desc">Reservation deposits are held in escrow. Cancel anytime for a full refund — no manual chase required.</p>
       </div>
     </div>
   </div>
@@ -1327,33 +1308,33 @@
       <p class="section-sub">Everything you need to know before you get started.</p>
     </div>
     <div class="faq-list reveal">
-      <details class="faq-item">
-        <summary class="faq-q">Is Experience Zeno free for customers?</summary>
-        <div class="faq-a">Yes — there is no sign-up fee, no subscription, and no hidden charges. You only put money into a merchant wallet when you choose to top up.</div>
+      <details class="faq-item" open>
+        <summary class="faq-q">What is Experience Zeno?</summary>
+        <div class="faq-a">Experience Zeno is a multi-merchant e-wallet and loyalty platform. You top up at participating merchants and receive instant bonus credit plus EXP points that grow your rewards over time.</div>
       </details>
       <details class="faq-item">
-        <summary class="faq-q">What is bonus credit and how does it work?</summary>
-        <div class="faq-a">Each merchant can configure a bonus rate on topups. When you top up (e.g. $50), the merchant's bonus is added to your wallet immediately (e.g. +$5 free credit). This is real spendable credit — not points you redeem later, not a voucher you print. It lands in your wallet the moment your topup is confirmed.</div>
+        <summary class="faq-q">How do I get bonus credit?</summary>
+        <div class="faq-a">Every time you top up at a Zeno merchant, they add free bonus credit to your wallet instantly. The bonus rate varies by merchant — some give 10%, others more. It's real credit you can spend immediately.</div>
       </details>
       <details class="faq-item">
-        <summary class="faq-q">Can I use one wallet across multiple merchants?</summary>
-        <div class="faq-a">Experience Zeno is a multi-merchant platform, but each wallet is isolated per merchant. You hold a separate wallet at each merchant — credit topped up at Merchant A can only be spent at Merchant A. This gives each merchant full control over their customer loyalty programme.</div>
-      </details>
-      <details class="faq-item">
-        <summary class="faq-q">How do EXP points and loyalty tiers work?</summary>
-        <div class="faq-a">You earn EXP automatically on every topup at any merchant. As your EXP balance grows, the platform awards you higher loyalty tiers (Explorer → Voyager → Zenith). Higher tiers unlock better referral earning rates — so the more you use Experience Zeno, the more you earn from your network.</div>
-      </details>
-      <details class="faq-item">
-        <summary class="faq-q">How does the referral programme work?</summary>
-        <div class="faq-a">Generate your unique referral code in the app. Share it with a friend — they sign up and top up their first wallet, earning a welcome EXP boost. From their second topup onward, you automatically earn referral EXP every time they top up at any merchant. Your referral earning rate increases as you advance tiers.</div>
-      </details>
-      <details class="faq-item">
-        <summary class="faq-q">Can I withdraw my wallet balance?</summary>
-        <div class="faq-a">Yes. You can request to withdraw your remaining wallet balance to a registered bank account. Withdrawals go through merchant approval and standard AML review before funds are released.</div>
+        <summary class="faq-q">What are EXP points?</summary>
+        <div class="faq-a">EXP points are earned on every topup. As you accumulate EXP, you climb from Explorer to Voyager to Zenith — each tier unlocking higher earning rates and better rewards.</div>
       </details>
       <details class="faq-item">
         <summary class="faq-q">Is my money safe?</summary>
-        <div class="faq-a">Every balance uses double-entry bookkeeping with a SHA-256 hash chain — making any tampering instantly detectable. All payments use database-level row locking to prevent race conditions. Experience Zeno is fully PDPA 2012 compliant and does not store payment card numbers or full bank account details.</div>
+        <div class="faq-a">Yes. Every transaction is secured with PIN or biometric authentication, logged with SHA-256 hash verification, and your wallet can be frozen instantly if needed. Reservation deposits are held in escrow with full refund protection.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">How do referrals work?</summary>
+        <div class="faq-a">Share your referral link with friends. When they sign up and top up, you both earn bonus EXP. Your referral earning rate increases as you climb tiers.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Is it free to use?</summary>
+        <div class="faq-a">Yes, the app is completely free. There are no subscription fees, no hidden charges. You simply top up and start earning.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Which merchants accept Zeno?</summary>
+        <div class="faq-a">Zeno works with restaurants, cafés, salons, wellness centres, and other businesses across Singapore. Open the app to see the full list of participating merchants near you.</div>
       </details>
     </div>
   </div>
@@ -1380,7 +1361,7 @@
       </a>
       <a href="partner.html" class="feat-card reveal reveal-delay-1" style="text-decoration:none;display:block;border-color:rgba(16,185,129,0.3);">
         <span class="feat-icon">🔗</span>
-        <div class="feat-title" style="color:#10b981;">For Partners &amp; Integrators</div>
+        <div class="feat-title" style="color:#10b981;">API &amp; Integration</div>
         <p class="feat-desc">Already running a POS, booking, or ordering system? Connect Zeno's API to your existing flow — your customers earn loyalty without switching apps.</p>
         <span class="feat-tag" style="margin-top:12px;background:rgba(16,185,129,0.1);border-color:rgba(16,185,129,0.3);color:#10b981;">Learn more →</span>
       </a>
@@ -1394,8 +1375,8 @@
   <div class="container">
     <div class="cta-inner reveal">
       <div class="section-label" style="justify-content:center;display:flex;margin-bottom:16px;"><span class="badge">GET STARTED</span></div>
-      <h2 class="section-title">Your wallet. Your rewards.<br/><span class="line-accent">Start earning today.</span></h2>
-      <p class="section-sub" style="margin:20px auto 0;">Download Experience Zeno, top up at your favourite merchant, and walk away with more than you put in — every single time.</p>
+      <h2 class="section-title">Your wallet. Your rewards.</h2>
+      <p class="section-sub" style="margin:20px auto 0;">Start earning bonus credit and EXP points today.</p>
       <div class="cta-actions">
         <a href="https://zeno.labzeno.com" class="btn btn-primary btn-xl">Get Started — It's Free →</a>
         <a href="merchant.html" class="btn btn-ghost btn-xl">Learn More for Merchants →</a>
@@ -1414,7 +1395,7 @@
           <img src="assets/logo-icon.png" alt="Zeno" />
           <span>Experience Zeno</span>
         </div>
-        <p class="footer-desc">Experience Zeno is a multi-merchant e-wallet loyalty platform that makes your customers stickier. Built for businesses where repeat customers are everything.</p>
+        <p class="footer-desc">Experience Zeno is a multi-merchant loyalty platform. Earn bonus credit, collect EXP, and make every dollar go further.</p>
         <div class="footer-socials">
           <a href="mailto:tech@expzeno.com" class="footer-social" title="Email">✉</a>
           <a href="https://expzeno.com" class="footer-social" title="Website">🌐</a>
@@ -1449,6 +1430,7 @@
     </div>
     <div class="footer-bottom">
       <span>© <span id="footer-year"></span> Experience Zeno Pte. Ltd. All rights reserved.</span>
+      <a href="#" style="color:var(--brand-light);">↑ Top</a>
     </div>
   </div>
 </footer>
