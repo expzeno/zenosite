@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Privacy Policy — Zeno</title>
-  <meta name="description" content="Zeno Privacy Policy — how we collect, use, and protect your personal data." />
+  <title>Privacy Policy — Experience Zeno</title>
+  <meta name="description" content="Experience Zeno Privacy Policy — how we collect, use, and protect your personal data." />
   <link rel="icon" href="assets/logo-icon.png" type="image/png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -58,8 +58,8 @@
 <nav>
   <div class="nav-inner">
     <a href="/" class="nav-logo">
-      <img src="assets/logo-icon.png" alt="Zeno" />
-      <span>Zeno</span>
+      <img src="assets/logo-icon.png" alt="Experience Zeno" />
+      <span>Experience Zeno</span>
     </a>
     <a href="/" class="nav-back">← Back to Home</a>
   </div>
@@ -226,7 +226,7 @@
 </div>
 
 <footer>
-  <div>© 2025 Experience Zeno Pte. Ltd. All rights reserved.</div>
+  <div>© <span id="footer-year"></span> Experience Zeno Pte. Ltd. All rights reserved.</div>
   <div style="margin-top: 8px;">
     <a href="/">Home</a>
     <a href="eula.html">EULA</a>
@@ -234,5 +234,6 @@
   </div>
 </footer>
 
+<script>document.getElementById('footer-year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
