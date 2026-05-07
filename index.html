@@ -837,11 +837,12 @@
     <ul class="nav-links">
       <li><a href="#customers">For Customers</a></li>
       <li><a href="merchant.html">For Merchants</a></li>
+      <li><a href="partner.html">For Partners</a></li>
       <li><a href="#how-it-works">How It Works</a></li>
       <li><a href="#faq">FAQ</a></li>
     </ul>
     <div class="nav-cta">
-      <a href="mailto:tech@expzeno.com" class="btn btn-ghost">Contact Us</a>
+      <a href="#contact" class="btn btn-ghost">Contact Us</a>
       <a href="https://zeno.labzeno.com" class="btn btn-primary">Launch App ↗</a>
     </div>
     <div class="nav-hamburger" id="hamburger" onclick="toggleMenu()">
@@ -853,10 +854,11 @@
     <div style="display:flex;flex-direction:column;gap:14px;">
       <a href="#customers" style="color:var(--subtle);text-decoration:none;font-size:15px;padding:4px 0;" onclick="toggleMenu()">For Customers</a>
       <a href="merchant.html" style="color:var(--subtle);text-decoration:none;font-size:15px;padding:4px 0;" onclick="toggleMenu()">For Merchants</a>
+      <a href="partner.html" style="color:var(--subtle);text-decoration:none;font-size:15px;padding:4px 0;" onclick="toggleMenu()">For Partners</a>
       <a href="#how-it-works" style="color:var(--subtle);text-decoration:none;font-size:15px;padding:4px 0;" onclick="toggleMenu()">How It Works</a>
       <a href="#faq" style="color:var(--subtle);text-decoration:none;font-size:15px;padding:4px 0;" onclick="toggleMenu()">FAQ</a>
       <div style="display:flex;gap:10px;margin-top:6px;">
-        <a href="mailto:tech@expzeno.com" class="btn btn-ghost" style="flex:1;justify-content:center;font-size:14px;">Contact Us</a>
+        <a href="#contact" class="btn btn-ghost" style="flex:1;justify-content:center;font-size:14px;" onclick="toggleMenu()">Contact Us</a>
         <a href="https://zeno.labzeno.com" class="btn btn-primary" style="flex:1;justify-content:center;font-size:14px;">Launch App ↗</a>
       </div>
     </div>
@@ -1397,6 +1399,34 @@
   </div>
 </section>
 
+<!-- ══ CONTACT ════════════════════════════════════════ -->
+<section class="section section-alt" id="contact" style="padding-top:80px;padding-bottom:80px;">
+  <div class="container">
+    <div style="max-width:600px;margin:0 auto;text-align:center;">
+      <div class="section-label" style="justify-content:center;display:flex;margin-bottom:16px;"><span class="badge">CONTACT US</span></div>
+      <h2 class="section-title">Get in touch</h2>
+      <p class="section-sub" style="margin:16px auto 36px;">Have a question, partnership enquiry, or want to get Zeno for your business? We'd love to hear from you.</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-bottom:32px;">
+        <a href="mailto:tech@expzeno.com" style="display:flex;flex-direction:column;align-items:center;gap:10px;padding:24px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:16px;text-decoration:none;transition:border-color 0.2s;" onmouseover="this.style.borderColor='rgba(79,70,229,0.4)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)'">
+          <span style="font-size:28px;">💬</span>
+          <span style="font-size:14px;font-weight:700;color:#fff;">General Enquiries</span>
+          <span style="font-size:13px;color:var(--subtle);">tech@expzeno.com</span>
+        </a>
+        <a href="mailto:tech@expzeno.com" style="display:flex;flex-direction:column;align-items:center;gap:10px;padding:24px;background:rgba(255,255,255,0.03);border:1px solid rgba(245,158,11,0.25);border-radius:16px;text-decoration:none;transition:border-color 0.2s;" onmouseover="this.style.borderColor='rgba(245,158,11,0.5)'" onmouseout="this.style.borderColor='rgba(245,158,11,0.25)'">
+          <span style="font-size:28px;">🏪</span>
+          <span style="font-size:14px;font-weight:700;color:var(--gold);">Merchant Onboarding</span>
+          <span style="font-size:13px;color:var(--subtle);">tech@expzeno.com</span>
+        </a>
+        <a href="mailto:server@expzeno.com" style="display:flex;flex-direction:column;align-items:center;gap:10px;padding:24px;background:rgba(255,255,255,0.03);border:1px solid rgba(16,185,129,0.2);border-radius:16px;text-decoration:none;transition:border-color 0.2s;" onmouseover="this.style.borderColor='rgba(16,185,129,0.4)'" onmouseout="this.style.borderColor='rgba(16,185,129,0.2)'">
+          <span style="font-size:28px;">🔒</span>
+          <span style="font-size:14px;font-weight:700;color:#10b981;">Data Protection</span>
+          <span style="font-size:13px;color:var(--subtle);">server@expzeno.com</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ══ FOOTER ══════════════════════════════════════════ -->
 <footer>
   <div class="container">
@@ -1427,7 +1457,7 @@
         <ul>
           <li><a href="https://zeno.labzeno.com">Open Web App</a></li>
           <li><a href="#how-it-works">How It Works</a></li>
-          <li><a href="mailto:tech@expzeno.com">Contact Support</a></li>
+          <li><a href="#contact">Contact Us</a></li>
         </ul>
       </div>
       <div class="footer-col">
