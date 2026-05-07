@@ -188,13 +188,13 @@
 </div>
 
 <footer>
-  <div>© 2025 Experience Zeno Pte. Ltd. All rights reserved.</div>
+  <div>© <span id="footer-year">2026</span> Experience Zeno Pte. Ltd. All rights reserved.</div>
   <div style="margin-top: 8px;">
     <a href="/">Home</a>
     <a href="eula.html">EULA</a>
     <a href="privacy-policy.html">Privacy Policy</a>
   </div>
 </footer>
-
+<script>document.getElementById('footer-year').textContent = new Date().getFullYear();</script>
 </body>
 </html>

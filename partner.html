@@ -347,7 +347,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2025 Experience Zeno Pte Ltd. All rights reserved.</span>
+      <span id="footer-year">© 2026 Experience Zeno Pte Ltd. All rights reserved.</span>
       <div style="display:flex;gap:20px;">
         <a href="privacy-policy.html">Privacy Policy</a>
         <a href="eula.html">EULA</a>
@@ -357,6 +357,7 @@
 </footer>
 
 <script>
+  document.getElementById('footer-year').textContent = '© ' + new Date().getFullYear() + ' Experience Zeno Pte Ltd. All rights reserved.';
   function toggleMenu() {
     const m = document.getElementById('mobile-menu');
     m.style.display = m.style.display === 'none' ? 'block' : 'none';
