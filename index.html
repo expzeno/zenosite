@@ -499,22 +499,6 @@
     .sec-title { font-size: 14px; font-weight: 700; margin-bottom: 8px; }
     .sec-desc { font-size: 13px; color: var(--subtle); line-height: 1.65; }
 
-    /* ── TESTIMONIALS ─────────────────────────────── */
-    .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-    .testi-card {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 28px;
-    }
-    .testi-stars { color: var(--gold); font-size: 14px; margin-bottom: 14px; letter-spacing: 2px; }
-    .testi-text { font-size: 15px; color: rgba(255,255,255,0.85); line-height: 1.7; margin-bottom: 20px; font-style: italic; }
-    .testi-author { display: flex; align-items: center; gap: 12px; }
-    .testi-avatar {
-      width: 40px; height: 40px; border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 16px; font-weight: 700; flex-shrink: 0;
-    }
-    .testi-name { font-size: 14px; font-weight: 600; }
-    .testi-role { font-size: 12px; color: var(--subtle); }
 
     /* ── CTA SECTION ──────────────────────────────── */
     .cta-section {
@@ -585,7 +569,6 @@
     .btn { min-height: 44px; }
     .feat-card { border-color: rgba(255,255,255,0.1); }
     .sec-card { border-color: rgba(255,255,255,0.1); }
-    .testi-card { border-color: rgba(255,255,255,0.1); }
     .hiw-step { border-color: rgba(255,255,255,0.1); }
     .tier-card.explorer { border-color: rgba(99,102,241,0.35); }
 
@@ -659,14 +642,12 @@
       .feat-grid { grid-template-columns: 1fr; }
       .feat-card.featured { grid-column: span 1; }
       .hiw-content.active { grid-template-columns: 1fr; }
-      .testi-grid { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: 1fr; }
       .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
       .cta-actions { flex-direction: column; align-items: center; }
       .get-more-flow { flex-direction: column; gap: 10px; padding: 22px 16px; }
       .gmf-arrow { transform: rotate(90deg); }
       .dual-cta { grid-template-columns: 1fr; }
-      .partner-grid { grid-template-columns: 1fr; }
       .tiers-grid { max-width: 100%; }
       .sec-grid { grid-template-columns: 1fr; }
 
@@ -780,15 +761,6 @@
       .sec-desc { font-size: 12px; line-height: 1.6; }
 
       /* Testimonials */
-      .testi-card { padding: 20px; border-radius: 14px; }
-      .testi-text { font-size: 14px; line-height: 1.68; margin-bottom: 16px; }
-      .testi-name { font-size: 13px; }
-
-      /* Partner */
-      .partner-card { padding: 22px; border-radius: 14px; }
-      .partner-card-icon { font-size: 30px; margin-bottom: 10px; }
-      .partner-card h4 { font-size: 15px; margin-bottom: 6px; }
-      .partner-card p { font-size: 13px; }
 
       /* Footer */
       footer { padding: 44px 0 28px; }
@@ -846,19 +818,9 @@
     .dual-cta-box h3 { font-size: 20px; font-weight: 800; margin-bottom: 10px; }
     .dual-cta-box p { font-size: 14px; color: var(--subtle); line-height: 1.6; }
 
-    /* ── Partner Section ── */
-    .partner-section { padding: 80px 0; background: var(--surface); }
-    /* mobile-first: 1 col, expands at 769px */
-    .partner-grid { display: grid; grid-template-columns: 1fr; gap: 24px; margin-top: 48px; }
-    .partner-card { background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 16px; padding: 28px; }
-    .partner-card-icon { font-size: 36px; margin-bottom: 14px; }
-    .partner-card h4 { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
-    .partner-card p { font-size: 13px; color: var(--subtle); line-height: 1.6; }
-    .partner-card .feat-tag { margin-top: 14px; }
     @media (min-width: 769px) {
       .dual-cta { grid-template-columns: 1fr 1fr; }
       .dual-cta-box { padding: 32px; }
-      .partner-grid { grid-template-columns: repeat(3, 1fr); }
     }
   </style>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
