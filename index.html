@@ -540,6 +540,49 @@
     .hiw-step { border-color: rgba(255,255,255,0.1); }
     .tier-card.explorer { border-color: rgba(99,102,241,0.35); }
 
+    /* ── TRUST MARQUEE ──────────────────────────────── */
+    .trust-marquee-outer { overflow: hidden; position: relative; }
+    .trust-marquee-outer::before, .trust-marquee-outer::after {
+      content: ''; position: absolute; top: 0; bottom: 0; width: 80px; z-index: 2; pointer-events: none;
+    }
+    .trust-marquee-outer::before { left: 0; background: linear-gradient(90deg, #0a0a14, transparent); }
+    .trust-marquee-outer::after  { right: 0; background: linear-gradient(-90deg, #0a0a14, transparent); }
+    .trust-marquee-track {
+      display: flex; align-items: center; gap: 56px;
+      animation: trust-scroll 28s linear infinite;
+      width: max-content;
+    }
+    .trust-marquee-outer:hover .trust-marquee-track { animation-play-state: paused; }
+    @keyframes trust-scroll {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+    .trust-logo { font-size: 13px; font-weight: 700; color: rgba(255,255,255,0.22); letter-spacing: 0.06em; text-transform: uppercase; white-space: nowrap; }
+    .trust-sep { color: rgba(255,255,255,0.1); font-size: 18px; }
+
+    /* ── FAQ ─────────────────────────────────────────── */
+    .faq-section { }
+    .faq-list { max-width: 720px; margin: 0 auto; }
+    .faq-item {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); margin-bottom: 10px; overflow: hidden;
+      transition: border-color 0.2s;
+    }
+    .faq-item[open] { border-color: rgba(79,70,229,0.4); }
+    .faq-q {
+      padding: 20px 24px; font-size: 15px; font-weight: 600; cursor: pointer;
+      list-style: none; display: flex; justify-content: space-between; align-items: center;
+      color: var(--white);
+    }
+    .faq-q::-webkit-details-marker { display: none; }
+    .faq-q::after { content: '+'; color: var(--brand-light); font-size: 22px; font-weight: 300; line-height: 1; flex-shrink: 0; margin-left: 16px; }
+    .faq-item[open] .faq-q::after { content: '−'; }
+    .faq-a { padding: 0 24px 20px; font-size: 14px; color: var(--subtle); line-height: 1.75; border-top: 1px solid var(--border); padding-top: 16px; }
+    @media (max-width: 768px) {
+      .faq-q { padding: 16px 18px; font-size: 14px; }
+      .faq-a  { padding: 0 18px 16px; padding-top: 14px; font-size: 13px; }
+    }
+
     /* ── BREAKPOINT 1024 ────────────────────────────── */
     @media (max-width: 1024px) {
       .feat-grid { grid-template-columns: repeat(2, 1fr); }
@@ -771,8 +814,7 @@
       <li><a href="#customers">For Customers</a></li>
       <li><a href="merchant.html">For Merchants</a></li>
       <li><a href="partner.html">For Partners</a></li>
-      <li><a href="#tiers">Loyalty Tiers</a></li>
-      <li><a href="#security">Security</a></li>
+      <li><a href="#how-it-works">How It Works</a></li>
     </ul>
     <div class="nav-cta">
       <a href="mailto:tech@expzeno.com" class="btn btn-ghost">Contact Us</a>
@@ -788,8 +830,7 @@
       <a href="#customers" style="color:var(--subtle);text-decoration:none;font-size:15px;padding:4px 0;" onclick="toggleMenu()">For Customers</a>
       <a href="merchant.html" style="color:var(--subtle);text-decoration:none;font-size:15px;padding:4px 0;" onclick="toggleMenu()">For Merchants</a>
       <a href="partner.html" style="color:var(--subtle);text-decoration:none;font-size:15px;padding:4px 0;" onclick="toggleMenu()">For Partners</a>
-      <a href="#tiers" style="color:var(--subtle);text-decoration:none;font-size:15px;padding:4px 0;" onclick="toggleMenu()">Loyalty Tiers</a>
-      <a href="#security" style="color:var(--subtle);text-decoration:none;font-size:15px;padding:4px 0;" onclick="toggleMenu()">Security</a>
+      <a href="#how-it-works" style="color:var(--subtle);text-decoration:none;font-size:15px;padding:4px 0;" onclick="toggleMenu()">How It Works</a>
       <div style="display:flex;gap:10px;margin-top:6px;">
         <a href="mailto:tech@expzeno.com" class="btn btn-ghost" style="flex:1;justify-content:center;font-size:14px;">Contact</a>
         <a href="https://zeno.labzeno.com" class="btn btn-primary" style="flex:1;justify-content:center;font-size:14px;">Launch App ↗</a>
@@ -810,7 +851,7 @@
       <div>
         <div class="hero-eyebrow">
           <span class="dot"></span>
-          <span>Now Live — World-Class Loyalty Platform</span>
+          <span>Live in Singapore · Customer Loyalty &amp; E-Wallet Platform</span>
         </div>
         <h1 class="hero-title">
           Top up $50.<br/>
@@ -818,7 +859,7 @@
           Keep the difference.
         </h1>
         <p class="hero-sub">
-          Every time you top up at a Zeno merchant, you get bonus credit added to your wallet — instantly. More value, same spend. That's the Zeno deal.
+          Retaining a customer costs far less than finding a new one. Experience Zeno gives merchants a loyalty wallet that keeps customers coming back — and rewards them for every visit.
         </p>
         <div class="hero-actions">
           <a href="#customers" class="btn btn-primary btn-lg">I'm a Customer ✦</a>
@@ -827,15 +868,15 @@
         <div class="hero-stats">
           <div class="hero-stat">
             <div class="hero-stat-num">FREE</div>
-            <div class="hero-stat-lbl">Bonus Credit on Topup</div>
+            <div class="hero-stat-lbl">Bonus Credit on Every Topup</div>
           </div>
           <div class="hero-stat">
             <div class="hero-stat-num">3</div>
-            <div class="hero-stat-lbl">Loyalty Tiers</div>
+            <div class="hero-stat-lbl">Loyalty Tiers to Climb</div>
           </div>
           <div class="hero-stat">
-            <div class="hero-stat-num">1-tap</div>
-            <div class="hero-stat-lbl">Push to All Customers</div>
+            <div class="hero-stat-num">Real-time</div>
+            <div class="hero-stat-lbl">Balance & Wallet Updates</div>
           </div>
         </div>
       </div>
@@ -902,14 +943,35 @@
 <!-- ══ TRUST ══════════════════════════════════════════ -->
 <div class="trust-section">
   <div class="container">
-    <p class="trust-label">Trusted by forward-thinking businesses</p>
-    <div class="trust-logos">
-      <span class="trust-logo">F&amp;B</span>
-      <span class="trust-logo">CAFÉ</span>
-      <span class="trust-logo">RETAIL</span>
-      <span class="trust-logo">DINING</span>
-      <span class="trust-logo">SPA &amp; WELLNESS</span>
-      <span class="trust-logo">EVENTS</span>
+    <p class="trust-label">For any business where repeat customers are the game</p>
+  </div>
+  <div class="trust-marquee-outer" style="padding: 8px 0;">
+    <div class="trust-marquee-track">
+      <span class="trust-logo">Restaurants</span><span class="trust-sep">·</span>
+      <span class="trust-logo">Hair Salons</span><span class="trust-sep">·</span>
+      <span class="trust-logo">Cafés &amp; Coffee Bars</span><span class="trust-sep">·</span>
+      <span class="trust-logo">Nail Studios</span><span class="trust-sep">·</span>
+      <span class="trust-logo">Wellness &amp; Spas</span><span class="trust-sep">·</span>
+      <span class="trust-logo">Bubble Tea Chains</span><span class="trust-sep">·</span>
+      <span class="trust-logo">Gyms &amp; Fitness</span><span class="trust-sep">·</span>
+      <span class="trust-logo">Fine Dining</span><span class="trust-sep">·</span>
+      <span class="trust-logo">Retail Boutiques</span><span class="trust-sep">·</span>
+      <span class="trust-logo">Bakeries &amp; Patisseries</span><span class="trust-sep">·</span>
+      <span class="trust-logo">Medical Clinics</span><span class="trust-sep">·</span>
+      <span class="trust-logo">Pet Grooming</span><span class="trust-sep">·</span>
+      <!-- duplicate for seamless loop -->
+      <span class="trust-logo">Restaurants</span><span class="trust-sep">·</span>
+      <span class="trust-logo">Hair Salons</span><span class="trust-sep">·</span>
+      <span class="trust-logo">Cafés &amp; Coffee Bars</span><span class="trust-sep">·</span>
+      <span class="trust-logo">Nail Studios</span><span class="trust-sep">·</span>
+      <span class="trust-logo">Wellness &amp; Spas</span><span class="trust-sep">·</span>
+      <span class="trust-logo">Bubble Tea Chains</span><span class="trust-sep">·</span>
+      <span class="trust-logo">Gyms &amp; Fitness</span><span class="trust-sep">·</span>
+      <span class="trust-logo">Fine Dining</span><span class="trust-sep">·</span>
+      <span class="trust-logo">Retail Boutiques</span><span class="trust-sep">·</span>
+      <span class="trust-logo">Bakeries &amp; Patisseries</span><span class="trust-sep">·</span>
+      <span class="trust-logo">Medical Clinics</span><span class="trust-sep">·</span>
+      <span class="trust-logo">Pet Grooming</span><span class="trust-sep">·</span>
     </div>
   </div>
 </div>
@@ -920,7 +982,7 @@
     <div class="get-more-header center reveal">
       <div class="section-label"><span class="badge" style="background:rgba(245,158,11,0.15);border-color:rgba(245,158,11,0.4);color:var(--gold);">THE ZENO DEAL</span></div>
       <h2 class="section-title" style="margin-top:12px;">You put in $50.<br/><span class="text-gold">You walk away with more.</span></h2>
-      <p class="section-sub">Merchants reward you instantly with bonus credit on every topup. No points to redeem later. No vouchers to print. <strong>Real credit, right now.</strong></p>
+      <p class="section-sub">Merchants reward you instantly with bonus credit on every topup. No points to redeem later. No vouchers to print. <strong>Real credit, right now</strong> — and a reason to come back every time.</p>
     </div>
     <div class="get-more-flow reveal">
       <div class="gmf-step">
@@ -941,7 +1003,7 @@
         <div class="gmf-label">In your wallet to spend</div>
       </div>
     </div>
-    <p class="get-more-note reveal">Each merchant sets their own bonus rate. The more you top up, the more free credit you receive.</p>
+    <p class="get-more-note reveal">Each merchant sets their own bonus rate. The more you top up, the more free credit you receive. That's the Experience Zeno deal.</p>
 
     <div class="dual-cta reveal">
       <div class="dual-cta-box dual-cta-customer">
@@ -966,7 +1028,7 @@
     <div class="section-header center reveal">
       <div class="section-label"><span class="badge">HOW IT WORKS</span></div>
       <h2 class="section-title">Simple steps, <span class="text-brand">powerful results</span></h2>
-      <p class="section-sub">Whether you're a customer earning rewards or a merchant driving loyalty — Zeno gets you there in minutes.</p>
+      <p class="section-sub">Whether you're a customer earning rewards or a merchant driving loyalty — Experience Zeno gets you there in minutes.</p>
     </div>
 
     <div style="text-align:center;">
@@ -1099,7 +1161,7 @@
       <div>
         <div class="section-label reveal"><span class="badge" style="background:rgba(245,158,11,0.1);border-color:rgba(245,158,11,0.3);color:var(--gold);">FOR MERCHANTS</span></div>
         <h2 class="section-title reveal">Your customer CRM,<br/><span class="text-gold">built into every wallet.</span></h2>
-        <p class="section-sub reveal">Zeno isn't just a wallet — it's your direct line to every customer. Reward topups, push campaigns, track spending, and own the relationship. No middleman, no monthly SaaS bill.</p>
+        <p class="section-sub reveal">Retaining a customer costs a fraction of acquiring a new one. Experience Zeno gives you the tools to keep them loyal — bonus campaigns, push notifications, and a wallet that ties them to your business. No middleman. No SaaS fee. Direct ownership of your customer relationships.</p>
 
         <div class="merc-list" style="margin-top:40px;">
           <div class="merc-item reveal">
@@ -1196,10 +1258,11 @@
         <span class="tier-badge explorer">🧭 Explorer</span>
         <div class="tier-icon">🧭</div>
         <div class="tier-name">Explorer</div>
+        <div class="tier-threshold">Starting tier — all new members begin here</div>
         <ul class="tier-benefits">
           <li class="tier-benefit"><span class="tier-benefit-check">✓</span> Earn EXP on every topup</li>
-          <li class="tier-benefit"><span class="tier-benefit-check">✓</span> Welcome bonus credits at each merchant</li>
-          <li class="tier-benefit"><span class="tier-benefit-check">✓</span> Referral rewards on friend top-ups</li>
+          <li class="tier-benefit"><span class="tier-benefit-check">✓</span> Bonus credit at each merchant wallet</li>
+          <li class="tier-benefit"><span class="tier-benefit-check">✓</span> Referral EXP from friends' top-ups</li>
           <li class="tier-benefit"><span class="tier-benefit-check">✓</span> Full transaction history</li>
           <li class="tier-benefit"><span class="tier-benefit-check">✓</span> Multi-merchant wallet access</li>
         </ul>
@@ -1210,12 +1273,11 @@
         <span class="tier-badge voyager">🚀 Voyager</span>
         <div class="tier-icon">🚀</div>
         <div class="tier-name">Voyager</div>
+        <div class="tier-threshold">Awarded as you accumulate EXP</div>
         <ul class="tier-benefits">
           <li class="tier-benefit"><span class="tier-benefit-check">✓</span> Everything in Explorer</li>
-          <li class="tier-benefit"><span class="tier-benefit-check">✓</span> <strong>Higher referral earning rate</strong></li>
-          <li class="tier-benefit"><span class="tier-benefit-check">✓</span> Priority support access</li>
-          <li class="tier-benefit"><span class="tier-benefit-check">✓</span> Exclusive Voyager badge</li>
-          <li class="tier-benefit"><span class="tier-benefit-check">✓</span> Expanded referral capacity</li>
+          <li class="tier-benefit"><span class="tier-benefit-check">✓</span> <strong>Higher referral EXP rate</strong> — earn more from every friend topup</li>
+          <li class="tier-benefit"><span class="tier-benefit-check">✓</span> Exclusive Voyager status badge</li>
         </ul>
       </div>
 
@@ -1224,12 +1286,12 @@
         <span class="tier-badge zenith">⭐ Zenith</span>
         <div class="tier-icon">⭐</div>
         <div class="tier-name">Zenith</div>
+        <div class="tier-threshold">The highest tier — maximum rewards</div>
         <ul class="tier-benefits">
           <li class="tier-benefit"><span class="tier-benefit-check">✓</span> Everything in Voyager</li>
-          <li class="tier-benefit"><span class="tier-benefit-check">✓</span> <strong>Maximum referral earning rate</strong></li>
+          <li class="tier-benefit"><span class="tier-benefit-check">✓</span> <strong>Maximum referral EXP rate</strong> — the best earnings from your network</li>
           <li class="tier-benefit"><span class="tier-benefit-check">✓</span> Zenith exclusive status badge</li>
-          <li class="tier-benefit"><span class="tier-benefit-check">✓</span> Highest referral capacity multiplier</li>
-          <li class="tier-benefit"><span class="tier-benefit-check">✓</span> First access to new features</li>
+          <li class="tier-benefit"><span class="tier-benefit-check">✓</span> Early access to new platform features</li>
         </ul>
       </div>
     </div>
@@ -1408,13 +1470,58 @@
   </div>
 </section>
 
+<!-- ══ FAQ ══════════════════════════════════════════════ -->
+<section class="section faq-section" id="faq">
+  <div class="container">
+    <div class="section-header center reveal">
+      <div class="section-label"><span class="badge">FAQ</span></div>
+      <h2 class="section-title">Common <span class="text-brand">questions</span></h2>
+      <p class="section-sub">Everything you need to know before you get started.</p>
+    </div>
+    <div class="faq-list reveal">
+      <details class="faq-item">
+        <summary class="faq-q">Is Experience Zeno free for customers?</summary>
+        <div class="faq-a">Yes — there is no sign-up fee, no subscription, and no hidden charges. You only put money into a merchant wallet when you choose to top up.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">What is bonus credit and how does it work?</summary>
+        <div class="faq-a">Each merchant can configure a bonus rate on topups. When you top up (e.g. $50), the merchant's bonus is added to your wallet immediately (e.g. +$5 free credit). This is real spendable credit — not points you redeem later, not a voucher you print. It lands in your wallet the moment your topup is confirmed.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Can I use one wallet across multiple merchants?</summary>
+        <div class="faq-a">Experience Zeno is a multi-merchant platform, but each wallet is isolated per merchant. You hold a separate wallet at each merchant — credit topped up at Merchant A can only be spent at Merchant A. This gives each merchant full control over their customer loyalty programme.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">How do EXP points and loyalty tiers work?</summary>
+        <div class="faq-a">You earn EXP automatically on every topup at any merchant. As your EXP balance grows, the platform awards you higher loyalty tiers (Explorer → Voyager → Zenith). Higher tiers unlock better referral earning rates — so the more you use Experience Zeno, the more you earn from your network.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">How does the referral programme work?</summary>
+        <div class="faq-a">Generate your unique referral code in the app. Share it with a friend — they sign up and top up their first wallet, earning a welcome EXP boost. From their second topup onward, you automatically earn referral EXP every time they top up at any merchant. Your referral earning rate increases as you advance tiers.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Can I withdraw my wallet balance?</summary>
+        <div class="faq-a">Yes. You can request to withdraw your remaining wallet balance to a registered bank account. Withdrawals go through merchant approval and standard AML review before funds are released.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Is my money safe?</summary>
+        <div class="faq-a">Every balance uses double-entry bookkeeping with a SHA-256 hash chain — making any tampering instantly detectable. All payments use database-level row locking to prevent race conditions. Experience Zeno is fully PDPA 2012 compliant and does not store payment card numbers or full bank account details.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">I'm a merchant — how do I get started?</summary>
+        <div class="faq-a">Send us a merchant enquiry via the button below. Setup is fast: configure your wallet, set your topup bonus rate, and you're live. You can push campaigns and notifications to all your customers from day one — no third-party tools needed.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
 <!-- ══ PARTNER INTEGRATION ════════════════════════════ -->
 <section class="section partner-section" id="partners">
   <div class="container">
     <div class="section-header center reveal">
       <div class="section-label"><span class="badge" style="background:rgba(16,185,129,0.1);border-color:rgba(16,185,129,0.3);color:#10b981;">PARTNER &amp; INTEGRATE</span></div>
       <h2 class="section-title" style="margin-top:12px;">Connect Zeno to your<br/><span style="color:#10b981;">existing systems.</span></h2>
-      <p class="section-sub">Already running a POS, an e-commerce store, or a booking platform? Zeno's API layer plugs in — your customers top up and earn through your existing flow.</p>
+      <p class="section-sub">Already running a POS, booking platform, or ordering system? Experience Zeno's API layer plugs in — your customers top up and earn loyalty through your existing flow.</p>
     </div>
     <div class="partner-grid">
       <div class="partner-card reveal">
@@ -1431,8 +1538,8 @@
       </div>
       <div class="partner-card reveal reveal-delay-2">
         <div class="partner-card-icon">🔗</div>
-        <h4>Dining &amp; Lifestyle Partners</h4>
-        <p>Zeno integrates with dining discovery and lifestyle platforms — connecting your customer's wallet to exclusive partner deals and vouchers in a single tap.</p>
+        <h4>Platform &amp; Ecosystem Partners</h4>
+        <p>Experience Zeno integrates with discovery and lifestyle platforms — connecting your customer's loyalty wallet to exclusive partner deals and cross-merchant rewards in a single tap.</p>
         <span class="feat-tag">Partner Deal Marketplace</span>
       </div>
     </div>
@@ -1448,7 +1555,7 @@
     <div class="cta-inner reveal">
       <div class="section-label" style="justify-content:center;display:flex;margin-bottom:16px;"><span class="badge">GET STARTED</span></div>
       <h2 class="section-title">Ready to give customers<br/><span class="line-accent">more for every topup?</span></h2>
-      <p class="section-sub" style="margin:20px auto 0;">Whether you're a customer chasing better value or a merchant building loyalty — Zeno has you covered. Start in minutes.</p>
+      <p class="section-sub" style="margin:20px auto 0;">Whether you're a customer chasing better value or a merchant building loyalty — Experience Zeno has you covered. Start in minutes.</p>
       <div class="cta-actions">
         <a href="https://zeno.labzeno.com" class="btn btn-primary btn-xl">Get the App — It's Free →</a>
         <a href="mailto:tech@expzeno.com" class="btn btn-ghost btn-xl">Merchant Enquiry</a>
@@ -1466,7 +1573,7 @@
           <img src="assets/logo-icon.png" alt="Zeno" />
           <span>Experience Zeno</span>
         </div>
-        <p class="footer-desc">A world-class multi-merchant e-wallet loyalty platform. Earn EXP, level up your tier, and grow your business — all in one app.</p>
+        <p class="footer-desc">Experience Zeno is a multi-merchant e-wallet loyalty platform that makes your customers stickier. Built for businesses where repeat customers are everything.</p>
         <div class="footer-socials">
           <a href="mailto:tech@expzeno.com" class="footer-social" title="Email">✉</a>
           <a href="https://expzeno.com" class="footer-social" title="Website">🌐</a>
@@ -1500,7 +1607,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2025 Experience Zeno Pte Ltd. All rights reserved.</span>
+      <span>© <span id="footer-year"></span> Experience Zeno Pte Ltd. All rights reserved.</span>
       <div style="display:flex;gap:20px;">
         <a href="privacy-policy.html">Privacy Policy</a>
         <a href="eula.html">EULA</a>
@@ -1541,6 +1648,9 @@
       nav.style.background = 'rgba(10,10,20,0.7)';
     }
   });
+
+  // Dynamic footer year
+  document.getElementById('footer-year').textContent = new Date().getFullYear();
 </script>
 
 <!-- ══ FEEDBACK FAB ══════════════════════════════════ -->
