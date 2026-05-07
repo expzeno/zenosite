@@ -36,11 +36,8 @@
     .text-green { color: var(--emerald); }
     .center { text-align: center; }
     .center .section-sub { margin: 0 auto; }
-    .reveal { }
-    .reveal.visible { animation: revealIn 0.6s ease both; }
-    @keyframes revealIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
-    .reveal-delay-1.visible { animation-delay: 0.1s; }
-    .reveal-delay-2.visible { animation-delay: 0.2s; }
+    .reveal { opacity: 1; transform: none; }
+    .reveal.visible { opacity: 1; transform: none; }
 
     /* ── Nav ── */
     nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; transition: background 0.3s; }
@@ -108,6 +105,38 @@
     .feat-card.highlight-gold { border-color: rgba(245,158,11,0.35); background: rgba(245,158,11,0.04); }
     .feat-card.highlight-brand { border-color: rgba(99,102,241,0.35); background: rgba(99,102,241,0.04); }
 
+    /* ── Stats trust bar ── */
+    .trust-bar { padding: 48px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: var(--surface); }
+    .trust-bar-inner { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; text-align: center; }
+    .trust-bar-item { padding: 8px 16px; border-right: 1px solid var(--border); }
+    .trust-bar-item:last-child { border-right: none; }
+    .trust-bar-num { font-size: 36px; font-weight: 900; color: var(--gold); line-height: 1; margin-bottom: 6px; }
+    .trust-bar-lbl { font-size: 13px; color: var(--subtle); line-height: 1.4; }
+
+    /* ── Payment flow ── */
+    .pay-flow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-top: 48px; position: relative; }
+    .pay-flow::before { content: ''; position: absolute; top: 32px; left: calc(12.5% + 12px); right: calc(12.5% + 12px); height: 2px; background: linear-gradient(to right, var(--brand), var(--gold)); z-index: 0; }
+    .pay-step { text-align: center; padding: 0 12px; position: relative; z-index: 1; }
+    .pay-step-icon { width: 64px; height: 64px; border-radius: 50%; background: var(--surface2); border: 2px solid var(--brand); display: flex; align-items: center; justify-content: center; font-size: 24px; margin: 0 auto 16px; }
+    .pay-step h4 { font-size: 15px; font-weight: 700; margin-bottom: 8px; color: #fff; }
+    .pay-step p { font-size: 13px; color: var(--subtle); line-height: 1.5; }
+    .pay-step-amount { font-size: 22px; font-weight: 900; color: var(--gold); margin-bottom: 4px; }
+
+    /* ── Comparison table ── */
+    .compare-table { margin-top: 48px; border-radius: 18px; overflow: hidden; border: 1px solid var(--border); }
+    .compare-header { display: grid; grid-template-columns: 2fr 1fr 1fr; background: rgba(255,255,255,0.04); }
+    .compare-row { display: grid; grid-template-columns: 2fr 1fr 1fr; border-top: 1px solid var(--border); }
+    .compare-row:hover { background: rgba(255,255,255,0.02); }
+    .compare-cell { padding: 16px 20px; font-size: 14px; display: flex; align-items: center; }
+    .compare-header .compare-cell { font-size: 13px; font-weight: 700; color: var(--subtle); text-transform: uppercase; letter-spacing: 0.05em; padding: 14px 20px; }
+    .compare-cell.zeno { color: #fff; font-weight: 600; justify-content: center; text-align: center; }
+    .compare-cell.traditional { color: var(--subtle); justify-content: center; text-align: center; }
+    .compare-cell.feature { color: var(--subtle); }
+    .zeno-col { background: rgba(245,158,11,0.04); border-left: 1px solid rgba(245,158,11,0.2); border-right: none; }
+    .compare-header .zeno-col { background: rgba(245,158,11,0.08); }
+    .check { color: #22c55e; font-size: 18px; }
+    .cross { color: rgba(255,255,255,0.25); font-size: 18px; }
+
     /* ── How CRM works ── */
     .crm-flow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-top: 48px; position: relative; }
     .crm-flow::before { content: ''; position: absolute; top: 36px; left: calc(12.5% + 12px); right: calc(12.5% + 12px); height: 2px; background: linear-gradient(to right, var(--gold), var(--brand)); z-index: 0; }
@@ -152,16 +181,24 @@
       .feat-card.span2 { grid-column: span 2; }
       .crm-flow { grid-template-columns: 1fr 1fr; gap: 28px; }
       .crm-flow::before { display: none; }
+      .pay-flow { grid-template-columns: 1fr 1fr; gap: 28px; }
+      .pay-flow::before { display: none; }
+      .trust-bar-inner { grid-template-columns: repeat(2, 1fr); }
+      .trust-bar-item:nth-child(2) { border-right: none; }
+      .trust-bar-item:nth-child(3) { border-top: 1px solid var(--border); }
       .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
     }
     @media (max-width: 768px) {
       /* Layout */
       .nav-links { display: none; }
-      .nav-cta .btn-ghost { display: none; }
+      .nav-cta { display: none; }
       .nav-hamburger { display: flex; }
       .feat-grid { grid-template-columns: 1fr; }
       .feat-card.span2 { grid-column: span 1; }
       .crm-flow { grid-template-columns: 1fr; gap: 16px; }
+      .pay-flow { grid-template-columns: 1fr; gap: 16px; }
+      .trust-bar-inner { grid-template-columns: repeat(2, 1fr); }
+      .compare-table { overflow-x: auto; }
       .footer-grid { grid-template-columns: 1fr; }
       .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
       .cta-actions { flex-direction: column; align-items: center; }
@@ -243,7 +280,7 @@
 <nav id="nav">
   <div class="container nav-inner">
     <a href="/" class="nav-logo">
-      <img src="assets/logo-icon.png" alt="Zeno" />
+      <img src="assets/logo-icon.png" alt="Experience Zeno logo" />
       <span>Experience Zeno</span>
     </a>
     <ul class="nav-links">
@@ -255,7 +292,7 @@
     </ul>
     <div class="nav-cta">
       <a href="/#contact" class="btn btn-ghost">Contact Us</a>
-      <a href="mailto:tech@expzeno.com" class="btn btn-gold">Get Started →</a>
+      <a href="mailto:ops@expzeno.com" class="btn btn-gold">Get Started →</a>
     </div>
     <div class="nav-hamburger" id="hamburger" onclick="toggleMenu()">
       <span></span><span></span><span></span>
@@ -270,7 +307,7 @@
       <a href="/#faq" style="color:var(--subtle);text-decoration:none;font-size:15px;padding:4px 0;" onclick="toggleMenu()">FAQ</a>
       <div style="display:flex;gap:10px;margin-top:6px;">
         <a href="/#contact" class="btn btn-ghost" style="flex:1;justify-content:center;font-size:14px;">Contact Us</a>
-        <a href="mailto:tech@expzeno.com" class="btn btn-gold" style="flex:1;justify-content:center;font-size:14px;">Get Started →</a>
+        <a href="mailto:ops@expzeno.com" class="btn btn-gold" style="flex:1;justify-content:center;font-size:14px;">Get Started →</a>
       </div>
     </div>
   </div>
@@ -298,7 +335,7 @@
           Zeno gives every merchant a direct line to their customers — bonus credit campaigns, one-tap push notifications, reservation management, and real-time analytics. All in one dashboard. No middleman.
         </p>
         <div class="hero-actions">
-          <a href="mailto:tech@expzeno.com" class="btn btn-gold btn-lg">Start as a Merchant →</a>
+          <a href="mailto:ops@expzeno.com" class="btn btn-gold btn-lg">Start as a Merchant →</a>
           <a href="/#how-it-works" class="btn btn-ghost btn-lg">See How It Works</a>
         </div>
         <div class="hero-stats">
@@ -353,6 +390,30 @@
   </div>
 </section>
 
+<!-- ══ TRUST BAR ══════════════════════════════════════ -->
+<div class="trust-bar">
+  <div class="container">
+    <div class="trust-bar-inner">
+      <div class="trust-bar-item">
+        <div class="trust-bar-num">$0</div>
+        <div class="trust-bar-lbl">Monthly SaaS fee — ever</div>
+      </div>
+      <div class="trust-bar-item">
+        <div class="trust-bar-num">1-tap</div>
+        <div class="trust-bar-lbl">Reach every customer instantly</div>
+      </div>
+      <div class="trust-bar-item">
+        <div class="trust-bar-num">86%</div>
+        <div class="trust-bar-lbl">Average customer retention rate</div>
+      </div>
+      <div class="trust-bar-item">
+        <div class="trust-bar-num">&lt;5min</div>
+        <div class="trust-bar-lbl">Setup time to go live</div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- ══ HOW YOUR CRM WORKS ════════════════════════════ -->
 <section class="section" id="how-it-works" style="background:var(--surface);">
   <div class="container">
@@ -380,6 +441,108 @@
         <div class="crm-step-num">4</div>
         <h4>Track, Optimise & Withdraw</h4>
         <p>View topup volumes, retention, and bonus utilisation in real time. Request payouts directly from your dashboard.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ HOW PAYMENT WORKS ════════════════════════════ -->
+<section class="section" id="payment-flow">
+  <div class="container">
+    <div class="section-header center reveal">
+      <div class="section-label"><span class="badge" style="background:rgba(245,158,11,0.1);border-color:rgba(245,158,11,0.3);color:var(--gold);">HOW YOU GET PAID</span></div>
+      <h2 class="section-title" style="margin-top:12px;">From customer tap<br/><span class="text-gold">to your bank account</span></h2>
+      <p class="section-sub" style="margin:16px auto 0;">Every transaction is settled end-to-end through Zeno. No hardware. No POS terminal. No waiting weeks for payouts.</p>
+    </div>
+    <div class="pay-flow">
+      <div class="pay-step reveal">
+        <div class="pay-step-icon">📱</div>
+        <div class="pay-step-amount">$30</div>
+        <h4>Customer Pays</h4>
+        <p>Customer scans your QR or staff initiates charge in the merchant app. Payment deducted from their Zeno wallet instantly.</p>
+      </div>
+      <div class="pay-step reveal reveal-delay-1">
+        <div class="pay-step-icon" style="border-color:var(--gold);">⚡</div>
+        <div class="pay-step-amount" style="color:var(--brand-light);">Real-time</div>
+        <h4>Wallet Debited</h4>
+        <p>The charge is deducted from the customer's wallet balance in real time — no card swipe, no terminal, no receipt paper.</p>
+      </div>
+      <div class="pay-step reveal reveal-delay-2">
+        <div class="pay-step-icon" style="border-color:var(--emerald);">🏦</div>
+        <div class="pay-step-amount" style="color:var(--emerald);">+$30</div>
+        <h4>Your Wallet Credited</h4>
+        <p>The collected amount appears in your merchant wallet immediately. Track it live on your dashboard anytime.</p>
+      </div>
+      <div class="pay-step reveal reveal-delay-3">
+        <div class="pay-step-icon" style="border-color:var(--subtle);">💳</div>
+        <div class="pay-step-amount" style="color:var(--white);">Bank</div>
+        <h4>Request Withdrawal</h4>
+        <p>Tap "Withdraw" on your dashboard, submit your bank details, and receive funds directly to your account after AML review.</p>
+      </div>
+    </div>
+    <div style="margin-top:48px;background:rgba(16,185,129,0.06);border:1px solid rgba(16,185,129,0.2);border-radius:16px;padding:24px 28px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;">
+      <span style="font-size:28px;">✅</span>
+      <div>
+        <div style="font-weight:700;color:#fff;margin-bottom:4px;">No hardware. No terminal. No waiting.</div>
+        <div style="font-size:14px;color:var(--subtle);">Zeno works entirely through the mobile app — your customers pay with their phone, you receive on yours. That's it.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ ZENO VS TRADITIONAL ══════════════════════════ -->
+<section class="section" style="background:var(--surface);">
+  <div class="container">
+    <div class="section-header center reveal">
+      <div class="section-label"><span class="badge">WHY ZENO</span></div>
+      <h2 class="section-title" style="margin-top:12px;">Zeno vs traditional<br/><span class="text-gold">loyalty programmes</span></h2>
+      <p class="section-sub" style="margin:16px auto 0;">Stamp cards get lost. Points apps cost $500/month. WhatsApp blasts get ignored. Zeno is built differently.</p>
+    </div>
+    <div class="compare-table reveal">
+      <div class="compare-header">
+        <div class="compare-cell feature">Feature</div>
+        <div class="compare-cell zeno-col" style="justify-content:center;text-align:center;font-weight:800;color:var(--gold);">⭐ Zeno</div>
+        <div class="compare-cell" style="justify-content:center;text-align:center;">Traditional</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell feature">Monthly SaaS fee</div>
+        <div class="compare-cell zeno zeno-col"><span class="check">✓</span>&nbsp; $0 forever</div>
+        <div class="compare-cell traditional">$200–$800/mo</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell feature">Direct push to every customer</div>
+        <div class="compare-cell zeno zeno-col"><span class="check">✓</span>&nbsp; 1-tap, instant</div>
+        <div class="compare-cell traditional"><span class="cross">✗</span></div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell feature">Bonus credit campaigns</div>
+        <div class="compare-cell zeno zeno-col"><span class="check">✓</span>&nbsp; Built-in</div>
+        <div class="compare-cell traditional">Stamp card only</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell feature">Real-time analytics dashboard</div>
+        <div class="compare-cell zeno zeno-col"><span class="check">✓</span>&nbsp; Included</div>
+        <div class="compare-cell traditional">Add-on / paid tier</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell feature">Reservation + deposit management</div>
+        <div class="compare-cell zeno zeno-col"><span class="check">✓</span>&nbsp; Native</div>
+        <div class="compare-cell traditional"><span class="cross">✗</span></div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell feature">QR scan-to-pay (no terminal)</div>
+        <div class="compare-cell zeno zeno-col"><span class="check">✓</span>&nbsp; Any device</div>
+        <div class="compare-cell traditional">Hardware required</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell feature">AML-compliant withdrawals</div>
+        <div class="compare-cell zeno zeno-col"><span class="check">✓</span>&nbsp; Built-in</div>
+        <div class="compare-cell traditional"><span class="cross">✗</span></div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell feature">Setup time</div>
+        <div class="compare-cell zeno zeno-col"><span class="check">✓</span>&nbsp; &lt;5 minutes</div>
+        <div class="compare-cell traditional">Days / weeks</div>
       </div>
     </div>
   </div>
@@ -484,7 +647,7 @@
       <h2 class="section-title">Ready to turn topups<br/><span class="line-accent">into loyal customers?</span></h2>
       <p class="section-sub" style="margin:20px auto 0;">Set up your merchant wallet, configure your bonus campaign, and start building a customer base that keeps coming back — today.</p>
       <div class="cta-actions">
-        <a href="mailto:tech@expzeno.com" class="btn btn-gold btn-xl">Onboard My Business →</a>
+        <a href="mailto:ops@expzeno.com" class="btn btn-gold btn-xl">Onboard My Business →</a>
         <a href="partner.html" class="btn btn-ghost btn-xl">POS / API Integration</a>
       </div>
     </div>
@@ -497,7 +660,7 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <div class="footer-logo">
-          <img src="assets/logo-icon.png" alt="Zeno" />
+          <img src="assets/logo-icon.png" alt="Experience Zeno logo" />
           <span>Experience Zeno</span>
         </div>
         <p class="footer-desc">A multi-merchant e-wallet loyalty platform. Give customers more value on every topup — and own the relationship.</p>
@@ -514,9 +677,9 @@
       <div class="footer-col">
         <h4>CONTACT</h4>
         <ul>
-          <li><a href="mailto:tech@expzeno.com">Merchant Enquiry</a></li>
+          <li><a href="mailto:ops@expzeno.com">Merchant Enquiry</a></li>
           <li><a href="mailto:tech@expzeno.com">API & Integration</a></li>
-          <li><a href="mailto:tech@expzeno.com">Support</a></li>
+          <li><a href="mailto:server@expzeno.com">Support</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -529,7 +692,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2025 Experience Zeno Pte Ltd. All rights reserved.</span>
+      <span id="footer-year">© 2026 Experience Zeno Pte Ltd. All rights reserved.</span>
       <div style="display:flex;gap:20px;">
         <a href="privacy-policy.html">Privacy Policy</a>
         <a href="eula.html">EULA</a>
@@ -541,8 +704,12 @@
 <script>
   function toggleMenu() {
     const m = document.getElementById('mobile-menu');
-    m.style.display = m.style.display === 'none' ? 'block' : 'none';
+    const fab = document.getElementById('fb-fab');
+    const isOpen = m.style.display !== 'none';
+    m.style.display = isOpen ? 'none' : 'block';
+    if (fab) fab.style.display = isOpen ? 'flex' : 'none';
   }
+  document.getElementById('footer-year').textContent = '© ' + new Date().getFullYear() + ' Experience Zeno Pte Ltd. All rights reserved.';
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.05, rootMargin: '0px 0px -5% 0px' });
