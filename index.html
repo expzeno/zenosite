@@ -269,7 +269,7 @@
 
     /* ── HOW IT WORKS ─────────────────────────────── */
     .hiw-section { background: linear-gradient(180deg, transparent, rgba(79,70,229,0.04), transparent); }
-    .hiw-tabs { display: flex; gap: 4px; background: rgba(255,255,255,0.04); padding: 4px; border-radius: 12px; width: fit-content; margin: 0 auto 56px; }
+    .hiw-tabs { display: none; }
     .hiw-tab {
       padding: 10px 28px; border-radius: 10px; font-size: 14px; font-weight: 600;
       cursor: pointer; border: none; background: transparent; color: var(--subtle);
@@ -859,12 +859,13 @@
           Keep the difference.
         </h1>
         <p class="hero-sub">
-          Retaining a customer costs far less than finding a new one. Experience Zeno gives merchants a loyalty wallet that keeps customers coming back — and rewards them for every visit.
+          Top up at your favourite merchants and instantly get more than you put in — bonus credit, EXP points, and loyalty rewards that grow the more you use them.
         </p>
         <div class="hero-actions">
-          <a href="#customers" class="btn btn-primary btn-lg">I'm a Customer ✦</a>
-          <a href="#merchants" class="btn btn-gold btn-lg">I'm a Merchant →</a>
+          <a href="https://zeno.labzeno.com" class="btn btn-primary btn-lg">Get the App — Free →</a>
+          <a href="#customers" class="btn btn-ghost btn-lg">See Benefits ↓</a>
         </div>
+        <p style="margin-top:14px;font-size:13px;color:var(--text-muted);">Running a business? <a href="merchant.html" style="color:var(--brand-light);text-decoration:none;">Visit the merchant page →</a></p>
         <div class="hero-stats">
           <div class="hero-stat">
             <div class="hero-stat-num">FREE</div>
@@ -933,7 +934,7 @@
         </div>
         <div class="float-chip float-chip-3">
           <span class="chip-dot chip-dot-brand"></span>
-          <span>📣 Merchant push sent</span>
+          <span>📲 Topup confirmed — +$5 bonus added</span>
         </div>
       </div>
     </div>
@@ -1004,20 +1005,8 @@
       </div>
     </div>
     <p class="get-more-note reveal">Each merchant sets their own bonus rate. The more you top up, the more free credit you receive. That's the Experience Zeno deal.</p>
-
-    <div class="dual-cta reveal">
-      <div class="dual-cta-box dual-cta-customer">
-        <div class="dual-cta-icon">🛍️</div>
-        <h3>For Customers</h3>
-        <p>Get bonus credit every time you top up. Your money goes further — at every merchant you love.</p>
-        <a href="#customers" class="btn btn-primary" style="margin-top:16px;">See Customer Benefits →</a>
-      </div>
-      <div class="dual-cta-box dual-cta-merchant">
-        <div class="dual-cta-icon">🏪</div>
-        <h3>For Merchants</h3>
-        <p>Offer bonus credit to attract topups, push campaigns to drive visits, and build a loyal customer base — all from one dashboard.</p>
-        <a href="#merchants" class="btn btn-gold" style="margin-top:16px;">See Merchant CRM →</a>
-      </div>
+    <div class="reveal" style="text-align:center;margin-top:32px;">
+      <a href="https://zeno.labzeno.com" class="btn btn-primary btn-lg">Start Earning Today →</a>
     </div>
   </div>
 </section>
@@ -1027,15 +1016,8 @@
   <div class="container">
     <div class="section-header center reveal">
       <div class="section-label"><span class="badge">HOW IT WORKS</span></div>
-      <h2 class="section-title">Simple steps, <span class="text-brand">powerful results</span></h2>
-      <p class="section-sub">Whether you're a customer earning rewards or a merchant driving loyalty — Experience Zeno gets you there in minutes.</p>
-    </div>
-
-    <div style="text-align:center;">
-      <div class="hiw-tabs">
-        <button class="hiw-tab active" onclick="switchTab('customer')">For Customers</button>
-        <button class="hiw-tab" onclick="switchTab('merchant')">For Merchants</button>
-      </div>
+      <h2 class="section-title">Simple steps, <span class="text-brand">real rewards</span></h2>
+      <p class="section-sub">Get started in minutes and start earning from your very first topup.</p>
     </div>
 
     <div class="hiw-content active" id="tab-customer">
@@ -1043,13 +1025,13 @@
         <div class="hiw-step-num">1</div>
         <div class="hiw-icon">📱</div>
         <h3>Download &amp; Sign Up</h3>
-        <p>Create your Zeno account in seconds using email, Google, or Apple Sign-In. Your loyalty journey starts immediately.</p>
+        <p>Create your Experience Zeno account in seconds using email, Google, or Apple Sign-In. Your loyalty journey starts immediately.</p>
       </div>
       <div class="hiw-step reveal reveal-delay-1">
         <div class="hiw-step-num">2</div>
         <div class="hiw-icon">💳</div>
         <h3>Top Up at Merchants</h3>
-        <p>Scan a QR or tap to top up your wallet at any participating merchant. Earn EXP points on every dollar — from your very first topup.</p>
+        <p>Scan a QR or tap to top up your wallet at any participating merchant. Get instant bonus credit and earn EXP points from your very first topup.</p>
       </div>
       <div class="hiw-step reveal reveal-delay-2">
         <div class="hiw-step-num">3</div>
@@ -1057,26 +1039,6 @@
         <h3>Earn, Level Up &amp; Refer</h3>
         <p>Climb from Explorer to Zenith, unlock higher referral rates, and earn bonus EXP whenever friends you invited top up too.</p>
       </div>
-    </div>
-
-    <div class="hiw-content" id="tab-merchant">
-      <div class="hiw-step reveal">
-        <div class="hiw-step-num">1</div>
-        <div class="hiw-icon">🏪</div>
-        <h3>Set Up Your Wallet</h3>
-        <p>Configure your merchant wallet in minutes — set your topup campaigns, welcome gift bonuses, and reservation deposit rules.</p>
-      </div>
-      <div class="hiw-step reveal reveal-delay-1">
-        <div class="hiw-step-num">2</div>
-        <div class="hiw-icon">📢</div>
-        <h3>Publish &amp; Promote</h3>
-        <p>Go live on the Zeno platform. Send push notifications, run limited-time campaigns, and watch customers join your loyalty programme.</p>
-      </div>
-      <div class="hiw-step reveal reveal-delay-2">
-        <div class="hiw-step-num">3</div>
-        <div class="hiw-icon">📈</div>
-        <h3>Grow &amp; Withdraw</h3>
-        <p>Monitor spending analytics, manage withdrawals with full AML compliance review, and build a customer base that keeps coming back.</p>
       </div>
     </div>
   </div>
@@ -1154,94 +1116,6 @@
   </div>
 </section>
 
-<!-- ══ MERCHANT FEATURES ══════════════════════════════ -->
-<section class="section merc-section" id="merchants">
-  <div class="container">
-    <div class="merc-split">
-      <div>
-        <div class="section-label reveal"><span class="badge" style="background:rgba(245,158,11,0.1);border-color:rgba(245,158,11,0.3);color:var(--gold);">FOR MERCHANTS</span></div>
-        <h2 class="section-title reveal">Your customer CRM,<br/><span class="text-gold">built into every wallet.</span></h2>
-        <p class="section-sub reveal">Retaining a customer costs a fraction of acquiring a new one. Experience Zeno gives you the tools to keep them loyal — bonus campaigns, push notifications, and a wallet that ties them to your business. No middleman. No SaaS fee. Direct ownership of your customer relationships.</p>
-
-        <div class="merc-list" style="margin-top:40px;">
-          <div class="merc-item reveal">
-            <div class="merc-item-icon">🎯</div>
-            <div>
-              <h4>Bonus Credit Campaigns — Customers Top Up More</h4>
-              <p>Run "Top up $50, get $10 bonus credit" campaigns. Customers see they get more value, so they top up more — and that money stays in <em>your</em> ecosystem. Set any rate, any cap, any time window.</p>
-            </div>
-          </div>
-          <div class="merc-item reveal reveal-delay-1">
-            <div class="merc-item-icon">🎁</div>
-            <div>
-              <h4>Welcome Gift — Turn New Customers into Regulars</h4>
-              <p>Auto-credit new customers with a bonus the moment they first top up. They get instant value. You get a committed customer with money already in your wallet — ready to spend.</p>
-            </div>
-          </div>
-          <div class="merc-item reveal reveal-delay-2">
-            <div class="merc-item-icon">🪑</div>
-            <div>
-              <h4>Reservation &amp; Preauth System</h4>
-              <p>Accept table reservations with smart preauth deposits. Hold, release, or charge the deposit at point of service — no payment terminal needed.</p>
-            </div>
-          </div>
-          <div class="merc-item reveal">
-            <div class="merc-item-icon">💸</div>
-            <div>
-              <h4>Withdrawal Management</h4>
-              <p>Request payouts directly from your wallet balance. Full AML review, proof-of-bank upload, and status tracking built in.</p>
-            </div>
-          </div>
-          <div class="merc-item reveal reveal-delay-1">
-            <div class="merc-item-icon">📣</div>
-            <div>
-              <h4>Push Notifications — Direct to Every Customer</h4>
-              <p>One tap sends a push notification to every customer who holds your wallet. Flash sale at 6pm? Sold out on weekends? Let them know instantly — no WhatsApp blasts, no printing, no ad spend. <strong>Your message, their phone, right now.</strong></p>
-            </div>
-          </div>
-          <div class="merc-item reveal reveal-delay-2">
-            <div class="merc-item-icon">📋</div>
-            <div>
-              <h4>Transaction Analytics</h4>
-              <p>Track every topup, charge, and bonus grant. Full transaction history with reconciliation reports and P&amp;L breakdowns.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="reveal" style="transition-delay:0.2s;">
-        <div class="dash-mockup">
-          <div class="dash-header">
-            <div class="dash-title">Merchant Dashboard</div>
-            <div class="dash-badge">● Live</div>
-          </div>
-          <div class="dash-stats">
-            <div class="dash-stat-card">
-              <div class="dash-stat-lbl">Total Topups</div>
-              <div class="dash-stat-val gold">$12,480</div>
-            </div>
-            <div class="dash-stat-card">
-              <div class="dash-stat-lbl">Active Wallets</div>
-              <div class="dash-stat-val brand">248</div>
-            </div>
-          </div>
-          <div>
-            <div class="dash-bar-lbl">Monthly Topup Volume</div>
-            <div class="dash-bar-track"><div class="dash-bar-fill gold" style="width:72%"></div></div>
-            <div class="dash-bar-lbl">Customer Retention Rate</div>
-            <div class="dash-bar-track"><div class="dash-bar-fill" style="width:86%"></div></div>
-            <div class="dash-bar-lbl">Bonus Utilisation</div>
-            <div class="dash-bar-track"><div class="dash-bar-fill gold" style="width:58%"></div></div>
-          </div>
-          <div class="dash-campaign">
-            <div class="dash-camp-lbl">🎯 Active Campaign</div>
-            <div class="dash-camp-text">Weekend Special: Top up $30 → get $8 bonus credit<br/><span style="color:var(--gold);font-weight:600;">47 customers activated</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- ══ LOYALTY TIERS ══════════════════════════════════ -->
 <section class="section tiers-section" id="tiers">
@@ -1430,17 +1304,17 @@
   <div class="container">
     <div class="section-header center reveal">
       <div class="section-label"><span class="badge">WHAT PEOPLE SAY</span></div>
-      <h2 class="section-title">Loved by merchants <span class="text-brand">&amp; customers</span></h2>
+      <h2 class="section-title">What our <span class="text-brand">customers say</span></h2>
     </div>
     <div class="testi-grid">
       <div class="testi-card reveal">
         <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">"Our repeat customer rate jumped after launching Zeno. The topup bonus campaigns basically run themselves and customers top up more frequently just to earn the EXP."</p>
+        <p class="testi-text">"I top up at my regular café every week. The bonus credit just appears — I never have to think about it. It's like getting paid to do something I was already doing."</p>
         <div class="testi-author">
-          <div class="testi-avatar" style="background: linear-gradient(135deg, #4f46e5, #7c3aed);">S</div>
+          <div class="testi-avatar" style="background: linear-gradient(135deg, #4f46e5, #7c3aed);">J</div>
           <div>
-            <div class="testi-name">Sarah L.</div>
-            <div class="testi-role">F&amp;B Merchant Owner</div>
+            <div class="testi-name">Jamie T.</div>
+            <div class="testi-role">Explorer Member</div>
           </div>
         </div>
       </div>
@@ -1457,12 +1331,12 @@
       </div>
       <div class="testi-card reveal reveal-delay-2">
         <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">"The reservation preauth feature alone was worth switching to Zeno. No more no-shows — the deposit hold is automatic and my team doesn't have to chase anyone."</p>
+        <p class="testi-text">"Having all my merchant wallets in one app is so convenient. I can see every topup, every bonus credit, and my EXP balance all in one place. No more hunting through apps."</p>
         <div class="testi-author">
-          <div class="testi-avatar" style="background: linear-gradient(135deg, #10b981, #059669);">D</div>
+          <div class="testi-avatar" style="background: linear-gradient(135deg, #10b981, #059669);">P</div>
           <div>
-            <div class="testi-name">Diana W.</div>
-            <div class="testi-role">Restaurant Manager</div>
+            <div class="testi-name">Priya K.</div>
+            <div class="testi-role">Zenith Member</div>
           </div>
         </div>
       </div>
@@ -1507,44 +1381,31 @@
         <summary class="faq-q">Is my money safe?</summary>
         <div class="faq-a">Every balance uses double-entry bookkeeping with a SHA-256 hash chain — making any tampering instantly detectable. All payments use database-level row locking to prevent race conditions. Experience Zeno is fully PDPA 2012 compliant and does not store payment card numbers or full bank account details.</div>
       </details>
-      <details class="faq-item">
-        <summary class="faq-q">I'm a merchant — how do I get started?</summary>
-        <div class="faq-a">Send us a merchant enquiry via the button below. Setup is fast: configure your wallet, set your topup bonus rate, and you're live. You can push campaigns and notifications to all your customers from day one — no third-party tools needed.</div>
-      </details>
     </div>
   </div>
 </section>
 
-<!-- ══ PARTNER INTEGRATION ════════════════════════════ -->
-<section class="section partner-section" id="partners">
+<!-- ══ FOR BUSINESSES ══════════════════════════════════ -->
+<section class="section" style="padding-top:60px;padding-bottom:60px;">
   <div class="container">
     <div class="section-header center reveal">
-      <div class="section-label"><span class="badge" style="background:rgba(16,185,129,0.1);border-color:rgba(16,185,129,0.3);color:#10b981;">PARTNER &amp; INTEGRATE</span></div>
-      <h2 class="section-title" style="margin-top:12px;">Connect Zeno to your<br/><span style="color:#10b981;">existing systems.</span></h2>
-      <p class="section-sub">Already running a POS, booking platform, or ordering system? Experience Zeno's API layer plugs in — your customers top up and earn loyalty through your existing flow.</p>
+      <div class="section-label"><span class="badge">FOR BUSINESSES</span></div>
+      <h2 class="section-title" style="margin-top:12px;">Running a business?<br/><span class="text-brand">Zeno works for you too.</span></h2>
+      <p class="section-sub">Experience Zeno helps any repeat-customer business turn one-time visitors into loyal regulars — with bonus credit campaigns, push notifications, and a wallet customers never want to leave.</p>
     </div>
-    <div class="partner-grid">
-      <div class="partner-card reveal">
-        <div class="partner-card-icon">🖥️</div>
-        <h4>POS Integration</h4>
-        <p>Connect Zeno to your point-of-sale system. Customers top up and pay directly at the counter via QR or staff-triggered charge — no separate hardware needed.</p>
-        <span class="feat-tag">Works with existing POS</span>
-      </div>
-      <div class="partner-card reveal reveal-delay-1">
-        <div class="partner-card-icon">🛒</div>
-        <h4>E-Commerce &amp; Online Orders</h4>
-        <p>Add Zeno wallet payment to your online checkout. Customers use their wallet balance, earn EXP on orders, and see bonus credit apply automatically at checkout.</p>
-        <span class="feat-tag">API-first Integration</span>
-      </div>
-      <div class="partner-card reveal reveal-delay-2">
-        <div class="partner-card-icon">🔗</div>
-        <h4>Platform &amp; Ecosystem Partners</h4>
-        <p>Experience Zeno integrates with discovery and lifestyle platforms — connecting your customer's loyalty wallet to exclusive partner deals and cross-merchant rewards in a single tap.</p>
-        <span class="feat-tag">Partner Deal Marketplace</span>
-      </div>
-    </div>
-    <div style="text-align:center;margin-top:40px;">
-      <a href="mailto:tech@expzeno.com" class="btn btn-primary btn-lg">Enquire About Integration →</a>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:40px;">
+      <a href="merchant.html" class="feat-card reveal" style="text-decoration:none;display:block;border-color:rgba(245,158,11,0.3);">
+        <span class="feat-icon">🏪</span>
+        <div class="feat-title" style="color:var(--gold);">For Merchants</div>
+        <p class="feat-desc">Offer bonus credit, send push notifications, and manage customer wallets — all from one dashboard. Turn every topup into a retention tool.</p>
+        <span class="feat-tag gold" style="margin-top:12px;">Learn more →</span>
+      </a>
+      <a href="partner.html" class="feat-card reveal reveal-delay-1" style="text-decoration:none;display:block;border-color:rgba(16,185,129,0.3);">
+        <span class="feat-icon">🔗</span>
+        <div class="feat-title" style="color:#10b981;">For Partners &amp; Integrators</div>
+        <p class="feat-desc">Already running a POS, booking, or ordering system? Connect Zeno's API to your existing flow — your customers earn loyalty without switching apps.</p>
+        <span class="feat-tag" style="margin-top:12px;background:rgba(16,185,129,0.1);border-color:rgba(16,185,129,0.3);color:#10b981;">Learn more →</span>
+      </a>
     </div>
   </div>
 </section>
@@ -1554,12 +1415,12 @@
   <div class="container">
     <div class="cta-inner reveal">
       <div class="section-label" style="justify-content:center;display:flex;margin-bottom:16px;"><span class="badge">GET STARTED</span></div>
-      <h2 class="section-title">Ready to give customers<br/><span class="line-accent">more for every topup?</span></h2>
-      <p class="section-sub" style="margin:20px auto 0;">Whether you're a customer chasing better value or a merchant building loyalty — Experience Zeno has you covered. Start in minutes.</p>
+      <h2 class="section-title">Your wallet. Your rewards.<br/><span class="line-accent">Start earning today.</span></h2>
+      <p class="section-sub" style="margin:20px auto 0;">Download Experience Zeno, top up at your favourite merchant, and walk away with more than you put in — every single time.</p>
       <div class="cta-actions">
         <a href="https://zeno.labzeno.com" class="btn btn-primary btn-xl">Get the App — It's Free →</a>
-        <a href="mailto:tech@expzeno.com" class="btn btn-ghost btn-xl">Merchant Enquiry</a>
       </div>
+      <p style="margin-top:20px;font-size:13px;color:var(--text-muted);">A business owner? <a href="merchant.html" style="color:var(--brand-light);text-decoration:none;">See what Zeno can do for your business →</a></p>
     </div>
   </div>
 </section>
@@ -1583,7 +1444,7 @@
         <h4>Platform</h4>
         <ul>
           <li><a href="#customers">For Customers</a></li>
-          <li><a href="#merchants">For Merchants</a></li>
+          <li><a href="merchant.html">For Merchants</a></li>
           <li><a href="#tiers">Loyalty Tiers</a></li>
           <li><a href="#referral">Referral Programme</a></li>
           <li><a href="#security">Security</a></li>
@@ -1607,24 +1468,12 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© <span id="footer-year"></span> Experience Zeno Pte Ltd. All rights reserved.</span>
-      <div style="display:flex;gap:20px;">
-        <a href="privacy-policy.html">Privacy Policy</a>
-        <a href="eula.html">EULA</a>
-      </div>
+      <span>© <span id="footer-year"></span> Experience Zeno Pte. Ltd. All rights reserved.</span>
     </div>
   </div>
 </footer>
 
 <script>
-  // Tab switching
-  function switchTab(type) {
-    document.querySelectorAll('.hiw-tab').forEach(t => t.classList.remove('active'));
-    document.querySelectorAll('.hiw-content').forEach(c => c.classList.remove('active'));
-    event.target.classList.add('active');
-    document.getElementById('tab-' + type).classList.add('active');
-  }
-
   // Mobile menu
   function toggleMenu() {
     const m = document.getElementById('mobile-menu');
