@@ -55,7 +55,9 @@
       padding: 4px 12px; border-radius: 100px; letter-spacing: 0.05em;
       text-transform: uppercase;
     }
-    .section { padding: 100px 0; }
+    .section { padding: 120px 0; }
+    .section-alt { background: rgba(255,255,255,0.02); border-top: 1px solid rgba(255,255,255,0.04); border-bottom: 1px solid rgba(255,255,255,0.04); }
+    .section-divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(79,70,229,0.2), transparent); max-width: 600px; margin: 0 auto; }
     .section-label { margin-bottom: 16px; }
     .section-title {
       font-size: clamp(32px, 5vw, 52px); font-weight: 800;
@@ -198,7 +200,7 @@
       display: flex; justify-content: center; align-items: center; position: relative;
     }
     .phone-frame {
-      width: 280px; height: 560px;
+      width: 320px; height: 600px;
       background: linear-gradient(145deg, #1e1b4b, #0f0c24);
       border-radius: 44px;
       border: 1.5px solid rgba(99,102,241,0.3);
@@ -220,7 +222,7 @@
       box-shadow: 0 8px 32px rgba(79,70,229,0.4);
     }
     .phone-bal-lbl { font-size: 11px; opacity: 0.7; margin-bottom: 4px; }
-    .phone-bal-num { font-size: 28px; font-weight: 800; margin-bottom: 12px; }
+    .phone-bal-num { font-size: 32px; font-weight: 800; margin-bottom: 12px; }
     .phone-bal-row { display: flex; justify-content: space-between; font-size: 11px; opacity: 0.8; }
     .phone-exp-card {
       background: rgba(245,158,11,0.1); border: 1px solid rgba(245,158,11,0.2);
@@ -564,7 +566,7 @@
     .faq-section { }
     .faq-list { max-width: 720px; margin: 0 auto; }
     .faq-item {
-      background: var(--surface); border: 1px solid var(--border);
+      background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);
       border-radius: var(--radius); margin-bottom: 10px; overflow: hidden;
       transition: border-color 0.2s;
     }
@@ -577,7 +579,7 @@
     .faq-q::-webkit-details-marker { display: none; }
     .faq-q::after { content: '+'; color: var(--brand-light); font-size: 22px; font-weight: 300; line-height: 1; flex-shrink: 0; margin-left: 16px; }
     .faq-item[open] .faq-q::after { content: '−'; }
-    .faq-a { padding: 0 24px 20px; font-size: 14px; color: var(--subtle); line-height: 1.75; border-top: 1px solid var(--border); padding-top: 16px; }
+    .faq-a { padding: 0 24px 20px; font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.8; border-top: 1px solid var(--border); padding-top: 16px; }
     @media (max-width: 768px) {
       .faq-q { padding: 16px 18px; font-size: 14px; }
       .faq-a  { padding: 0 18px 16px; padding-top: 14px; font-size: 13px; }
@@ -978,7 +980,7 @@
 </div>
 
 <!-- ══ HOW IT WORKS ══════════════════════════════════ -->
-<section class="section hiw-section" id="how-it-works">
+<section class="section section-alt hiw-section" id="how-it-works">
   <div class="container">
     <div class="section-header center reveal">
       <div class="section-label"><span class="badge">HOW IT WORKS</span></div>
@@ -1082,6 +1084,8 @@
 </section>
 
 
+<div class="section-divider"></div>
+
 <!-- ══ GET MORE SECTION ════════════════════════════════ -->
 <section class="get-more-section">
   <div class="container">
@@ -1171,8 +1175,10 @@
   </div>
 </section>
 
+<div class="section-divider"></div>
+
 <!-- ══ REFERRAL ════════════════════════════════════════ -->
-<section class="section" id="referral">
+<section class="section section-alt" id="referral">
   <div class="container">
     <div class="ref-content">
       <div>
@@ -1299,8 +1305,10 @@
 </section>
 
 
+<div class="section-divider"></div>
+
 <!-- ══ FAQ ══════════════════════════════════════════════ -->
-<section class="section faq-section" id="faq">
+<section class="section section-alt faq-section" id="faq">
   <div class="container">
     <div class="section-header center reveal">
       <div class="section-label"><span class="badge">FAQ</span></div>
