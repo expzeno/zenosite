@@ -3,8 +3,8 @@
 ## Project Info
 - **Location:** ~/projects/zenosite
 - **Shortcode:** zs
-- **Backend ports:** 32400-32499
-- **Frontend ports:** 43000-43499
+- **Backend ports:** 32400-32499 (none active — static site)
+- **Frontend ports:** 43000-43499 (none active — Nginx serves static files)
 - **Comms:** ~/projects/.agent-comms/zenosite.msg.md
 
 ## FIRST THING EVERY SESSION
@@ -14,17 +14,11 @@
 
 ## Status
 - **Phase:** Live — static marketing website
-- **Live URL:** https://siteez.labzeno.com (static files served by Nginx)
-- **Tech:** Pure HTML/CSS/JS, no build step
+- **Live URL:** https://siteez.labzeno.com (static files served by Nginx from ~/projects/zenosite/)
+- **Tech:** Pure HTML/CSS/JS, no framework, no build step → PRD.md §6
 
-## Site Structure
-- `index.html` — main landing page
-- `eula.html` — End User License Agreement
-- `merchant.html` — merchant info
-- `partner.html` — partner info
-- `assets/` — static assets
+## Site Structure & Flows → PRD.md §3
+Four pages: `index.html` (landing), `merchant.html`, `partner.html`, `eula.html`. Assets in `assets/`.
 
-## Tech Stack
-- Pure HTML/CSS/JS (no framework, no build step)
-- Served directly by Nginx as static files
-- Follow `~/projects/zentemplate/CODING_STANDARD.md` if backend is added later
+## Non-Obvious Decisions → PRD.md §10
+Key: feedback FAB removed; reveal animations default visible; no framework by design.
