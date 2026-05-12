@@ -1,7 +1,7 @@
 # Zenosite — Product Requirements Document
 
 **Last updated:** 2026-05-08
-**Covers code through:** 2026-05-08 (40d9c57)
+**Covers code through:** 2026-05-12 (8b12314)
 **Shortcode:** zs
 **Status:** Live
 
@@ -95,6 +95,13 @@ CSS: custom properties for theming, mobile-first responsive. JS: vanilla, minima
 ---
 
 ## §12. Changelog
+
+## 2026-05-12 — Premium icon overhaul + brand design polish
+- All 40+ emoji icons replaced with inline SVG stroke icons (Lucide-style, 24x24 viewBox, consistent 2px stroke weight)
+- SVG sprite block + `.z-icon` CSS added to index.html, merchant.html, partner.html
+- Diamond brand accent added to centered section headers
+- Section divider gradient improved with brand+gold blend
+- Star ratings in testimonials now use filled SVG stars instead of emoji
 
 ## 2026-05-08 — 30-round content revamp, feedback FAB removed
 - Hero, features, tiers, FAQ, social proof all rewritten (rounds 1–26)

@@ -16,6 +16,7 @@
 - **Phase:** Live — static marketing website
 - **Live URL:** https://siteez.labzeno.com (static files served by Nginx from ~/projects/zenosite/)
 - **Tech:** Pure HTML/CSS/JS, no framework, no build step → PRD.md §6
+- **Icons:** Inline SVG sprite system (Lucide-style stroke icons, 24x24 viewBox, `.z-icon` CSS class)
 
 ## Site Structure & Flows → PRD.md §3
 Four pages: `index.html` (landing), `merchant.html`, `partner.html`, `eula.html`. Assets in `assets/`.
