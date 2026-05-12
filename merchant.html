@@ -15,6 +15,17 @@
       --subtle: rgba(255,255,255,0.65); --text-muted: rgba(255,255,255,0.38);
     }
     body { background: var(--bg); color: var(--white); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height: 1.6; }
+    .z-icon { display: inline-block; width: 1em; height: 1em; vertical-align: -0.125em; }
+    .section-header.center::after {
+      content: '';
+      display: block;
+      width: 12px; height: 12px;
+      background: var(--gold);
+      transform: rotate(45deg);
+      margin: 24px auto 0;
+      opacity: 0.5;
+      border-radius: 2px;
+    }
     a { color: inherit; text-decoration: none; }
     .container { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
     .btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 12px; font-weight: 700; font-size: 15px; cursor: pointer; border: none; transition: all 0.2s; }
@@ -275,6 +286,25 @@
 </head>
 <body>
 
+<!-- SVG Icon Definitions -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="3" width="12" height="18" rx="2"/><line x1="12" y1="17" x2="12" y2="17.01"/></symbol>
+  <symbol id="i-card" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></symbol>
+  <symbol id="i-star-filled" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></symbol>
+  <symbol id="i-gift" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 010-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 000-5C13 2 12 7 12 7z"/></symbol>
+  <symbol id="i-qr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="8" height="8" rx="1"/><rect x="14" y="2" width="8" height="8" rx="1"/><rect x="2" y="14" width="8" height="8" rx="1"/><path d="M14 14h3v3"/><path d="M20 14v3h-3"/><path d="M14 20h3"/><path d="M20 20h.01"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></symbol>
+  <symbol id="i-store" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></symbol>
+  <symbol id="i-megaphone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l18-5v12L3 13v-2z"/><path d="M11.6 16.8a3 3 0 11-5.8-1.6"/></symbol>
+  <symbol id="i-target" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></symbol>
+  <symbol id="i-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></symbol>
+  <symbol id="i-wallet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12V7H5a2 2 0 010-4h14v4"/><path d="M3 5v14a2 2 0 002 2h16v-5"/><path d="M18 12a2 2 0 100 4 2 2 0 000-4z"/></symbol>
+  <symbol id="i-building" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M12 6h.01"/><path d="M12 10h.01"/><path d="M12 14h.01"/><path d="M16 10h.01"/><path d="M16 14h.01"/><path d="M8 10h.01"/><path d="M8 14h.01"/></symbol>
+  <symbol id="i-zap" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></symbol>
+  <symbol id="i-check-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></symbol>
+</svg>
+
 <!-- ══ NAV ══════════════════════════════════════════ -->
 <nav id="nav">
   <div class="container nav-inner">
@@ -356,7 +386,7 @@
       <div class="reveal" style="transition-delay:0.1s;">
         <div class="dash-visual">
           <div class="dash-header">
-            <div class="dash-title">🏪 Merchant Dashboard</div>
+            <div class="dash-title"><svg class="z-icon"><use href="#i-store"/></svg> Merchant Dashboard</div>
             <div class="dash-badge">● Live</div>
           </div>
           <div class="dash-stats">
@@ -376,11 +406,11 @@
             <div class="dash-bar-track"><div class="dash-bar-fill" style="width:86%"></div></div>
           </div>
           <div class="dash-campaign">
-            <div class="dash-camp-lbl">🎯 Active Campaign</div>
+            <div class="dash-camp-lbl"><svg class="z-icon"><use href="#i-target"/></svg> Active Campaign</div>
             <div class="dash-camp-text">Weekend Special: Top up $30 → get $8 bonus<br/><span style="color:var(--gold);font-weight:600;">47 customers activated · 2 days left</span></div>
           </div>
           <div class="dash-push">
-            <div class="dash-push-lbl">📣 Push Sent — 3 min ago</div>
+            <div class="dash-push-lbl"><svg class="z-icon"><use href="#i-megaphone"/></svg> Push Sent — 3 min ago</div>
             <div class="dash-camp-text" style="font-size:13px;">"Grab your weekend deal — top up today, get $8 free!" → <strong style="color:#fff;">248 customers reached</strong></div>
           </div>
         </div>
@@ -455,32 +485,32 @@
     </div>
     <div class="pay-flow">
       <div class="pay-step reveal">
-        <div class="pay-step-icon">📱</div>
+        <div class="pay-step-icon"><svg class="z-icon"><use href="#i-phone"/></svg></div>
         <div class="pay-step-amount">$30</div>
         <h4>Customer Pays</h4>
         <p>Customer scans your QR or staff initiates charge in the merchant app. Payment deducted from their Zeno wallet instantly.</p>
       </div>
       <div class="pay-step reveal reveal-delay-1">
-        <div class="pay-step-icon" style="border-color:var(--gold);">⚡</div>
+        <div class="pay-step-icon" style="border-color:var(--gold);"><svg class="z-icon"><use href="#i-zap"/></svg></div>
         <div class="pay-step-amount" style="color:var(--brand-light);">Real-time</div>
         <h4>Wallet Debited</h4>
         <p>The charge is deducted from the customer's wallet balance in real time — no card swipe, no terminal, no receipt paper.</p>
       </div>
       <div class="pay-step reveal reveal-delay-2">
-        <div class="pay-step-icon" style="border-color:var(--emerald);">🏦</div>
+        <div class="pay-step-icon" style="border-color:var(--emerald);"><svg class="z-icon"><use href="#i-building"/></svg></div>
         <div class="pay-step-amount" style="color:var(--emerald);">+$30</div>
         <h4>Your Wallet Credited</h4>
         <p>The collected amount appears in your merchant wallet immediately. Track it live on your dashboard anytime.</p>
       </div>
       <div class="pay-step reveal reveal-delay-3">
-        <div class="pay-step-icon" style="border-color:var(--subtle);">💳</div>
+        <div class="pay-step-icon" style="border-color:var(--subtle);"><svg class="z-icon"><use href="#i-card"/></svg></div>
         <div class="pay-step-amount" style="color:var(--white);">Bank</div>
         <h4>Request Withdrawal</h4>
         <p>Tap "Withdraw" on your dashboard, submit your bank details, and receive funds directly to your account after AML review.</p>
       </div>
     </div>
     <div style="margin-top:48px;background:rgba(16,185,129,0.06);border:1px solid rgba(16,185,129,0.2);border-radius:16px;padding:24px 28px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;">
-      <span style="font-size:28px;">✅</span>
+      <span style="font-size:28px;color:var(--emerald)"><svg class="z-icon"><use href="#i-check-circle"/></svg></span>
       <div>
         <div style="font-weight:700;color:#fff;margin-bottom:4px;">No hardware. No terminal. No waiting.</div>
         <div style="font-size:14px;color:var(--subtle);">Zeno works entirely through the mobile app — your customers pay with their phone, you receive on yours. That's it.</div>
@@ -500,7 +530,7 @@
     <div class="compare-table reveal">
       <div class="compare-header">
         <div class="compare-cell feature">Feature</div>
-        <div class="compare-cell zeno-col" style="justify-content:center;text-align:center;font-weight:800;color:var(--gold);">⭐ Zeno</div>
+        <div class="compare-cell zeno-col" style="justify-content:center;text-align:center;font-weight:800;color:var(--gold);"><svg class="z-icon" style="width:16px;height:16px"><use href="#i-star-filled"/></svg> Zeno</div>
         <div class="compare-cell" style="justify-content:center;text-align:center;">Traditional</div>
       </div>
       <div class="compare-row">
@@ -559,7 +589,7 @@
     <div class="feat-grid" style="margin-top:48px;">
 
       <div class="feat-card span2 highlight-gold reveal">
-        <span class="feat-icon">📣</span>
+        <span class="feat-icon"><svg class="z-icon"><use href="#i-megaphone"/></svg></span>
         <div class="feat-title">Push Notifications That Actually Get Seen</div>
         <p class="feat-desc">
           One tap sends your message to every single customer who holds your Zeno wallet — no algorithms, no ad budget, no spam filters.
@@ -567,55 +597,55 @@
           <strong style="color:#fff;">Your message. Their phone. This second.</strong>
         </p>
         <div style="background:rgba(99,102,241,0.08);border:1px solid rgba(99,102,241,0.2);border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13px;color:var(--subtle);">
-          📱 "Flash deal: top up $30 today and get $10 free — this weekend only!" → <strong style="color:#fff">248 customers reached in 3 seconds</strong>
+          <svg class="z-icon" style="width:14px;height:14px"><use href="#i-phone"/></svg> "Flash deal: top up $30 today and get $10 free — this weekend only!" → <strong style="color:#fff">248 customers reached in 3 seconds</strong>
         </div>
         <span class="feat-tag">Zero Ad Budget Required</span>
       </div>
 
       <div class="feat-card highlight-gold reveal reveal-delay-1">
-        <span class="feat-icon">🎯</span>
+        <span class="feat-icon"><svg class="z-icon"><use href="#i-target"/></svg></span>
         <div class="feat-title">Bonus Campaigns That Lock In Revenue</div>
         <p class="feat-desc">Set up "Top up $50, get $12 bonus" campaigns in seconds. Customers prepay for more. That money is already in your wallet — spent before they even walk in.</p>
         <span class="feat-tag gold">Pre-committed Revenue</span>
       </div>
 
       <div class="feat-card reveal">
-        <span class="feat-icon">🎁</span>
+        <span class="feat-icon"><svg class="z-icon"><use href="#i-gift"/></svg></span>
         <div class="feat-title">Welcome Gift — Hook Them on Day One</div>
         <p class="feat-desc">Give new customers an instant bonus on their first topup. They feel the value immediately. You get a wallet holder with money ready to spend — before they've ordered once.</p>
         <span class="feat-tag gold">Converts First-Timers</span>
       </div>
 
       <div class="feat-card reveal reveal-delay-1">
-        <span class="feat-icon">🪑</span>
+        <span class="feat-icon"><svg class="z-icon"><use href="#i-calendar"/></svg></span>
         <div class="feat-title">Reservations with Wallet Deposits</div>
         <p class="feat-desc">Accept bookings with pre-authorised deposits held straight from the customer's Zeno wallet. Release or charge at the table — no no-shows, no awkward calls, no cash handling.</p>
         <span class="feat-tag">No Terminal Required</span>
       </div>
 
       <div class="feat-card reveal reveal-delay-2">
-        <span class="feat-icon">📊</span>
+        <span class="feat-icon"><svg class="z-icon"><use href="#i-chart"/></svg></span>
         <div class="feat-title">Live Dashboard — See Everything Now</div>
         <p class="feat-desc">Topup volumes, active wallets, bonus utilisation, retention rate — all updating in real time. Stop guessing which campaign worked. The numbers tell you.</p>
         <span class="feat-tag">Real-time Analytics</span>
       </div>
 
       <div class="feat-card reveal">
-        <span class="feat-icon">💸</span>
+        <span class="feat-icon"><svg class="z-icon"><use href="#i-wallet"/></svg></span>
         <div class="feat-title">Withdraw to Your Bank — Cleanly</div>
         <p class="feat-desc">Tap Withdraw, submit your bank details, done. Full AML review is built into the flow — no spreadsheets, no compliance headaches, no third-party accounts to manage.</p>
         <span class="feat-tag green">AML Built-in</span>
       </div>
 
       <div class="feat-card reveal reveal-delay-1">
-        <span class="feat-icon">▣</span>
+        <span class="feat-icon"><svg class="z-icon"><use href="#i-qr"/></svg></span>
         <div class="feat-title">QR Pay — Zero Hardware</div>
         <p class="feat-desc">Customers scan your QR or staff initiates the charge on any phone. No card terminal. No printer. No maintenance contract. It's just your phone and theirs.</p>
         <span class="feat-tag">Any Device, Any Table</span>
       </div>
 
       <div class="feat-card reveal reveal-delay-2">
-        <span class="feat-icon">🔐</span>
+        <span class="feat-icon"><svg class="z-icon"><use href="#i-lock"/></svg></span>
         <div class="feat-title">Dispute-Proof Transaction Records</div>
         <p class="feat-desc">Every topup, charge, and bonus is logged in a SHA-256 hash chain — tamper-evident and always verifiable. If a customer ever disputes a charge, the ledger wins.</p>
         <span class="feat-tag green">Cryptographic Audit Trail</span>
