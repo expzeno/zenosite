@@ -1,7 +1,7 @@
 # Zenosite — Product Requirements Document
 
-**Last updated:** 2026-05-08
-**Covers code through:** 2026-05-12 (8b12314)
+**Last updated:** 2026-05-13
+**Covers code through:** 2026-05-13 (6974c96)
 **Shortcode:** zs
 **Status:** Live
 
@@ -84,6 +84,25 @@ CSS: custom properties for theming, mobile-first responsive. JS: vanilla, minima
 - **No framework** — keeps deployment trivial (no build CI needed) and load time minimal.
 - **Feedback FAB removed** — was dev-only, removed at commit 40d9c57. Static marketing sites don't need in-app feedback.
 - **Reveal animations default visible** — JS reveal animations have a CSS fallback so content is always visible even if JS is slow or blocked (fixed in session ending at 40d9c57).
+
+- **SVG icon system** — inline SVG sprite (`<svg style="display:none">` with `<symbol>` defs) + `.z-icon` CSS class. Icons use `currentColor` and `1em` sizing. Add new icons by adding `<symbol>` to sprite block, reference with `<svg class="z-icon"><use href="#i-name"/></svg>`.
+
+---
+
+## Current State (2026-05-13)
+
+**What was done this session:**
+- Full icon overhaul: 40+ emoji replaced with premium SVG stroke icons across index.html, merchant.html, partner.html
+- DPO email updated from server@expzeno.com to dpo@expzeno.com across all pages (index, merchant, partner, privacy-policy)
+- PRD.md changelog updated, CLAUDE.md updated with icon system note
+
+**What's pending:**
+- User review of icon overhaul (user said "surprise me when I land")
+- Contact form decision (from prior session — Lion hasn't decided)
+- Tier EXP thresholds still TBD
+- Global CLAUDE.md now requires `docs/INDEX.md` pattern — zenosite hasn't migrated yet
+
+**Git:** 3 commits ahead of remote (8b12314 icon overhaul, 870409e docs update, 6974c96 DPO email)
 
 ---
 
