@@ -92,17 +92,18 @@ CSS: custom properties for theming, mobile-first responsive. JS: vanilla, minima
 ## Current State (2026-05-13)
 
 **What was done this session:**
-- Full icon overhaul: 40+ emoji replaced with premium SVG stroke icons across index.html, merchant.html, partner.html
-- DPO email updated from server@expzeno.com to dpo@expzeno.com across all pages (index, merchant, partner, privacy-policy)
-- PRD.md changelog updated, CLAUDE.md updated with icon system note
+- Memory cleanup: migrated revamp_feedback.md to docs/revamp-feedback.md, deleted 3 stale/covered memory files
+- Created docs/INDEX.md, added reference in CLAUDE.md
+- (Prior session) Full icon overhaul: 40+ emoji replaced with premium SVG stroke icons
+- (Prior session) DPO email updated from server@expzeno.com to dpo@expzeno.com
 
 **What's pending:**
 - User review of icon overhaul (user said "surprise me when I land")
 - Contact form decision (from prior session — Lion hasn't decided)
 - Tier EXP thresholds still TBD
-- Global CLAUDE.md now requires `docs/INDEX.md` pattern — zenosite hasn't migrated yet
+- Revamp feedback from expzeno agent awaiting Lion's scope direction (see docs/revamp-feedback.md)
 
-**Git:** 3 commits ahead of remote (8b12314 icon overhaul, 870409e docs update, 6974c96 DPO email)
+**Git:** 5 commits ahead of remote (latest: 8a9fd26 memory cleanup)
 
 ---
 
