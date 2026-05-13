@@ -21,5 +21,8 @@
 ## Site Structure & Flows → PRD.md §3
 Four pages: `index.html` (landing), `merchant.html`, `partner.html`, `eula.html`. Assets in `assets/`.
 
+## Project Knowledge → docs/INDEX.md
+Scan `docs/INDEX.md` for read triggers relevant to your current task.
+
 ## Non-Obvious Decisions → PRD.md §10
 Key: feedback FAB removed; reveal animations default visible; no framework by design.
