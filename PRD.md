@@ -91,23 +91,21 @@ CSS: custom properties for theming, mobile-first responsive. JS: vanilla, minima
 
 ## Current State (2026-05-24)
 
-**What was done this session:**
-- Created standalone `how-it-works.html` and `faq.html` pages (extracted from index.html sections, expanded content)
-- Full cross-page audit (50x) — fixed 16 issues: brand color alignment, font consistency, footer standardization, missing meta tags, broken links
-- SEO hardening: noindex/nofollow on all pages, robots.txt Disallow, OG URLs → expzeno.com
-- Created `seoplan.html` — internal SEO audit dashboard (follows qzonetech standard)
-- Started SEO tag improvements: shortened meta descriptions, adding og:site_name/locale/image — mid-task (see .handoff.md)
-- Site now has 7 pages: index, how-it-works, faq, merchant, partner, eula, privacy-policy + seoplan (internal)
+**SEO implementation complete.** All meta tags, OG/Twitter social tags, JSON-LD structured data, sitemap.xml, and llms.txt are in place across all 7 pages. See `seoplan.html` for full audit status.
+
+**What's built:**
+- 7 pages: index, how-it-works, faq, merchant, partner, eula, privacy-policy + seoplan (internal)
+- Full OG/Twitter tags on all pages (og:site_name, og:locale, og:image, twitter:image, twitter:description)
+- JSON-LD: Organization (homepage), FAQPage with 16 Q&A (faq), HowTo with 3 steps (how-it-works), BreadcrumbList (all 7)
+- sitemap.xml (7 URLs) and llms.txt ready for go-live
 
 **What's pending:**
-- SEO improvements mid-task: add og:site_name/locale/image to 5 remaining pages, JSON-LD structured data, sitemap.xml, llms.txt (see .handoff.md)
-- OG image (1200x630) needs design — tags reference expzeno.com/assets/og-image.png but file doesn't exist
+- OG image (1200x630) needs design — tags reference expzeno.com/assets/og-image.png but file doesn't exist yet
 - Logo eyeball not white (needs new PNG — raster, no SVG source)
+- Go-live steps: update robots.txt, strip noindex, submit sitemap to GSC/Bing, set up GA4
 - Contact form decision (Lion hasn't decided)
 - Tier EXP thresholds still TBD
 - Revamp feedback from expzeno agent awaiting Lion's scope direction (see docs/revamp-feedback.md)
-
-**Git:** Multiple commits ahead of remote, pushing now
 
 ---
 
