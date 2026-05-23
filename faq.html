@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FAQ — Experience Zeno</title>
+  <meta name="description" content="Frequently asked questions about Experience Zeno — how bonus credit works, EXP points, referrals, security, merchant info, and more." />
+  <meta property="og:title" content="FAQ — Experience Zeno" />
+  <meta property="og:description" content="Everything you need to know about Experience Zeno's loyalty wallet, bonus credit, EXP points, and merchant features." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://siteez.labzeno.com/faq.html" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="FAQ — Experience Zeno" />
+  <meta name="twitter:description" content="Everything you need to know about Experience Zeno." />
+  <link rel="icon" type="image/png" href="assets/logo-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --brand: #4f46e5; --brand-dark: #3730a3; --brand-light: #818cf8;
+      --brand-glow: rgba(79,70,229,0.35); --gold: #f59e0b; --gold-light: #fbbf24;
+      --emerald: #10b981; --rose: #f43f5e;
+      --ink: #0f172a; --ink-soft: #1e293b; --muted: #64748b; --subtle: #94a3b8;
+      --border: rgba(255,255,255,0.08); --surface: rgba(255,255,255,0.04);
+      --white: #ffffff; --radius: 16px; --radius-sm: 8px; --radius-lg: 24px;
+    }
+    .z-icon { display: inline-block; width: 1em; height: 1em; vertical-align: -0.125em; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
+    body { font-family: 'Inter', system-ui, sans-serif; background: #0a0a14; color: var(--white); line-height: 1.6; overflow-x: hidden; }
+
+    /* ── UTILITIES ── */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .text-brand { color: var(--brand-light); }
+    .text-gold { color: var(--gold); }
+    .badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(79,70,229,0.15); border: 1px solid rgba(129,140,248,0.3);
+      color: var(--brand-light); font-size: 12px; font-weight: 600;
+      padding: 4px 12px; border-radius: 100px; letter-spacing: 0.05em; text-transform: uppercase;
+    }
+    .section { padding: 120px 0; }
+    .section-alt { background: rgba(255,255,255,0.02); border-top: 1px solid rgba(255,255,255,0.04); border-bottom: 1px solid rgba(255,255,255,0.04); }
+    .section-label { margin-bottom: 16px; }
+    .section-title { font-size: clamp(32px, 5vw, 52px); font-weight: 800; line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 20px; }
+    .section-sub { font-size: 18px; color: #b0bec5; max-width: 560px; line-height: 1.7; }
+    .section-header { margin-bottom: 64px; }
+    .section-header.center { text-align: center; }
+    .section-header.center .section-sub { margin: 0 auto; }
+    .section-header.center::after {
+      content: ''; display: block; width: 12px; height: 12px;
+      background: var(--brand); transform: rotate(45deg);
+      margin: 24px auto 0; opacity: 0.5; border-radius: 2px;
+    }
+
+    /* ── NAV ── */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 16px 0; background: rgba(10,10,20,0.7); backdrop-filter: blur(20px) saturate(180%); border-bottom: 1px solid var(--border); transition: background 0.3s; }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--white); }
+    .nav-logo img { width: 34px; height: 34px; border-radius: 8px; }
+    .nav-logo span { font-size: 18px; font-weight: 700; letter-spacing: -0.01em; }
+    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+    .nav-links a { color: var(--subtle); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--white); }
+    .nav-cta { display: flex; gap: 12px; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; padding: 10px 20px; border-radius: 100px; cursor: pointer; text-decoration: none; transition: all 0.2s; border: none; font-family: inherit; min-height: 44px; }
+    .btn-ghost { background: transparent; color: var(--subtle); border: 1px solid var(--border); }
+    .btn-ghost:hover { color: var(--white); border-color: rgba(255,255,255,0.2); }
+    .btn-primary { background: var(--brand); color: #fff; box-shadow: 0 0 24px rgba(79,70,229,0.4); }
+    .btn-primary:hover { background: var(--brand-dark); box-shadow: 0 0 32px rgba(79,70,229,0.6); transform: translateY(-1px); }
+    .btn-lg { padding: 14px 28px; font-size: 16px; }
+    .btn-xl { padding: 18px 36px; font-size: 17px; border-radius: 14px; }
+    .nav-hamburger { display: none; cursor: pointer; flex-direction: column; gap: 5px; }
+    .nav-hamburger span { display: block; width: 24px; height: 2px; background: var(--subtle); transition: 0.3s; }
+
+    /* ── PAGE HERO ── */
+    .page-hero {
+      padding: 160px 0 80px; position: relative; overflow: hidden;
+      background: linear-gradient(180deg, rgba(79,70,229,0.06), transparent);
+    }
+    .page-hero::before {
+      content: ''; position: absolute; top: -200px; right: -200px;
+      width: 600px; height: 600px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(79,70,229,0.15), transparent 70%);
+      filter: blur(80px); pointer-events: none;
+    }
+    .page-hero .container { position: relative; z-index: 1; }
+
+    /* ── FAQ ── */
+    .faq-category { margin-bottom: 64px; }
+    .faq-category:last-child { margin-bottom: 0; }
+    .faq-category-title {
+      font-size: 13px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.08em; color: var(--brand-light); margin-bottom: 20px;
+      padding-bottom: 12px; border-bottom: 1px solid rgba(79,70,229,0.2);
+    }
+    .faq-category-title.gold { color: var(--gold); border-bottom-color: rgba(245,158,11,0.2); }
+    .faq-category-title.emerald { color: var(--emerald); border-bottom-color: rgba(16,185,129,0.2); }
+    .faq-list { max-width: 720px; margin: 0 auto; }
+    .faq-item {
+      background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius); margin-bottom: 10px; overflow: hidden; transition: border-color 0.2s;
+    }
+    .faq-item[open] { border-color: rgba(79,70,229,0.4); }
+    .faq-q {
+      padding: 20px 24px; font-size: 15px; font-weight: 600; cursor: pointer;
+      list-style: none; display: flex; justify-content: space-between; align-items: center; color: var(--white);
+    }
+    .faq-q::-webkit-details-marker { display: none; }
+    .faq-q::after { content: '+'; color: var(--brand-light); font-size: 22px; font-weight: 300; line-height: 1; flex-shrink: 0; margin-left: 16px; }
+    .faq-item[open] .faq-q::after { content: '−'; }
+    .faq-a { padding: 0 24px 20px; font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.8; border-top: 1px solid var(--border); padding-top: 16px; }
+
+    /* ── CTA ── */
+    .cta-section {
+      padding: 100px 0;
+      background: linear-gradient(135deg, rgba(79,70,229,0.15), rgba(124,58,237,0.08));
+      border-top: 1px solid rgba(79,70,229,0.2); border-bottom: 1px solid rgba(79,70,229,0.2);
+      position: relative; overflow: hidden;
+    }
+    .cta-orb {
+      position: absolute; top: -100px; left: 50%; transform: translateX(-50%);
+      width: 600px; height: 400px;
+      background: radial-gradient(circle, rgba(79,70,229,0.15), transparent 70%);
+      filter: blur(60px); pointer-events: none; z-index: 0;
+    }
+    .cta-inner { text-align: center; max-width: 640px; margin: 0 auto; position: relative; z-index: 1; }
+    .cta-inner .section-title { font-size: clamp(32px, 5vw, 52px); }
+    .cta-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 36px; }
+
+    /* ── CONTACT LINK ── */
+    .contact-note { max-width: 720px; margin: 48px auto 0; text-align: center; padding: 24px; background: var(--surface); border: 1px solid rgba(255,255,255,0.08); border-radius: var(--radius); }
+    .contact-note p { font-size: 15px; color: var(--subtle); line-height: 1.7; }
+    .contact-note a { color: var(--brand-light); text-decoration: none; font-weight: 600; }
+    .contact-note a:hover { text-decoration: underline; }
+
+    /* ── FOOTER ── */
+    footer { padding: 60px 0 40px; border-top: 1px solid var(--border); }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+    .footer-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+    .footer-logo img { width: 32px; height: 32px; border-radius: 8px; }
+    .footer-logo span { font-size: 17px; font-weight: 700; }
+    .footer-desc { font-size: 14px; color: var(--subtle); line-height: 1.7; max-width: 280px; margin-bottom: 24px; }
+    .footer-socials { display: flex; gap: 12px; }
+    .footer-social { width: 36px; height: 36px; border-radius: 10px; background: var(--surface); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 16px; text-decoration: none; transition: all 0.2s; color: var(--subtle); }
+    .footer-social:hover { border-color: var(--brand-light); color: var(--brand-light); }
+    .footer-col h4 { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--subtle); margin-bottom: 16px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col a { font-size: 14px; color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--white); }
+    .footer-bottom { padding-top: 32px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--subtle); }
+    .footer-bottom a { color: var(--subtle); text-decoration: none; }
+    .footer-bottom a:hover { color: var(--white); }
+
+    /* ── REVEAL ── */
+    .reveal { opacity: 1; transform: none; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-cta { display: none; }
+      .nav-hamburger { display: flex; }
+      .section { padding: 64px 0; }
+      .page-hero { padding: 120px 0 56px; }
+      .section-title { font-size: clamp(26px, 6.5vw, 40px); line-height: 1.18; }
+      .section-sub { font-size: 15px; line-height: 1.7; max-width: 100%; }
+      .faq-q { padding: 16px 18px; font-size: 14px; }
+      .faq-a { padding: 0 18px 16px; padding-top: 14px; font-size: 13px; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+      .cta-actions { flex-direction: column; align-items: center; }
+      .cta-actions .btn { width: 100%; max-width: 340px; }
+      .btn-xl { padding: 14px 22px; font-size: 15px; border-radius: 12px; }
+      footer { padding: 44px 0 28px; }
+      .footer-desc { font-size: 13px; max-width: 100%; }
+      .footer-col h4 { font-size: 11px; margin-bottom: 12px; }
+      .footer-col a { font-size: 13px; }
+      .footer-col ul { gap: 8px; }
+      .footer-grid { gap: 28px; margin-bottom: 36px; }
+      .footer-bottom { font-size: 12px; }
+    }
+    @media (max-width: 900px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+    }
+    @media (max-width: 480px) {
+      .page-hero { padding: 108px 0 48px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- SVG Icon Definitions -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22 6 12 13 2 6"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></symbol>
+</svg>
+
+<!-- ══ NAV ══════════════════════════════════════════ -->
+<nav id="nav">
+  <div class="container nav-inner">
+    <a href="/" class="nav-logo">
+      <img src="assets/logo-icon.png" alt="Experience Zeno logo" />
+      <span>Experience Zeno</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="/#customers">For Customers</a></li>
+      <li><a href="merchant.html">For Merchants</a></li>
+      <li><a href="partner.html">For Partners</a></li>
+      <li><a href="how-it-works.html">How It Works</a></li>
+      <li><a href="faq.html" style="color:#fff;font-weight:700;">FAQ</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="/#contact" class="btn btn-ghost">Contact Us</a>
+      <a href="https://zeno.labzeno.com" class="btn btn-primary">Launch App ↗</a>
+    </div>
+    <div class="nav-hamburger" id="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+  <div id="mobile-menu" style="display:none; padding: 16px 24px; border-top: 1px solid var(--border);">
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <a href="/#customers" style="color:var(--subtle);text-decoration:none;font-size:15px;padding:4px 0;" onclick="toggleMenu()">For Customers</a>
+      <a href="merchant.html" style="color:var(--subtle);text-decoration:none;font-size:15px;padding:4px 0;" onclick="toggleMenu()">For Merchants</a>
+      <a href="partner.html" style="color:var(--subtle);text-decoration:none;font-size:15px;padding:4px 0;" onclick="toggleMenu()">For Partners</a>
+      <a href="how-it-works.html" style="color:var(--subtle);text-decoration:none;font-size:15px;padding:4px 0;" onclick="toggleMenu()">How It Works</a>
+      <a href="faq.html" style="color:#fff;text-decoration:none;font-size:15px;padding:4px 0;font-weight:700;" onclick="toggleMenu()">FAQ</a>
+      <div style="display:flex;gap:10px;margin-top:6px;">
+        <a href="/#contact" class="btn btn-ghost" style="flex:1;justify-content:center;font-size:14px;" onclick="toggleMenu()">Contact Us</a>
+        <a href="https://zeno.labzeno.com" class="btn btn-primary" style="flex:1;justify-content:center;font-size:14px;">Launch App ↗</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ══ PAGE HERO ═══════════════════════════════════ -->
+<section class="page-hero">
+  <div class="container">
+    <div class="section-header center reveal">
+      <div class="section-label"><span class="badge">FAQ</span></div>
+      <h1 class="section-title">Real questions.<br/><span class="text-brand">Straight answers.</span></h1>
+      <p class="section-sub">No jargon. No runaround. Everything you need to know about Experience Zeno.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FAQ CONTENT ═════════════════════════════════ -->
+<section class="section" style="padding-top:0;">
+  <div class="container">
+    <div class="faq-list">
+
+      <!-- GENERAL -->
+      <div class="faq-category">
+        <div class="faq-category-title">General</div>
+        <details class="faq-item" open>
+          <summary class="faq-q">What is Experience Zeno?</summary>
+          <div class="faq-a">Experience Zeno is Singapore's multi-merchant loyalty wallet. Top up at any partner merchant, get instant bonus credit added to your wallet, and earn EXP points that level you up over time. One app, all your merchants, more money every time.</div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">Is it free to use?</summary>
+          <div class="faq-a">100% free. No subscription. No transaction fee to the customer. No hidden anything. Top up, earn, and spend — that's it.</div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">Which merchants accept Zeno?</summary>
+          <div class="faq-a">Restaurants, cafés, hair salons, nail studios, wellness centres, bubble tea chains, and more — all across Singapore. Open the app to see the full live list near you.</div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">How do I get started?</summary>
+          <div class="faq-a">Download the app or visit <a href="https://zeno.labzeno.com" style="color:var(--brand-light);">zeno.labzeno.com</a>. Sign up with your email, Google, or Apple ID — takes about 60 seconds. Then pick a merchant and make your first topup. You'll earn bonus credit and EXP immediately.</div>
+        </details>
+      </div>
+
+      <!-- BONUS CREDIT & EXP -->
+      <div class="faq-category">
+        <div class="faq-category-title gold">Bonus Credit & EXP</div>
+        <details class="faq-item">
+          <summary class="faq-q">How do I get bonus credit?</summary>
+          <div class="faq-a">Every topup at a Zeno merchant triggers an automatic bonus credit from that merchant. They set their own rate — some give 10%, others more. It hits your wallet instantly. Real money, not rewards you redeem in 3 months.</div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">What are EXP points?</summary>
+          <div class="faq-a">EXP is your loyalty score. You earn it on every topup and referral. Accumulate enough to climb from Explorer to Voyager to Zenith — each tier unlocking higher rates and better benefits.</div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">Do bonus credit and EXP expire?</summary>
+          <div class="faq-a">Bonus credit sits in your merchant wallet and does not expire — spend it whenever you're ready. EXP points are permanent and never reset. Your tier progress only goes up.</div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">Can I use bonus credit at any merchant?</summary>
+          <div class="faq-a">Each merchant wallet is separate. Bonus credit from Café A stays in your Café A wallet. This keeps things fair for merchants — and means each one can set their own bonus rate without subsidising another.</div>
+        </details>
+      </div>
+
+      <!-- TIERS & REFERRALS -->
+      <div class="faq-category">
+        <div class="faq-category-title">Tiers & Referrals</div>
+        <details class="faq-item">
+          <summary class="faq-q">What are the loyalty tiers?</summary>
+          <div class="faq-a">There are three tiers: <strong style="color:var(--brand-light);">Explorer</strong> (where everyone starts), <strong style="color:#a78bfa;">Voyager</strong> (unlocked by consistent topups), and <strong style="color:var(--gold);">Zenith</strong> (the highest tier with maximum earning power). Each tier unlocks higher referral rates, priority features, and enhanced benefits.</div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">How do referrals work?</summary>
+          <div class="faq-a">Share your code. When friends join and top up, you earn referral EXP every time they spend — automatically, from their second topup onward. Higher tiers earn more per referral.</div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">Can I lose my tier?</summary>
+          <div class="faq-a">No. Once you earn enough EXP to reach a tier, you keep it. EXP is permanent and cumulative — your progress never resets.</div>
+        </details>
+      </div>
+
+      <!-- SECURITY -->
+      <div class="faq-category">
+        <div class="faq-category-title emerald">Security & Privacy</div>
+        <details class="faq-item">
+          <summary class="faq-q">Is my money safe?</summary>
+          <div class="faq-a">Yes. PIN or biometric locks every payment. SHA-256 hash logs every transaction. One-tap wallet freeze if your phone goes missing. Reservation deposits are held in escrow. Your money doesn't move unless you authorise it.</div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">What happens if I lose my phone?</summary>
+          <div class="faq-a">Your wallet is locked behind PIN or biometric authentication. If you suspect your device is compromised, you can freeze your wallet instantly from any logged-in session. Contact us at <a href="mailto:tech@expzeno.com" style="color:var(--brand-light);">tech@expzeno.com</a> for account recovery.</div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">How is my data handled?</summary>
+          <div class="faq-a">We follow Singapore's PDPA guidelines. Your data is used only for providing the service — never sold, never shared with third parties for marketing. Read our full <a href="privacy-policy.html" style="color:var(--brand-light);">Privacy Policy</a> for details, or reach our Data Protection Officer at <a href="mailto:dpo@expzeno.com" style="color:var(--brand-light);">dpo@expzeno.com</a>.</div>
+        </details>
+      </div>
+
+      <!-- MERCHANTS -->
+      <div class="faq-category">
+        <div class="faq-category-title gold">For Merchants</div>
+        <details class="faq-item">
+          <summary class="faq-q">How do merchants join Zeno?</summary>
+          <div class="faq-a">Contact our ops team at <a href="mailto:ops@expzeno.com" style="color:var(--brand-light);">ops@expzeno.com</a>. We'll get your business onboarded — set up your branded wallet, bonus rate, and push notification campaigns. There's no monthly subscription fee.</div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">What does it cost merchants?</summary>
+          <div class="faq-a">No monthly fee. Merchants fund the bonus credit they choose to offer — that's their customer acquisition and retention spend. Zeno handles the platform, payments, and analytics.</div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">Can merchants customise their loyalty programme?</summary>
+          <div class="faq-a">Yes. Merchants set their own bonus credit rate, create push notification campaigns, manage reservations, and view real-time analytics — all from the Zeno merchant dashboard. See the full <a href="merchant.html" style="color:var(--brand-light);">merchant features</a> page.</div>
+        </details>
+      </div>
+
+    </div>
+
+    <div class="contact-note reveal">
+      <p>Still have questions? Reach us at <a href="mailto:tech@expzeno.com">tech@expzeno.com</a> — we respond fast.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CTA ═════════════════════════════════════════ -->
+<section class="cta-section">
+  <div class="cta-orb"></div>
+  <div class="container">
+    <div class="cta-inner reveal">
+      <div class="section-label" style="justify-content:center;display:flex;margin-bottom:16px;"><span class="badge">READY TO START?</span></div>
+      <h2 class="section-title">Start earning on<br/>every topup — today.</h2>
+      <p class="section-sub" style="margin:20px auto 0;">100% free. Instant bonus credit from your very first topup. No subscription. No commitment.</p>
+      <div class="cta-actions">
+        <a href="https://zeno.labzeno.com" class="btn btn-primary btn-xl">Get the App — Free →</a>
+        <a href="how-it-works.html" class="btn btn-ghost btn-xl">See How It Works →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══════════════════════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="assets/logo-icon.png" alt="Experience Zeno logo" />
+          <span>Experience Zeno</span>
+        </div>
+        <p class="footer-desc">World class loyalty for Singapore. Top up at any Zeno merchant and get instant bonus credit, EXP points, and rewards that compound every time.</p>
+        <div class="footer-socials">
+          <a href="mailto:tech@expzeno.com" class="footer-social" aria-label="Email us"><svg class="z-icon"><use href="#i-mail"/></svg></a>
+          <a href="https://expzeno.com" class="footer-social" aria-label="Visit expzeno.com"><svg class="z-icon"><use href="#i-globe"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Platform</h4>
+        <ul>
+          <li><a href="/#customers">For Customers</a></li>
+          <li><a href="merchant.html">For Merchants</a></li>
+          <li><a href="/#tiers">Loyalty Tiers</a></li>
+          <li><a href="/#referral">Referral Programme</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>App</h4>
+        <ul>
+          <li><a href="https://zeno.labzeno.com">Open Web App</a></li>
+          <li><a href="how-it-works.html">How It Works</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="/#contact">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="eula.html">EULA</a></li>
+          <li><a href="mailto:dpo@expzeno.com">Data Protection Officer</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="footer-year"></span> Experience Zeno Pte. Ltd. All rights reserved.</span>
+      <a href="#" style="color:var(--brand-light);">↑ Top</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function toggleMenu() {
+    const m = document.getElementById('mobile-menu');
+    const isOpen = m.style.display !== 'none';
+    m.style.display = isOpen ? 'none' : 'block';
+  }
+  document.addEventListener('DOMContentLoaded', function() {
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+    window.addEventListener('scroll', () => {
+      const nav = document.getElementById('nav');
+      if (window.scrollY > 60) { nav.style.background = 'rgba(10,10,20,0.95)'; } else { nav.style.background = 'rgba(10,10,20,0.7)'; }
+    });
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+  });
+</script>
+
+</body>
+</html>

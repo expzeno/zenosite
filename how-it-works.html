@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How It Works — Experience Zeno</title>
+  <meta name="description" content="See how Experience Zeno works in 3 simple steps: sign up free, top up at any merchant, and start earning bonus credit and EXP points instantly." />
+  <meta property="og:title" content="How It Works — Experience Zeno" />
+  <meta property="og:description" content="Join free, top up, earn bonus credit and EXP. Three steps to world class loyalty rewards." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://siteez.labzeno.com/how-it-works.html" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="How It Works — Experience Zeno" />
+  <meta name="twitter:description" content="Join free, top up, earn bonus credit and EXP. Three steps to world class loyalty rewards." />
+  <link rel="icon" type="image/png" href="assets/logo-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --brand: #4f46e5; --brand-dark: #3730a3; --brand-light: #818cf8;
+      --brand-glow: rgba(79,70,229,0.35); --gold: #f59e0b; --gold-light: #fbbf24;
+      --emerald: #10b981; --rose: #f43f5e;
+      --ink: #0f172a; --ink-soft: #1e293b; --muted: #64748b; --subtle: #94a3b8;
+      --border: rgba(255,255,255,0.08); --surface: rgba(255,255,255,0.04);
+      --white: #ffffff; --radius: 16px; --radius-sm: 8px; --radius-lg: 24px;
+    }
+    .z-icon { display: inline-block; width: 1em; height: 1em; vertical-align: -0.125em; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
+    body { font-family: 'Inter', system-ui, sans-serif; background: #0a0a14; color: var(--white); line-height: 1.6; overflow-x: hidden; }
+
+    /* ── UTILITIES ── */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .text-brand { color: var(--brand-light); }
+    .text-gold { color: var(--gold); }
+    .badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(79,70,229,0.15); border: 1px solid rgba(129,140,248,0.3);
+      color: var(--brand-light); font-size: 12px; font-weight: 600;
+      padding: 4px 12px; border-radius: 100px; letter-spacing: 0.05em; text-transform: uppercase;
+    }
+    .section { padding: 120px 0; }
+    .section-alt { background: rgba(255,255,255,0.02); border-top: 1px solid rgba(255,255,255,0.04); border-bottom: 1px solid rgba(255,255,255,0.04); }
+    .section-label { margin-bottom: 16px; }
+    .section-title { font-size: clamp(32px, 5vw, 52px); font-weight: 800; line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 20px; }
+    .section-sub { font-size: 18px; color: #b0bec5; max-width: 560px; line-height: 1.7; }
+    .section-header { margin-bottom: 64px; }
+    .section-header.center { text-align: center; }
+    .section-header.center .section-sub { margin: 0 auto; }
+    .section-header.center::after {
+      content: ''; display: block; width: 12px; height: 12px;
+      background: var(--brand); transform: rotate(45deg);
+      margin: 24px auto 0; opacity: 0.5; border-radius: 2px;
+    }
+
+    /* ── NAV ── */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 16px 0; background: rgba(10,10,20,0.7); backdrop-filter: blur(20px) saturate(180%); border-bottom: 1px solid var(--border); transition: background 0.3s; }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--white); }
+    .nav-logo img { width: 34px; height: 34px; border-radius: 8px; }
+    .nav-logo span { font-size: 18px; font-weight: 700; letter-spacing: -0.01em; }
+    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+    .nav-links a { color: var(--subtle); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--white); }
+    .nav-cta { display: flex; gap: 12px; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; padding: 10px 20px; border-radius: 100px; cursor: pointer; text-decoration: none; transition: all 0.2s; border: none; font-family: inherit; min-height: 44px; }
+    .btn-ghost { background: transparent; color: var(--subtle); border: 1px solid var(--border); }
+    .btn-ghost:hover { color: var(--white); border-color: rgba(255,255,255,0.2); }
+    .btn-primary { background: var(--brand); color: #fff; box-shadow: 0 0 24px rgba(79,70,229,0.4); }
+    .btn-primary:hover { background: var(--brand-dark); box-shadow: 0 0 32px rgba(79,70,229,0.6); transform: translateY(-1px); }
+    .btn-gold { background: linear-gradient(135deg, var(--gold), #d97706); color: #1a1a00; font-weight: 700; box-shadow: 0 0 24px rgba(245,158,11,0.4); }
+    .btn-gold:hover { transform: translateY(-1px); box-shadow: 0 0 32px rgba(245,158,11,0.6); }
+    .btn-lg { padding: 14px 28px; font-size: 16px; }
+    .btn-xl { padding: 18px 36px; font-size: 17px; border-radius: 14px; }
+    .nav-hamburger { display: none; cursor: pointer; flex-direction: column; gap: 5px; }
+    .nav-hamburger span { display: block; width: 24px; height: 2px; background: var(--subtle); transition: 0.3s; }
+
+    /* ── PAGE HERO ── */
+    .page-hero {
+      padding: 160px 0 80px; position: relative; overflow: hidden;
+      background: linear-gradient(180deg, rgba(79,70,229,0.06), transparent);
+    }
+    .page-hero::before {
+      content: ''; position: absolute; top: -200px; right: -200px;
+      width: 600px; height: 600px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(79,70,229,0.15), transparent 70%);
+      filter: blur(80px); pointer-events: none;
+    }
+    .page-hero .container { position: relative; z-index: 1; }
+
+    /* ── HOW IT WORKS STEPS ── */
+    .hiw-section { background: linear-gradient(180deg, transparent, rgba(79,70,229,0.04), transparent); }
+    .hiw-content { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .hiw-step {
+      text-align: center; padding: 40px 28px;
+      background: var(--surface); border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius-lg); position: relative; transition: all 0.3s;
+    }
+    .hiw-step:hover { border-color: rgba(79,70,229,0.4); transform: translateY(-6px); box-shadow: 0 12px 40px rgba(79,70,229,0.1); }
+    .hiw-step-num {
+      position: absolute; top: -16px; left: 50%; transform: translateX(-50%);
+      width: 32px; height: 32px; border-radius: 50%;
+      background: var(--brand); font-size: 13px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 0 20px var(--brand-glow);
+    }
+    .hiw-icon { font-size: 48px; margin-bottom: 20px; }
+    .hiw-step h3 { font-size: 20px; font-weight: 700; margin-bottom: 12px; }
+    .hiw-step p { font-size: 14px; color: var(--subtle); line-height: 1.7; }
+
+    /* ── DETAIL BLOCKS ── */
+    .detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+    .detail-grid.reversed { direction: rtl; }
+    .detail-grid.reversed > * { direction: ltr; }
+    .detail-visual {
+      background: linear-gradient(145deg, rgba(79,70,229,0.08), rgba(79,70,229,0.02));
+      border: 1px solid rgba(79,70,229,0.2); border-radius: 24px; padding: 40px;
+      text-align: center;
+    }
+    .detail-visual.gold {
+      background: linear-gradient(145deg, rgba(245,158,11,0.08), rgba(245,158,11,0.02));
+      border-color: rgba(245,158,11,0.2);
+    }
+    .detail-visual.emerald {
+      background: linear-gradient(145deg, rgba(16,185,129,0.08), rgba(16,185,129,0.02));
+      border-color: rgba(16,185,129,0.2);
+    }
+    .detail-icon-large { font-size: 80px; margin-bottom: 16px; }
+    .detail-visual-label { font-size: 14px; color: var(--subtle); font-weight: 600; }
+    .detail-text h3 { font-size: 28px; font-weight: 800; margin-bottom: 16px; line-height: 1.2; }
+    .detail-text p { font-size: 16px; color: var(--subtle); line-height: 1.75; margin-bottom: 16px; }
+    .detail-bullets { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-top: 20px; }
+    .detail-bullets li { display: flex; align-items: flex-start; gap: 10px; font-size: 15px; color: var(--subtle); }
+    .detail-bullets li .check { color: var(--emerald); font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+
+    /* ── GET MORE FLOW ── */
+    .get-more-flow {
+      display: flex; align-items: center; justify-content: center; gap: 32px;
+      margin-top: 48px; flex-wrap: wrap;
+    }
+    .gmf-step { text-align: center; padding: 24px; }
+    .gmf-icon { font-size: 40px; margin-bottom: 12px; }
+    .gmf-amt { font-size: 36px; font-weight: 900; margin-bottom: 4px; }
+    .gmf-amt-in { color: var(--white); }
+    .gmf-amt-out { color: var(--emerald); }
+    .gmf-label { font-size: 13px; color: var(--subtle); }
+    .gmf-arrow { font-size: 28px; color: var(--brand-light); font-weight: 300; }
+    .gmf-step-result { background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.2); border-radius: 20px; }
+
+    /* ── CTA ── */
+    .cta-section {
+      padding: 100px 0;
+      background: linear-gradient(135deg, rgba(79,70,229,0.15), rgba(124,58,237,0.08));
+      border-top: 1px solid rgba(79,70,229,0.2); border-bottom: 1px solid rgba(79,70,229,0.2);
+      position: relative; overflow: hidden;
+    }
+    .cta-orb {
+      position: absolute; top: -100px; left: 50%; transform: translateX(-50%);
+      width: 600px; height: 400px;
+      background: radial-gradient(circle, rgba(79,70,229,0.15), transparent 70%);
+      filter: blur(60px); pointer-events: none; z-index: 0;
+    }
+    .cta-inner { text-align: center; max-width: 640px; margin: 0 auto; position: relative; z-index: 1; }
+    .cta-inner .section-title { font-size: clamp(32px, 5vw, 52px); }
+    .cta-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 36px; }
+
+    /* ── FOOTER ── */
+    footer { padding: 60px 0 40px; border-top: 1px solid var(--border); }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+    .footer-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+    .footer-logo img { width: 32px; height: 32px; border-radius: 8px; }
+    .footer-logo span { font-size: 17px; font-weight: 700; }
+    .footer-desc { font-size: 14px; color: var(--subtle); line-height: 1.7; max-width: 280px; margin-bottom: 24px; }
+    .footer-socials { display: flex; gap: 12px; }
+    .footer-social { width: 36px; height: 36px; border-radius: 10px; background: var(--surface); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 16px; text-decoration: none; transition: all 0.2s; color: var(--subtle); }
+    .footer-social:hover { border-color: var(--brand-light); color: var(--brand-light); }
+    .footer-col h4 { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--subtle); margin-bottom: 16px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col a { font-size: 14px; color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--white); }
+    .footer-bottom { padding-top: 32px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--subtle); }
+    .footer-bottom a { color: var(--subtle); text-decoration: none; }
+    .footer-bottom a:hover { color: var(--white); }
+
+    /* ── REVEAL ── */
+    .reveal { opacity: 1; transform: none; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .hiw-content { grid-template-columns: 1fr; max-width: 440px; margin: 0 auto; }
+      .detail-grid { grid-template-columns: 1fr; gap: 40px; }
+      .detail-grid.reversed { direction: ltr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-cta { display: none; }
+      .nav-hamburger { display: flex; }
+      .section { padding: 64px 0; }
+      .page-hero { padding: 120px 0 56px; }
+      .section-title { font-size: clamp(26px, 6.5vw, 40px); line-height: 1.18; }
+      .section-sub { font-size: 15px; line-height: 1.7; max-width: 100%; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+      .cta-actions { flex-direction: column; align-items: center; }
+      .cta-actions .btn { width: 100%; max-width: 340px; }
+      .get-more-flow { flex-direction: column; gap: 16px; }
+      .gmf-arrow { transform: rotate(90deg); }
+      .hiw-step { padding: 32px 20px 26px; border-radius: 18px; }
+      .hiw-icon { font-size: 40px; margin-bottom: 14px; }
+      .hiw-step h3 { font-size: 17px; margin-bottom: 8px; }
+      .hiw-step p { font-size: 13px; line-height: 1.65; }
+      .detail-text h3 { font-size: 22px; }
+      .detail-text p { font-size: 14px; }
+      .detail-bullets li { font-size: 14px; }
+      .detail-visual { padding: 28px; }
+      .detail-icon-large { font-size: 60px; }
+      .btn-xl { padding: 14px 22px; font-size: 15px; border-radius: 12px; }
+      footer { padding: 44px 0 28px; }
+      .footer-desc { font-size: 13px; max-width: 100%; }
+      .footer-col h4 { font-size: 11px; margin-bottom: 12px; }
+      .footer-col a { font-size: 13px; }
+      .footer-col ul { gap: 8px; }
+      .footer-grid { gap: 28px; margin-bottom: 36px; }
+      .footer-bottom { font-size: 12px; }
+    }
+    @media (max-width: 480px) {
+      .page-hero { padding: 108px 0 48px; }
+      .gmf-amt { font-size: 28px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- SVG Icon Definitions -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="3" width="12" height="18" rx="2"/><line x1="12" y1="17" x2="12" y2="17.01"/></symbol>
+  <symbol id="i-card" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></symbol>
+  <symbol id="i-gift" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 010-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 000-5C13 2 12 7 12 7z"/></symbol>
+  <symbol id="i-check-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></symbol>
+  <symbol id="i-shield-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></symbol>
+  <symbol id="i-rocket" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 00-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 012-3.95A12.88 12.88 0 0122 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 01-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 3 0 3 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-3 0-3"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22 6 12 13 2 6"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></symbol>
+</svg>
+
+<!-- ══ NAV ══════════════════════════════════════════ -->
+<nav id="nav">
+  <div class="container nav-inner">
+    <a href="/" class="nav-logo">
+      <img src="assets/logo-icon.png" alt="Experience Zeno logo" />
+      <span>Experience Zeno</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="/#customers">For Customers</a></li>
+      <li><a href="merchant.html">For Merchants</a></li>
+      <li><a href="partner.html">For Partners</a></li>
+      <li><a href="how-it-works.html" style="color:#fff;font-weight:700;">How It Works</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="/#contact" class="btn btn-ghost">Contact Us</a>
+      <a href="https://zeno.labzeno.com" class="btn btn-primary">Launch App ↗</a>
+    </div>
+    <div class="nav-hamburger" id="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+  <div id="mobile-menu" style="display:none; padding: 16px 24px; border-top: 1px solid var(--border);">
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <a href="/#customers" style="color:var(--subtle);text-decoration:none;font-size:15px;padding:4px 0;" onclick="toggleMenu()">For Customers</a>
+      <a href="merchant.html" style="color:var(--subtle);text-decoration:none;font-size:15px;padding:4px 0;" onclick="toggleMenu()">For Merchants</a>
+      <a href="partner.html" style="color:var(--subtle);text-decoration:none;font-size:15px;padding:4px 0;" onclick="toggleMenu()">For Partners</a>
+      <a href="how-it-works.html" style="color:#fff;text-decoration:none;font-size:15px;padding:4px 0;font-weight:700;" onclick="toggleMenu()">How It Works</a>
+      <a href="faq.html" style="color:var(--subtle);text-decoration:none;font-size:15px;padding:4px 0;" onclick="toggleMenu()">FAQ</a>
+      <div style="display:flex;gap:10px;margin-top:6px;">
+        <a href="/#contact" class="btn btn-ghost" style="flex:1;justify-content:center;font-size:14px;" onclick="toggleMenu()">Contact Us</a>
+        <a href="https://zeno.labzeno.com" class="btn btn-primary" style="flex:1;justify-content:center;font-size:14px;">Launch App ↗</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ══ PAGE HERO ═══════════════════════════════════ -->
+<section class="page-hero">
+  <div class="container">
+    <div class="section-header center reveal">
+      <div class="section-label"><span class="badge">GET STARTED IN MINUTES</span></div>
+      <h1 class="section-title">From zero to earning<br/><span class="text-brand">in three taps</span></h1>
+      <p class="section-sub">No sign-up fee. No learning curve. Create your account, top up at any merchant, and watch your wallet grow from the very first transaction.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 3 STEPS ═════════════════════════════════════ -->
+<section class="section hiw-section">
+  <div class="container">
+    <div class="hiw-content">
+      <div class="hiw-step reveal">
+        <div class="hiw-step-num">1</div>
+        <div class="hiw-icon"><svg class="z-icon"><use href="#i-phone"/></svg></div>
+        <h3>Join Free in 60 Seconds</h3>
+        <p>Create your account with email, Google, or Apple. No credit card. No fees. Start earning from the moment you join.</p>
+      </div>
+      <div class="hiw-step reveal">
+        <div class="hiw-step-num">2</div>
+        <div class="hiw-icon"><svg class="z-icon"><use href="#i-card"/></svg></div>
+        <h3>Top Up — Get Instantly More</h3>
+        <p>Add funds to any merchant wallet. Your bonus credit lands the second the topup hits. Spend it immediately.</p>
+      </div>
+      <div class="hiw-step reveal">
+        <div class="hiw-step-num">3</div>
+        <div class="hiw-icon"><svg class="z-icon"><use href="#i-star"/></svg></div>
+        <h3>Level Up. Keep Earning.</h3>
+        <p>Rack up EXP on every dollar. Climb from Explorer to Voyager to Zenith. Invite friends and earn every time they do.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ STEP 1 DETAIL ══════════════════════════════ -->
+<section class="section">
+  <div class="container">
+    <div class="detail-grid reveal">
+      <div class="detail-visual">
+        <div class="detail-icon-large"><svg class="z-icon"><use href="#i-users"/></svg></div>
+        <div class="detail-visual-label">60-second sign-up</div>
+      </div>
+      <div class="detail-text">
+        <div class="section-label"><span class="badge">STEP 1</span></div>
+        <h3>Create Your Account — Free, Forever</h3>
+        <p>Sign up with your email, Google, or Apple ID. No credit card required, no subscription, no hidden fees. Your Zeno wallet is ready the moment you confirm.</p>
+        <ul class="detail-bullets">
+          <li><span class="check">✓</span> Email, Google, or Apple sign-in</li>
+          <li><span class="check">✓</span> No credit card or payment info needed</li>
+          <li><span class="check">✓</span> Biometric or PIN security from day one</li>
+          <li><span class="check">✓</span> Start as an Explorer — earn from your first topup</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ STEP 2 DETAIL ══════════════════════════════ -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="detail-grid reversed reveal">
+      <div class="detail-visual gold">
+        <div class="detail-icon-large"><svg class="z-icon"><use href="#i-gift"/></svg></div>
+        <div class="detail-visual-label">Instant bonus on every topup</div>
+      </div>
+      <div class="detail-text">
+        <div class="section-label"><span class="badge" style="background:rgba(245,158,11,0.15);border-color:rgba(245,158,11,0.4);color:var(--gold);">STEP 2</span></div>
+        <h3>Top Up and Get Free Bonus Credit</h3>
+        <p>Pick any Zeno merchant — your local café, salon, restaurant. Add funds to their wallet and the merchant drops free bonus credit into your balance immediately. Real money, not points you redeem in 6 months.</p>
+        <ul class="detail-bullets">
+          <li><span class="check">✓</span> Bonus credit hits your wallet instantly</li>
+          <li><span class="check">✓</span> Each merchant sets their own rate — some give 10%+</li>
+          <li><span class="check">✓</span> Spend bonus credit the same way as topped-up funds</li>
+          <li><span class="check">✓</span> Every topup earns EXP toward your next tier</li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="margin-top:80px;text-align:center;">
+      <h3 style="font-size:24px;font-weight:800;margin-bottom:12px;">See It in Action</h3>
+      <p style="font-size:15px;color:var(--subtle);margin-bottom:32px;">You put in $50 — and walk away with more.</p>
+      <div class="get-more-flow reveal">
+        <div class="gmf-step">
+          <div class="gmf-icon"><svg class="z-icon"><use href="#i-card"/></svg></div>
+          <div class="gmf-amt gmf-amt-in">$50</div>
+          <div class="gmf-label">You top up</div>
+        </div>
+        <div class="gmf-arrow">→</div>
+        <div class="gmf-step">
+          <div class="gmf-icon"><svg class="z-icon"><use href="#i-gift"/></svg></div>
+          <div class="gmf-amt" style="color:var(--gold)">+$5 FREE</div>
+          <div class="gmf-label">Merchant adds FREE bonus</div>
+        </div>
+        <div class="gmf-arrow">→</div>
+        <div class="gmf-step gmf-step-result">
+          <div class="gmf-icon"><svg class="z-icon"><use href="#i-check-circle"/></svg></div>
+          <div class="gmf-amt gmf-amt-out">$55</div>
+          <div class="gmf-label">Your wallet total</div>
+        </div>
+      </div>
+      <p style="font-size:13px;color:var(--subtle);margin-top:20px;">Bonus rate set by each merchant. Higher-tier members may unlock higher rates.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ STEP 3 DETAIL ══════════════════════════════ -->
+<section class="section">
+  <div class="container">
+    <div class="detail-grid reveal">
+      <div class="detail-visual emerald">
+        <div class="detail-icon-large"><svg class="z-icon"><use href="#i-rocket"/></svg></div>
+        <div class="detail-visual-label">Climb tiers automatically</div>
+      </div>
+      <div class="detail-text">
+        <div class="section-label"><span class="badge" style="background:rgba(16,185,129,0.15);border-color:rgba(16,185,129,0.4);color:var(--emerald);">STEP 3</span></div>
+        <h3>Level Up — Unlock Better Rewards</h3>
+        <p>Every topup earns EXP that stacks permanently. As your EXP grows, you climb through three loyalty tiers — each one unlocking higher rates, bigger perks, and more earning power.</p>
+        <ul class="detail-bullets">
+          <li><span class="check">✓</span> <strong style="color:var(--brand-light);">Explorer</strong> — Where every member starts. Earn EXP and bonus credit from day one.</li>
+          <li><span class="check">✓</span> <strong style="color:#a78bfa;">Voyager</strong> — Higher referral EXP, priority reservations, enhanced multiplier.</li>
+          <li><span class="check">✓</span> <strong style="color:var(--gold);">Zenith</strong> — Maximum earning rate, exclusive perks, VIP access.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SECURITY NOTE ══════════════════════════════ -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-header center reveal">
+      <div class="section-label"><span class="badge" style="background:rgba(16,185,129,0.15);border-color:rgba(16,185,129,0.3);color:var(--emerald);">BUILT SECURE</span></div>
+      <h2 class="section-title">Your money. Your control.</h2>
+      <p class="section-sub">Every transaction is hash-verified. Every payment requires PIN or biometric. Freeze your wallet in one tap if anything feels off.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;max-width:800px;margin:0 auto;">
+      <div style="text-align:center;padding:28px;background:var(--surface);border:1px solid rgba(255,255,255,0.1);border-radius:var(--radius);" class="reveal">
+        <div style="font-size:36px;margin-bottom:12px;"><svg class="z-icon"><use href="#i-shield-check"/></svg></div>
+        <div style="font-size:14px;font-weight:700;margin-bottom:6px;">SHA-256 Hashing</div>
+        <div style="font-size:13px;color:var(--subtle);line-height:1.65;">Every transaction logged with a tamper-proof hash record.</div>
+      </div>
+      <div style="text-align:center;padding:28px;background:var(--surface);border:1px solid rgba(255,255,255,0.1);border-radius:var(--radius);" class="reveal">
+        <div style="font-size:36px;margin-bottom:12px;"><svg class="z-icon"><use href="#i-phone"/></svg></div>
+        <div style="font-size:14px;font-weight:700;margin-bottom:6px;">Biometric Lock</div>
+        <div style="font-size:13px;color:var(--subtle);line-height:1.65;">PIN or fingerprint required for every payment. No exceptions.</div>
+      </div>
+      <div style="text-align:center;padding:28px;background:var(--surface);border:1px solid rgba(255,255,255,0.1);border-radius:var(--radius);" class="reveal">
+        <div style="font-size:36px;margin-bottom:12px;"><svg class="z-icon"><use href="#i-star"/></svg></div>
+        <div style="font-size:14px;font-weight:700;margin-bottom:6px;">Instant Freeze</div>
+        <div style="font-size:13px;color:var(--subtle);line-height:1.65;">One tap to lock your wallet. Nothing moves until you re-authenticate.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CTA ═════════════════════════════════════════ -->
+<section class="cta-section">
+  <div class="cta-orb"></div>
+  <div class="container">
+    <div class="cta-inner reveal">
+      <div class="section-label" style="justify-content:center;display:flex;margin-bottom:16px;"><span class="badge">READY TO START?</span></div>
+      <h2 class="section-title">Start earning on<br/>every topup — today.</h2>
+      <p class="section-sub" style="margin:20px auto 0;">100% free. Instant bonus credit from your very first topup. No subscription. No commitment.</p>
+      <div class="cta-actions">
+        <a href="https://zeno.labzeno.com" class="btn btn-primary btn-xl">Get the App — Free →</a>
+        <a href="faq.html" class="btn btn-ghost btn-xl">Read the FAQ →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══════════════════════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="assets/logo-icon.png" alt="Experience Zeno logo" />
+          <span>Experience Zeno</span>
+        </div>
+        <p class="footer-desc">World class loyalty for Singapore. Top up at any Zeno merchant and get instant bonus credit, EXP points, and rewards that compound every time.</p>
+        <div class="footer-socials">
+          <a href="mailto:tech@expzeno.com" class="footer-social" aria-label="Email us"><svg class="z-icon"><use href="#i-mail"/></svg></a>
+          <a href="https://expzeno.com" class="footer-social" aria-label="Visit expzeno.com"><svg class="z-icon"><use href="#i-globe"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Platform</h4>
+        <ul>
+          <li><a href="/#customers">For Customers</a></li>
+          <li><a href="merchant.html">For Merchants</a></li>
+          <li><a href="/#tiers">Loyalty Tiers</a></li>
+          <li><a href="/#referral">Referral Programme</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>App</h4>
+        <ul>
+          <li><a href="https://zeno.labzeno.com">Open Web App</a></li>
+          <li><a href="how-it-works.html">How It Works</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="/#contact">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="eula.html">EULA</a></li>
+          <li><a href="mailto:dpo@expzeno.com">Data Protection Officer</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="footer-year"></span> Experience Zeno Pte. Ltd. All rights reserved.</span>
+      <a href="#" style="color:var(--brand-light);">↑ Top</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function toggleMenu() {
+    const m = document.getElementById('mobile-menu');
+    const isOpen = m.style.display !== 'none';
+    m.style.display = isOpen ? 'none' : 'block';
+  }
+  document.addEventListener('DOMContentLoaded', function() {
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+    window.addEventListener('scroll', () => {
+      const nav = document.getElementById('nav');
+      if (window.scrollY > 60) { nav.style.background = 'rgba(10,10,20,0.95)'; } else { nav.style.background = 'rgba(10,10,20,0.7)'; }
+    });
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+  });
+</script>
+
+</body>
+</html>
