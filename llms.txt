@@ -1,0 +1,36 @@
+# Experience Zeno
+
+> Singapore's multi-merchant loyalty wallet. Top up at any partner merchant, get instant bonus credit and EXP points. Free to join and use.
+
+## What is Experience Zeno?
+Experience Zeno is a multi-merchant loyalty wallet for Singapore. Customers top up at any partner merchant and receive instant bonus credit plus EXP points that accumulate across a tiered loyalty system (Explorer, Voyager, Zenith). One app covers all participating merchants.
+
+## Key Features (Customers)
+- Instant bonus credit on every topup (rate set by each merchant)
+- EXP points earned on every topup and referral
+- Three loyalty tiers with increasing benefits
+- Referral programme with ongoing EXP rewards
+- PIN/biometric wallet security with one-tap freeze
+- No fees, no subscription
+
+## Key Features (Merchants)
+- Free merchant CRM dashboard
+- Customisable bonus credit rates
+- Push notification campaigns
+- Reservation system with deposit escrow
+- Real-time analytics and reporting
+- No monthly subscription fee
+
+## Pages
+- Homepage: https://expzeno.com/
+- How It Works: https://expzeno.com/how-it-works.html
+- FAQ: https://expzeno.com/faq.html
+- For Merchants: https://expzeno.com/merchant.html
+- Partner & Integrate: https://expzeno.com/partner.html
+- EULA: https://expzeno.com/eula.html
+- Privacy Policy: https://expzeno.com/privacy-policy.html
+
+## Contact
+- General: tech@expzeno.com
+- Merchant onboarding: ops@expzeno.com
+- Data Protection Officer: dpo@expzeno.com
