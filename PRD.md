@@ -89,21 +89,25 @@ CSS: custom properties for theming, mobile-first responsive. JS: vanilla, minima
 
 ---
 
-## Current State (2026-05-13)
+## Current State (2026-05-24)
 
 **What was done this session:**
-- Memory cleanup: migrated revamp_feedback.md to docs/revamp-feedback.md, deleted 3 stale/covered memory files
-- Created docs/INDEX.md, added reference in CLAUDE.md
-- (Prior session) Full icon overhaul: 40+ emoji replaced with premium SVG stroke icons
-- (Prior session) DPO email updated from server@expzeno.com to dpo@expzeno.com
+- Created standalone `how-it-works.html` and `faq.html` pages (extracted from index.html sections, expanded content)
+- Full cross-page audit (50x) — fixed 16 issues: brand color alignment, font consistency, footer standardization, missing meta tags, broken links
+- SEO hardening: noindex/nofollow on all pages, robots.txt Disallow, OG URLs → expzeno.com
+- Created `seoplan.html` — internal SEO audit dashboard (follows qzonetech standard)
+- Started SEO tag improvements: shortened meta descriptions, adding og:site_name/locale/image — mid-task (see .handoff.md)
+- Site now has 7 pages: index, how-it-works, faq, merchant, partner, eula, privacy-policy + seoplan (internal)
 
 **What's pending:**
-- User review of icon overhaul (user said "surprise me when I land")
-- Contact form decision (from prior session — Lion hasn't decided)
+- SEO improvements mid-task: add og:site_name/locale/image to 5 remaining pages, JSON-LD structured data, sitemap.xml, llms.txt (see .handoff.md)
+- OG image (1200x630) needs design — tags reference expzeno.com/assets/og-image.png but file doesn't exist
+- Logo eyeball not white (needs new PNG — raster, no SVG source)
+- Contact form decision (Lion hasn't decided)
 - Tier EXP thresholds still TBD
 - Revamp feedback from expzeno agent awaiting Lion's scope direction (see docs/revamp-feedback.md)
 
-**Git:** 5 commits ahead of remote (latest: 8a9fd26 memory cleanup)
+**Git:** Multiple commits ahead of remote, pushing now
 
 ---
 
