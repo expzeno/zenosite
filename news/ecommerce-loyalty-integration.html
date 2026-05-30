@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="index, follow" />
+  <title>Integrating Loyalty Rewards Into Your E-Commerce Platform — Experience Zeno</title>
+  <meta name="description" content="How to add loyalty wallet payments and rewards to your online store, increasing customer retention and average order value." />
+  <meta name="keywords" content="ecommerce loyalty integration, online store rewards, ewallet ecommerce" />
+  <meta property="og:title" content="Integrating Loyalty Rewards Into Your E-Commerce Platform" />
+  <meta property="og:description" content="How to add loyalty wallet payments and rewards to your online store, increasing customer retention and average order value." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://expzeno.com/news/ecommerce-loyalty-integration" />
+  <meta property="og:site_name" content="Experience Zeno" />
+  <meta property="og:locale" content="en_SG" />
+  <meta property="og:image" content="https://expzeno.com/assets/og-image.png" />
+  <meta property="article:published_time" content="2026-05-24" />
+  <meta property="article:section" content="Partner" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Integrating Loyalty Rewards Into Your E-Commerce Platform" />
+  <meta name="twitter:description" content="How to add loyalty wallet payments and rewards to your online store, increasing customer retention and average order value." />
+  <meta name="twitter:image" content="https://expzeno.com/assets/og-image.png" />
+  <link rel="icon" type="image/png" href="../assets/logo-icon.png" />
+  <link rel="apple-touch-icon" href="../assets/logo-icon.png" />
+  <link rel="canonical" href="https://expzeno.com/news/ecommerce-loyalty-integration" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Integrating Loyalty Rewards Into Your E-Commerce Platform",
+    "description": "How to add loyalty wallet payments and rewards to your online store, increasing customer retention and average order value.",
+    "datePublished": "2026-05-24",
+    "author": { "@type": "Organization", "name": "Experience Zeno", "url": "https://expzeno.com" },
+    "publisher": { "@type": "Organization", "name": "Experience Zeno", "logo": { "@type": "ImageObject", "url": "https://expzeno.com/assets/logo-icon.png" } },
+    "mainEntityOfPage": "https://expzeno.com/news/ecommerce-loyalty-integration",
+    "image": "https://expzeno.com/assets/og-image.png"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://expzeno.com/" },
+      { "@type": "ListItem", "position": 2, "name": "News", "item": "https://expzeno.com/news" },
+      { "@type": "ListItem", "position": 3, "name": "Integrating Loyalty Rewards Into Your E-Commerce Platform", "item": "https://expzeno.com/news/ecommerce-loyalty-integration" }
+    ]
+  }
+  </script>
+  <style>
+    .skip-nav { position: absolute; left: -9999px; z-index: 999; padding: 8px 16px; background: var(--gold); color: #000; font-weight: 600; border-radius: 4px; text-decoration: none; }
+    .skip-nav:focus { left: 50%; transform: translateX(-50%); top: 8px; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --brand: #4f46e5; --brand-dark: #3730a3; --brand-light: #818cf8; --brand-glow: rgba(79,70,229,0.35);
+      --gold: #f59e0b; --gold-light: #fbbf24; --emerald: #10b981; --rose: #f43f5e;
+      --ink: #0f172a; --ink-soft: #1e293b; --muted: #64748b; --subtle: #94a3b8;
+      --border: rgba(255,255,255,0.08); --surface: rgba(255,255,255,0.04); --white: #ffffff;
+      --radius: 16px; --radius-sm: 8px;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', system-ui, sans-serif; background: #0a0a14; color: var(--white); line-height: 1.7; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 16px 0; background: rgba(10,10,20,0.85); backdrop-filter: blur(20px) saturate(180%); border-bottom: 1px solid var(--border); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--white); }
+    .nav-logo img { width: 34px; height: 34px; border-radius: 8px; }
+    .nav-logo span { font-size: 18px; font-weight: 700; letter-spacing: -0.01em; }
+    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+    .nav-links a { color: var(--subtle); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--white); }
+    .nav-cta { display: flex; gap: 12px; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; padding: 10px 20px; border-radius: 100px; cursor: pointer; text-decoration: none; transition: all 0.2s; border: none; font-family: inherit; }
+    .btn-ghost { background: transparent; color: var(--subtle); border: 1px solid var(--border); }
+    .btn-ghost:hover { color: var(--white); border-color: rgba(255,255,255,0.2); }
+    .btn-primary { background: var(--brand); color: #fff; box-shadow: 0 0 24px rgba(79,70,229,0.4); }
+    .btn-primary:hover { background: var(--brand-dark); }
+    .article-wrap { max-width: 780px; margin: 0 auto; padding: 120px 24px 80px; }
+    .article-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; flex-wrap: wrap; }
+    .article-cat { display: inline-block; padding: 4px 12px; border-radius: 100px; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
+    .article-date { color: var(--subtle); font-size: 14px; }
+    .article-title { font-size: clamp(28px, 5vw, 42px); font-weight: 800; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 32px; }
+    .article-body { font-size: 17px; color: #cbd5e1; }
+    .article-body h2 { font-size: 24px; font-weight: 700; color: var(--white); margin: 40px 0 16px; }
+    .article-body h3 { font-size: 20px; font-weight: 600; color: var(--white); margin: 32px 0 12px; }
+    .article-body p { margin-bottom: 18px; }
+    .article-body ul, .article-body ol { margin: 0 0 18px 24px; }
+    .article-body li { margin-bottom: 8px; }
+    .article-body a { color: var(--brand-light); text-decoration: underline; text-underline-offset: 3px; }
+    .article-body a:hover { color: var(--gold-light); }
+    .article-body strong { color: var(--white); font-weight: 600; }
+    .article-body table { width: 100%; border-collapse: collapse; margin: 18px 0; font-size: 15px; }
+    .article-body th { text-align: left; padding: 10px 14px; background: rgba(255,255,255,0.06); border: 1px solid var(--border); color: var(--white); font-weight: 600; }
+    .article-body td { padding: 10px 14px; border: 1px solid var(--border); }
+    .article-back { display: inline-flex; align-items: center; gap: 6px; margin-top: 48px; padding: 10px 20px; border-radius: 100px; background: var(--surface); border: 1px solid var(--border); color: var(--subtle); text-decoration: none; font-size: 14px; font-weight: 500; transition: all 0.2s; }
+    .article-back:hover { color: var(--white); border-color: rgba(255,255,255,0.2); }
+    footer { border-top: 1px solid var(--border); padding: 48px 0 32px; margin-top: 0; }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+    .footer-copy { color: var(--muted); font-size: 13px; }
+    .footer-links { display: flex; gap: 20px; }
+    .footer-links a { color: var(--subtle); text-decoration: none; font-size: 13px; }
+    .footer-links a:hover { color: var(--white); }
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; }
+    .nav-hamburger span { width: 22px; height: 2px; background: var(--subtle); border-radius: 2px; transition: all 0.2s; }
+    @media (max-width: 768px) {
+      .nav-links, .nav-cta { display: none; }
+      .nav-hamburger { display: flex; }
+      .article-title { font-size: 26px; }
+      .article-body { font-size: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+<a href="#main" class="skip-nav">Skip to main content</a>
+
+<nav>
+  <div class="container nav-inner">
+    <a href="/" class="nav-logo">
+      <img src="../assets/logo-icon.png" alt="Experience Zeno logo" />
+      <span>Experience Zeno</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/merchant">For Merchants</a></li>
+      <li><a href="/partner">For Partners</a></li>
+      <li><a href="/news">News</a></li>
+      <li><a href="/faq">FAQ</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="/news" class="btn btn-ghost">All Articles</a>
+      <a href="https://zeno.labzeno.com" class="btn btn-primary">Launch App ↗</a>
+    </div>
+    <div class="nav-hamburger" onclick="document.getElementById('mob').style.display=document.getElementById('mob').style.display==='none'?'block':'none'">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+  <div id="mob" style="display:none;padding:16px 24px;border-top:1px solid var(--border);">
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <a href="/" style="color:var(--subtle);text-decoration:none;font-size:15px;">Home</a>
+      <a href="/merchant" style="color:var(--subtle);text-decoration:none;font-size:15px;">For Merchants</a>
+      <a href="/partner" style="color:var(--subtle);text-decoration:none;font-size:15px;">For Partners</a>
+      <a href="/news" style="color:var(--subtle);text-decoration:none;font-size:15px;">News</a>
+      <a href="/faq" style="color:var(--subtle);text-decoration:none;font-size:15px;">FAQ</a>
+    </div>
+  </div>
+</nav>
+
+<main id="main">
+  <article class="article-wrap">
+    <div class="article-meta">
+      <span class="article-cat" style="background:#10b98122;color:#10b981;border:1px solid #10b98144;">Partner</span>
+      <time class="article-date" datetime="2026-05-24">24 May 2026</time>
+    </div>
+    <h1 class="article-title">Integrating Loyalty Rewards Into Your E-Commerce Platform</h1>
+    <div class="article-body">
+      <p>E-commerce loyalty programmes drive repeat purchases and increase customer lifetime value. Integrating a loyalty wallet like Zeno into your online store gives customers a reason to return — and a reason to spend more.</p>
+      <h2>How It Works</h2>
+      <p>With Zeno's e-commerce integration, your online store gains:</p>
+      <ul>
+        <li><strong>Wallet payment option:</strong> Customers pay with their Zeno balance at checkout</li>
+        <li><strong>EXP earning:</strong> Every purchase earns EXP points toward loyalty tiers</li>
+        <li><strong>Bonus credit:</strong> Online topups receive the same instant bonus as in-store</li>
+        <li><strong>Cross-channel loyalty:</strong> Online and in-store activity counts toward the same tier</li>
+      </ul>
+      <h2>Increasing Average Order Value</h2>
+      <p>Customers with a topped-up wallet balance tend to spend more. The balance feels like "found money," reducing the psychological cost of adding an extra item. Merchants who implement wallet payments typically see a 12-18% increase in average order value.</p>
+      <h2>Implementation</h2>
+      <p>The integration is straightforward for common e-commerce platforms:</p>
+      <ol>
+        <li>Add Zeno as a payment method at checkout</li>
+        <li>Customer authenticates their Zeno wallet</li>
+        <li>Balance is checked and deducted via API</li>
+        <li>EXP and bonus credit are calculated post-transaction</li>
+      </ol>
+      <p>The entire flow happens via API calls, so it works with any platform that supports custom payment providers — Shopify, WooCommerce, Magento, or custom-built stores.</p>
+      <p><a href="/partner">Get started with e-commerce integration</a>.</p>
+    </div>
+    <a href="/news" class="article-back">← Back to all articles</a>
+  </article>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span class="footer-copy">© <span id="fy"></span> Experience Zeno Pte. Ltd.</span>
+      <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="/merchant">Merchants</a>
+        <a href="/partner">Partners</a>
+        <a href="/privacy-policy">Privacy</a>
+        <a href="/eula">EULA</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>document.getElementById('fy').textContent=new Date().getFullYear();</script>
+</body>
+</html>

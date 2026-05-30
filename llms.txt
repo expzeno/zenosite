@@ -27,6 +27,7 @@ Experience Zeno is a multi-merchant loyalty wallet for Singapore. Customers top 
 - FAQ: https://expzeno.com/faq
 - For Merchants: https://expzeno.com/merchant
 - Partner & Integrate: https://expzeno.com/partner
+- News & Insights: https://expzeno.com/news
 - EULA: https://expzeno.com/eula
 - Privacy Policy: https://expzeno.com/privacy-policy
 
