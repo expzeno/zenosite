@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="robots" content="noindex, nofollow" />
+  <meta name="robots" content="index, follow" />
   <title>Experience Zeno — World Class Loyalty Topup</title>
   <meta name="description" content="Singapore's multi-merchant loyalty wallet. Top up at any merchant, get instant bonus credit and EXP points. Free to join." />
   <meta property="og:title" content="Experience Zeno — World Class Loyalty Topup" />
@@ -18,10 +18,14 @@
   <meta name="twitter:description" content="Multi-merchant e-wallet with instant bonus credit and loyalty rewards." />
   <meta name="twitter:image" content="https://expzeno.com/assets/og-image.png" />
   <link rel="icon" href="assets/logo-icon.png" type="image/png" />
+  <link rel="apple-touch-icon" href="assets/logo-icon.png" />
+  <link rel="canonical" href="https://expzeno.com/" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <style>
+    .skip-nav { position: absolute; left: -9999px; z-index: 999; padding: 8px 16px; background: var(--gold); color: #000; font-weight: 600; border-radius: 4px; text-decoration: none; }
+    .skip-nav:focus { left: 50%; transform: translateX(-50%); top: 8px; }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
@@ -916,6 +920,8 @@
   <symbol id="i-fingerprint" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12C2 6.5 6.5 2 12 2a10 10 0 018 4"/><path d="M5 19.5C5.5 18 6 15 6 12c0-3.5 2.5-6 6-6 3 0 5.5 2 6 5"/><path d="M12 12v.01"/><path d="M12 12c0 4-2 7-5 10"/><path d="M12 12c0 5 2 9 5 11"/></symbol>
 </svg>
 
+<a href="#main" class="skip-nav">Skip to main content</a>
+
 <!-- ══ NAV ══════════════════════════════════════════ -->
 <nav id="nav">
   <div class="container nav-inner">
@@ -953,6 +959,8 @@
     </div>
   </div>
 </nav>
+
+<main id="main">
 
 <!-- ══ HERO ══════════════════════════════════════════ -->
 <section class="hero">
@@ -1588,6 +1596,8 @@
     </div>
   </div>
 </section>
+
+</main>
 
 <!-- ══ FOOTER ══════════════════════════════════════════ -->
 <footer>

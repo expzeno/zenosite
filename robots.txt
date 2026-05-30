@@ -1,2 +1,5 @@
 User-agent: *
-Disallow: /
+Allow: /
+Disallow: /seoplan
+
+Sitemap: https://expzeno.com/sitemap.xml
