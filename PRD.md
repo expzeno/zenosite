@@ -89,20 +89,27 @@ CSS: custom properties for theming, mobile-first responsive. JS: vanilla, minima
 
 ---
 
-## Current State (2026-05-24)
+## Current State (2026-05-30)
 
-**SEO implementation complete.** All meta tags, OG/Twitter social tags, JSON-LD structured data, sitemap.xml, and llms.txt are in place across all 7 pages. See `seoplan.html` for full audit status.
+**Production-ready.** All SEO, meta tags, structured data, accessibility, and crawl directives are in place. Site is ready for go-live on expzeno.com.
 
 **What's built:**
 - 7 pages: index, how-it-works, faq, merchant, partner, eula, privacy-policy + seoplan (internal)
 - Full OG/Twitter tags on all pages (og:site_name, og:locale, og:image, twitter:image, twitter:description)
-- JSON-LD: Organization (homepage), FAQPage with 16 Q&A (faq), HowTo with 3 steps (how-it-works), BreadcrumbList (all 7)
-- sitemap.xml (7 URLs) and llms.txt ready for go-live
+- JSON-LD: Organization, SoftwareApplication (homepage), FAQPage with 16 Q&A (faq), HowTo (how-it-works), Service (merchant), BreadcrumbList (all 7)
+- sitemap.xml (7 URLs), llms.txt, robots.txt (allows crawlers, references sitemap, blocks seoplan)
+- Canonical URLs on all pages (expzeno.com)
+- Apple-touch-icon on all pages
+- `<main>` landmark + skip-to-content link on all pages (accessibility)
+- OG image (1200x630 PNG)
+- Clean URLs (no .html extensions in internal links)
+- All pages set to `index, follow` (noindex stripped)
 
 **What's pending:**
-- OG image (1200x630) needs design — tags reference expzeno.com/assets/og-image.png but file doesn't exist yet
 - Logo eyeball not white (needs new PNG — raster, no SVG source)
-- Go-live steps: update robots.txt, strip noindex, submit sitemap to GSC/Bing, set up GA4
+- Submit sitemap to GSC/Bing, set up GA4 (go-live steps needing Lion)
+- Nginx try_files rule for clean URLs on expzeno.com production domain
+- DNS pointing expzeno.com to server
 - Contact form decision (Lion hasn't decided)
 - Tier EXP thresholds still TBD
 - Revamp feedback from expzeno agent awaiting Lion's scope direction (see docs/revamp-feedback.md)
