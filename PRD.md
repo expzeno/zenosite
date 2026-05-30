@@ -94,10 +94,12 @@ CSS: custom properties for theming, mobile-first responsive. JS: vanilla, minima
 **Production-ready.** All SEO, meta tags, structured data, accessibility, and crawl directives are in place. Site is ready for go-live on expzeno.com.
 
 **What's built:**
-- 7 pages: index, how-it-works, faq, merchant, partner, eula, privacy-policy + seoplan (internal)
-- Full OG/Twitter tags on all pages (og:site_name, og:locale, og:image, twitter:image, twitter:description)
-- JSON-LD: Organization, SoftwareApplication (homepage), FAQPage with 16 Q&A (faq), HowTo (how-it-works), Service (merchant), BreadcrumbList (all 7)
-- sitemap.xml (7 URLs), llms.txt, robots.txt (allows crawlers, references sitemap, blocks seoplan)
+- 8 pages + 52 news articles: index, how-it-works, faq, merchant, partner, news (listing), eula, privacy-policy + seoplan (internal)
+- 52 SEO news articles in `/news/` targeting consumer, merchant, partner, and industry search queries
+- News listing page with category filters (Consumer/Merchant/Partner/Industry)
+- Full OG/Twitter tags on all pages including news articles
+- JSON-LD: Organization, SoftwareApplication, FAQPage, HowTo, Service, Article (all news), BreadcrumbList (all pages)
+- sitemap.xml (60 URLs), llms.txt, robots.txt (allows crawlers, references sitemap, blocks seoplan)
 - Canonical URLs on all pages (expzeno.com)
 - Apple-touch-icon on all pages
 - `<main>` landmark + skip-to-content link on all pages (accessibility)
