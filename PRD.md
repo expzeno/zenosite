@@ -94,7 +94,7 @@ CSS: custom properties for theming, mobile-first responsive. JS: vanilla, minima
 **Production-ready.** All SEO, meta tags, structured data, accessibility, and crawl directives are in place. Site is ready for go-live on expzeno.com.
 
 **What's built:**
-- 8 pages + 52 news articles: index, how-it-works, faq, merchant, partner, news (listing), eula, privacy-policy + seoplan (internal)
+- 8 pages + 52 news articles + build-live.sh for production packaging
 - 52 SEO news articles in `/news/` targeting consumer, merchant, partner, and industry search queries
 - News listing page with category filters (Consumer/Merchant/Partner/Industry)
 - Full OG/Twitter tags on all pages including news articles
@@ -108,6 +108,7 @@ CSS: custom properties for theming, mobile-first responsive. JS: vanilla, minima
 - All pages set to `index, follow` (noindex stripped)
 
 **What's pending:**
+- build-live.sh creates production tar.gz (noindex→index, robots.txt opened, dev files excluded)
 - Logo eyeball not white (needs new PNG — raster, no SVG source)
 - Submit sitemap to GSC/Bing, set up GA4 (go-live steps needing Lion)
 - Nginx try_files rule for clean URLs on expzeno.com production domain
