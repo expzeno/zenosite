@@ -1,0 +1,12 @@
+{
+  "project": "zenosite",
+  "shortcode": "zs",
+  "workstreams": {
+    "main": {
+      "cwd": ".",
+      "latest": "zs-main-20260528-1831",
+      "status": "active",
+      "purpose": "zenosite main agent"
+    }
+  }
+}
